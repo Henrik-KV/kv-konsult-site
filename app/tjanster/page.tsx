@@ -462,13 +462,10 @@ const mobilePackageIdMap: Record<string, string> = {
   "Webbsida: Engångsleverans": "webb-engang",
 };
 
-function MobilePackageCard({ level, color, serviceType }: { level: Level; color: string; serviceType: string }) {
+function MobilePackageCard({ level, color }: { level: Level; color: string }) {
   const [expanded, setExpanded] = useState(false);
   const packageId = mobilePackageIdMap[level.name] || "";
 
-  // Visa features bara för föreläsningar och workshops
-  const showFeatures = serviceType === "microsoft365" || serviceType === "workshops";
-  
   const features = [
     { key: "intro", label: "Introduktion & teori" },
     { key: "demo", label: "Live-demo" },
@@ -499,30 +496,23 @@ function MobilePackageCard({ level, color, serviceType }: { level: Level; color:
       <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
       <p className="mt-1 text-xs text-slate-400">{level.format}</p>
       
-      {/* Features checklista - visas bara för föreläsningar och workshops */}
-      {showFeatures && (
-        <div className="mt-4 space-y-2">
-          {features.map((feature) => (
-            <div key={feature.key} className="flex items-center justify-between">
-              <span className="text-sm text-slate-300">{feature.label}</span>
-              {level.features[feature.key as keyof typeof level.features] ? (
-                <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text} text-xs`}>
-                  ✓
-                </span>
-              ) : (
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-700/30 text-slate-500 text-xs">
-                  –
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-      
-      {/* Kort beskrivning för icke-workshop paket */}
-      {!showFeatures && (
-        <p className="mt-4 text-sm text-slate-300">{level.shortDesc}</p>
-      )}
+      {/* Features checklista - alltid synlig */}
+      <div className="mt-4 space-y-2">
+        {features.map((feature) => (
+          <div key={feature.key} className="flex items-center justify-between">
+            <span className="text-sm text-slate-300">{feature.label}</span>
+            {level.features[feature.key as keyof typeof level.features] ? (
+              <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text} text-xs`}>
+                ✓
+              </span>
+            ) : (
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-700/30 text-slate-500 text-xs">
+                –
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
 
       {/* Expanderbart innehåll */}
       <div className={`overflow-hidden transition-all duration-500 ${expanded ? 'max-h-[800px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
@@ -563,8 +553,8 @@ function MobilePackageCard({ level, color, serviceType }: { level: Level; color:
 
           {/* Boka-knapp */}
           <Link
-            href={`/kontakt?paket=${packageId}#kontaktformular`}
-            className={`mt-2 mb-4 block w-full rounded-full ${colors.bg} py-3 text-center text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02]`}
+            href={`/kontakt?paket=${packageId}`}
+            className={`mt-2 block w-full rounded-full ${colors.bg} py-3 text-center text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02]`}
           >
             Boka {level.name}
           </Link>
@@ -582,10 +572,7 @@ function MobilePackageCard({ level, color, serviceType }: { level: Level; color:
   );
 }
 
-function ComparisonTable({ levels, color, serviceType }: { levels: Level[]; color: string; serviceType: string }) {
-  // Visa features bara för föreläsningar och workshops
-  const showFeatures = serviceType === "microsoft365" || serviceType === "workshops";
-  
+function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) {
   const features = [
     { key: "intro", label: "Introduktion & teori" },
     { key: "demo", label: "Live-demo" },
@@ -609,7 +596,7 @@ function ComparisonTable({ levels, color, serviceType }: { levels: Level[]; colo
       {/* Mobile & Tablet: Använd ExpandablePackageCard för full funktionalitet */}
       <div className="block xl:hidden space-y-4">
         {levels.map((level) => (
-          <MobilePackageCard key={level.name} level={level} color={color} serviceType={serviceType} />
+          <MobilePackageCard key={level.name} level={level} color={color} />
         ))}
       </div>
 
@@ -635,40 +622,26 @@ function ComparisonTable({ levels, color, serviceType }: { levels: Level[]; colo
               ))}
             </tr>
           </thead>
-          {showFeatures && (
-            <tbody>
-              {features.map((feature, index) => (
-                <tr key={feature.key} className={index % 2 === 0 ? "bg-slate-800/20" : ""}>
-                  <td className="p-4 text-sm text-slate-300">{feature.label}</td>
-                  {levels.map((level) => (
-                    <td key={`${level.name}-${feature.key}`} className="p-4 text-center">
-                      {level.features[feature.key as keyof typeof level.features] ? (
-                        <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text}`}>
-                          ✓
-                        </span>
-                      ) : (
-                        <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-700/30 text-slate-500">
-                          –
-                        </span>
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          )}
-          {!showFeatures && (
-            <tbody>
-              <tr>
-                <td className="p-4 text-sm text-slate-300"></td>
+          <tbody>
+            {features.map((feature, index) => (
+              <tr key={feature.key} className={index % 2 === 0 ? "bg-slate-800/20" : ""}>
+                <td className="p-4 text-sm text-slate-300">{feature.label}</td>
                 {levels.map((level) => (
-                  <td key={level.name} className="p-4 text-center text-sm text-slate-400">
-                    {level.shortDesc}
+                  <td key={`${level.name}-${feature.key}`} className="p-4 text-center">
+                    {level.features[feature.key as keyof typeof level.features] ? (
+                      <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text}`}>
+                        ✓
+                      </span>
+                    ) : (
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-700/30 text-slate-500">
+                        –
+                      </span>
+                    )}
                   </td>
                 ))}
               </tr>
-            </tbody>
-          )}
+            ))}
+          </tbody>
         </table>
       </div>
     </>
@@ -966,7 +939,7 @@ export default function TjansterPage() {
                     <h3 className="mb-4 sm:mb-6 text-lg sm:text-xl font-semibold text-white">
                       Jämför paket
                     </h3>
-                    <ComparisonTable levels={pkg.levels} color={pkg.color} serviceType={pkg.id} />
+                    <ComparisonTable levels={pkg.levels} color={pkg.color} />
                   </div>
                 )}
 
