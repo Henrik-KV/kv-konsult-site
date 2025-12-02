@@ -152,22 +152,22 @@ export default function ContactSection() {
   return (
     <section
       id="kontakt"
-      className="relative overflow-hidden bg-slate-900 py-20 md:py-28"
+      className="relative overflow-hidden bg-slate-900 py-12 sm:py-20 md:py-28"
     >
       <ContactOrbs />
 
       <div className="relative mx-auto max-w-6xl px-4 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
           {/* Formulär */}
           <div>
-            <h2 className="text-2xl font-bold text-white md:text-3xl">
+            <h2 className="text-xl sm:text-2xl font-bold text-white md:text-3xl">
               Skicka ett <span className="text-cyan-400">meddelande</span>
             </h2>
-            <p className="mt-2 text-slate-400">
+            <p className="mt-2 text-sm sm:text-base text-slate-400">
               Beskriv kort vad ni behöver hjälp med så återkommer vi inom en arbetsdag.
             </p>
             
-            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+            <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 space-y-4 sm:space-y-6">
               {/* Status-meddelande */}
               {submitStatus && (
                 <div
@@ -293,13 +293,13 @@ export default function ContactSection() {
                   {Object.entries(packagesByCategory).map(([category, packages]) => (
                     <div key={category}>
                       <p className="mb-2 text-xs font-medium uppercase tracking-wider text-slate-500">{category}</p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {packages.map((pkg) => (
                           <button
                             key={pkg.id}
                             type="button"
                             onClick={() => togglePackage(pkg.id)}
-                            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
+                            className={`rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 ${
                               selectedPackages.includes(pkg.id)
                                 ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                                 : "border border-white/10 bg-slate-800/50 text-slate-300 hover:border-sky-500/30 hover:text-white"
@@ -345,18 +345,18 @@ export default function ContactSection() {
 
           {/* Kontaktinfo - samma layout som kontaktsidan */}
           <div className="lg:pl-8">
-            <h2 className="text-2xl font-bold text-white md:text-3xl">
+            <h2 className="text-xl sm:text-2xl font-bold text-white md:text-3xl">
               Kontakta oss <span className="text-cyan-400">direkt</span>
             </h2>
-            <p className="mt-2 text-slate-400">
+            <p className="mt-2 text-sm sm:text-base text-slate-400">
               Nå oss via e-post eller ring någon av oss direkt.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-1">
+            <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4 sm:grid-cols-1">
               {/* Henrik Karlström */}
-              <div className="group rounded-2xl border border-white/10 bg-slate-800/40 p-6 transition-all duration-300 hover:border-sky-500/30 hover:shadow-lg hover:shadow-sky-500/10">
-                <h3 className="text-xl font-bold text-white">Henrik Karlström</h3>
-                <div className="mt-4 space-y-2">
+              <div className="group rounded-xl sm:rounded-2xl border border-white/10 bg-slate-800/40 p-4 sm:p-6 transition-all duration-300 hover:border-sky-500/30 hover:shadow-lg hover:shadow-sky-500/10">
+                <h3 className="text-lg sm:text-xl font-bold text-white">Henrik Karlström</h3>
+                <div className="mt-3 sm:mt-4 space-y-2">
                   <a
                     href="mailto:Henrik@kvkonsult.com"
                     className="flex items-center gap-3 text-slate-400 transition-colors duration-200 hover:text-sky-400"
@@ -379,9 +379,9 @@ export default function ContactSection() {
               </div>
 
               {/* Eric Vidmark */}
-              <div className="group rounded-2xl border border-white/10 bg-slate-800/40 p-6 transition-all duration-300 hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/10">
-                <h3 className="text-xl font-bold text-white">Eric Vidmark</h3>
-                <div className="mt-4 space-y-2">
+              <div className="group rounded-xl sm:rounded-2xl border border-white/10 bg-slate-800/40 p-4 sm:p-6 transition-all duration-300 hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/10">
+                <h3 className="text-lg sm:text-xl font-bold text-white">Eric Vidmark</h3>
+                <div className="mt-3 sm:mt-4 space-y-2">
                   <a
                     href="mailto:Eric@kvkonsult.com"
                     className="flex items-center gap-3 text-slate-400 transition-colors duration-200 hover:text-sky-400"
@@ -404,9 +404,9 @@ export default function ContactSection() {
               </div>
 
               {/* Ulrika Andersson */}
-              <div className="group rounded-2xl border border-white/10 bg-slate-800/40 p-6 transition-all duration-300 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10">
-                <h3 className="text-xl font-bold text-white">Ulrika Andersson</h3>
-                <div className="mt-4 space-y-2">
+              <div className="group rounded-xl sm:rounded-2xl border border-white/10 bg-slate-800/40 p-4 sm:p-6 transition-all duration-300 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10">
+                <h3 className="text-lg sm:text-xl font-bold text-white">Ulrika Andersson</h3>
+                <div className="mt-3 sm:mt-4 space-y-2">
                   <a
                     href="mailto:info@kvkonsult.com"
                     className="flex items-center gap-3 text-slate-400 transition-colors duration-200 hover:text-sky-400"
@@ -430,7 +430,7 @@ export default function ContactSection() {
             </div>
 
             {/* Vad händer sedan? - samma som på kontaktsidan */}
-            <div className="mt-8 rounded-2xl border border-white/5 bg-slate-800/20 p-6">
+            <div className="mt-6 sm:mt-8 rounded-xl sm:rounded-2xl border border-white/5 bg-slate-800/20 p-4 sm:p-6">
               <h3 className="font-semibold text-white">Vad händer <span className="text-cyan-400">sedan?</span></h3>
               <ul className="mt-4 space-y-3">
                 {[

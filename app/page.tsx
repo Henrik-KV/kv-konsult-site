@@ -40,36 +40,36 @@ function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <LavaLampBackground />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-32 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:py-16 md:py-24 lg:py-32 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Vänster kolumn - Text */}
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-7xl animate-fade-in-up">
+            <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl animate-fade-in-up">
               AI och Microsoft 365 som faktiskt gör{" "}
               <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
                 skillnad i vardagen
               </span>
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-slate-300 md:text-xl animate-fade-in-up animation-delay-100">
+            <p className="mt-4 text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg md:text-xl animate-fade-in-up animation-delay-100">
               Vi hjälper företag och kommuner att ta nästa steg med AI, Microsoft 365 Copilot, utbildning och nulägesanalys – på ett sätt som alla i organisationen kan använda.
             </p>
 
             {/* Knappar */}
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start animate-fade-in-up animation-delay-200">
+            <div className="mt-6 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-4 lg:justify-start animate-fade-in-up animation-delay-200">
               <Link
-                href="/kontakt?type=avstamning"
-                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-8 py-4 text-base font-semibold text-white shadow-xl shadow-sky-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/40 hover:scale-105 sm:w-auto"
+                href="/kontakt?type=avstämning"
+                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-sky-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/40 hover:scale-105 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
               >
                 <span className="relative z-10">Boka avstämningsmöte</span>
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </Link>
               <Link
                 href="/tjanster"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:scale-105 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:scale-105 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
               >
                 Se tjänster & paket
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -77,11 +77,11 @@ function Hero() {
             </div>
           </div>
 
-          {/* Höger kolumn - Visuellt element */}
-          <div className="relative hidden lg:block animate-fade-in-right animation-delay-300">
+          {/* Höger kolumn - Visuellt element (visas även på mobil) */}
+          <div className="relative animate-fade-in-right animation-delay-300 mt-8 lg:mt-0">
             <div className="relative">
               {/* Huvudvideo - loopar automatiskt */}
-              <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/80 to-slate-900/80 shadow-2xl backdrop-blur-sm">
+              <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-2xl lg:rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/80 to-slate-900/80 shadow-2xl backdrop-blur-sm">
                 <video
                   autoPlay
                   loop
@@ -94,10 +94,10 @@ function Hero() {
                 {/* Subtil gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
                 
-                {/* Citatkort - kursiv text, större och integrerade citattecken */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="rounded-2xl border border-cyan-500/20 bg-slate-900/90 px-8 py-6 backdrop-blur-md shadow-xl">
-                    <p className="text-center text-xl italic leading-relaxed text-slate-100">
+                {/* Citatkort - kursiv text, responsiv */}
+                <div className="absolute bottom-3 left-3 right-3 lg:bottom-6 lg:left-6 lg:right-6">
+                  <div className="rounded-xl lg:rounded-2xl border border-cyan-500/20 bg-slate-900/90 px-4 py-3 lg:px-8 lg:py-6 backdrop-blur-md shadow-xl">
+                    <p className="text-center text-sm lg:text-xl italic leading-relaxed text-slate-100">
                       "Vi gör <span className="text-cyan-400">AI begripligt</span> och användbart i vardagen."
                     </p>
                   </div>
@@ -152,25 +152,25 @@ function StatsSection() {
   ];
 
   return (
-    <section className="relative -mt-16 z-10 pb-16">
+    <section className="relative -mt-8 sm:-mt-16 z-10 pb-8 sm:pb-16">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-8 backdrop-blur-xl shadow-2xl shadow-sky-500/5">
-          <p className="mb-8 text-center text-sm font-medium uppercase tracking-widest">
+        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-slate-900/80 p-4 sm:p-8 backdrop-blur-xl shadow-2xl shadow-sky-500/5">
+          <p className="mb-4 sm:mb-8 text-center text-xs sm:text-sm font-medium uppercase tracking-widest">
             <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Vi har hjälpt organisationer i hela Sverige</span>
           </p>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-3 sm:gap-6 grid-cols-1 sm:grid-cols-3">
             {stats.map((stat, index) => (
               <div
                 key={stat.title}
-                className={`group flex items-center gap-4 rounded-2xl border border-white/5 bg-slate-800/50 p-5 transition-all duration-500 hover:border-${stat.color}-500/30 hover:bg-slate-800/80 hover:-translate-y-1 hover:shadow-lg hover:shadow-${stat.color}-500/10`}
+                className={`group flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-white/5 bg-slate-800/50 p-3 sm:p-5 transition-all duration-500 hover:border-${stat.color}-500/30 hover:bg-slate-800/80 hover:-translate-y-1 hover:shadow-lg hover:shadow-${stat.color}-500/10`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`flex h-14 w-14 items-center justify-center rounded-xl bg-${stat.color}-500/20 transition-transform duration-300 group-hover:scale-110`}>
+                <div className={`flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-${stat.color}-500/20 transition-transform duration-300 group-hover:scale-110 shrink-0`}>
                   {stat.icon}
                 </div>
-                <div>
-                  <p className="text-xl font-bold text-white">{stat.title}</p>
-                  <p className="text-sm text-slate-400">{stat.subtitle}</p>
+                <div className="min-w-0">
+                  <p className="text-base sm:text-xl font-bold text-white truncate">{stat.title}</p>
+                  <p className="text-xs sm:text-sm text-slate-400">{stat.subtitle}</p>
                 </div>
               </div>
             ))}
@@ -221,24 +221,24 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="relative overflow-hidden bg-slate-900 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-slate-900 py-16 sm:py-24 md:py-32">
       <LavaLampBackground />
       
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400">
+          <span className="inline-block rounded-full bg-sky-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-400">
             Våra tjänster
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Vad vi <span className="text-cyan-400">gör</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-400 px-2">
             Våra tjänster är designade för att skapa verklig effekt – oavsett var ni befinner er i er AI-resa.
           </p>
         </div>
 
         {/* Extra padding för att ge plats för hover-lyft */}
-        <div className="mt-16 grid gap-10 md:grid-cols-2 py-8 px-2">
+        <div className="mt-8 sm:mt-16 grid gap-6 sm:gap-10 md:grid-cols-2 py-4 sm:py-8 px-0 sm:px-2">
           {services.map((s, index) => (
             <Link
               key={s.title}
@@ -246,7 +246,7 @@ function ServicesSection() {
               className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60 transition-all duration-500 hover:border-sky-500/30 hover:shadow-2xl hover:shadow-cyan-500/20"
             >
               {/* Bild - med overflow-hidden och rundade hörn upptill */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-48 sm:h-64 overflow-hidden">
                 <Image
                   src={s.image}
                   alt={s.imageAlt}
@@ -261,8 +261,8 @@ function ServicesSection() {
               </div>
 
               {/* Content */}
-              <div className="flex flex-1 flex-col p-6 md:p-8 bg-slate-800/60">
-                  <h3 className="text-xl font-bold text-white md:text-2xl">
+              <div className="flex flex-1 flex-col p-4 sm:p-6 md:p-8 bg-slate-800/60">
+                  <h3 className="text-lg sm:text-xl font-bold text-white md:text-2xl">
                     {s.title === "AI i Microsoft 365" ? (
                       <><span className="text-sky-400">AI</span> i Microsoft 365</>
                     ) : s.title === "Generell AI i vardagen" ? (
@@ -294,26 +294,26 @@ function ServicesSection() {
 ═══════════════════════════════════════════════════════════════════════════ */
 function TargetAudienceSection() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 md:py-32">
       <LavaLampBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400">
+          <span className="inline-block rounded-full bg-cyan-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-cyan-400">
             Våra målgrupper
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             För vem vi <span className="text-cyan-400">jobbar</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-400 px-2">
             Vi samarbetar med både offentlig sektor och näringsliv – anpassat efter era förutsättningar.
           </p>
         </div>
 
         {/* Kommuner - Text vänster, bild höger */}
-        <div className="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="mt-12 sm:mt-20 grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="animate-fade-in-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-4 py-2 text-sm font-medium text-sky-400">
+            <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-sky-400">
               <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-sky-500/20">
                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -321,10 +321,10 @@ function TargetAudienceSection() {
               </span>
               Offentlig sektor
             </div>
-            <h3 className="mt-6 text-2xl font-bold text-white md:text-3xl">
+            <h3 className="mt-4 sm:mt-6 text-xl sm:text-2xl font-bold text-white md:text-3xl">
               För <span className="text-sky-400">kommuner</span> & regioner
             </h3>
-            <p className="mt-4 text-lg leading-relaxed text-slate-400">
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed text-slate-400">
               Vi hjälper politiker och tjänstepersoner att förstå och tillämpa AI i den kommunala vardagen. Det handlar om digitalisering, effektivare handläggning och att minska digitalt utanförskap bland invånare och medarbetare.
             </p>
             <ul className="mt-6 space-y-3">
@@ -441,24 +441,24 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-slate-900 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-slate-900 py-16 sm:py-24 md:py-32">
       <LavaLampBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400">
+          <span className="inline-block rounded-full bg-cyan-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-cyan-400">
             Vår process
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Så skapar vi <span className="text-cyan-400">effekt</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-400 px-2">
             Vår process är enkel men beprövad – och alltid anpassad efter er verksamhet.
           </p>
         </div>
 
         {/* Processkort - varje kort har sin egen grafik, ingen sammanhängande linje */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-16 grid gap-6 sm:gap-8 lg:grid-cols-3">
           {steps.map((step, index) => (
             <div
               key={step.number}
@@ -467,7 +467,7 @@ function ProcessSection() {
               {/* Inre wrapper som säkerställer sömlös bakgrund */}
               <div className="relative h-full rounded-3xl bg-slate-800/60">
                 {/* Bild - stor och tydlig */}
-                <div className="relative h-52 overflow-hidden rounded-t-3xl">
+                <div className="relative h-40 sm:h-52 overflow-hidden rounded-t-3xl">
                   <Image
                     src={step.image}
                     alt={step.imageAlt}
@@ -576,32 +576,32 @@ function TestimonialsSection() {
   }, [goToNext]);
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 md:py-32">
       <LavaLampBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-emerald-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-emerald-400">
+          <span className="inline-block rounded-full bg-emerald-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400">
             Feedback
           </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
             Det här säger <span className="text-emerald-400">deltagarna</span>
           </h2>
         </div>
 
         {/* Carousel container */}
-        <div className="relative mt-16">
-          {/* Navigation arrows */}
+        <div className="relative mt-10 sm:mt-16">
+          {/* Navigation arrows - hidden on mobile */}
           <button
             onClick={goToPrev}
-            className="absolute -left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-slate-900/90 text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-800 lg:-left-6"
+            className="absolute -left-4 top-1/2 z-10 hidden sm:flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-slate-900/90 text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-800 lg:-left-6"
             aria-label="Föregående citat"
           >
             ←
           </button>
           <button
             onClick={goToNext}
-            className="absolute -right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-slate-900/90 text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-800 lg:-right-6"
+            className="absolute -right-4 top-1/2 z-10 hidden sm:flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-slate-900/90 text-white shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-800 lg:-right-6"
             aria-label="Nästa citat"
           >
             →
