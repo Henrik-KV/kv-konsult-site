@@ -453,16 +453,16 @@ function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) 
 
   return (
     <>
-      {/* Mobile: Stacked cards */}
-      <div className="space-y-4 md:hidden">
+      {/* Mobile: Stacked cards - använd lg breakpoint för att fånga tablets */}
+      <div className="space-y-4 lg:hidden">
         {levels.map((level) => (
-          <div key={level.name} className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
+          <div key={level.name} className={`rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
             {level.recommended && (
-              <span className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+              <div className={`mb-2 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
                 Rekommenderas
-              </span>
+              </div>
             )}
-            <h4 className="text-lg font-bold text-white">{level.name}</h4>
+            <h4 className="text-base font-bold text-white">{level.name}</h4>
             <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
             <p className="mt-1 text-xs text-slate-400">{level.format}</p>
             <div className="mt-4 space-y-2">
@@ -485,17 +485,17 @@ function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) 
         ))}
       </div>
 
-      {/* Desktop: Table */}
-      <div className="hidden md:block overflow-x-auto">
+      {/* Desktop: Table - visa endast på lg och uppåt */}
+      <div className="hidden lg:block overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr>
               <th className="p-4 text-left text-sm font-medium text-slate-400"></th>
               {levels.map((level) => (
                 <th key={level.name} className="p-4 text-center">
-                  <div className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
+                  <div className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4 pt-6`}>
                     {level.recommended && (
-                      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+                      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white whitespace-nowrap`}>
                         Rekommenderas
                       </span>
                     )}
@@ -578,25 +578,25 @@ function ExpandablePackageCard({ level, color }: { level: Level; color: string }
       }`}
     >
       <div className="p-4 sm:p-6 md:p-8">
-        {/* Recommended badge - inside content for mobile */}
+        {/* Recommended badge - tydligt ovanför allt annat */}
         {level.recommended && (
-          <div className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
-            Rekommenderas
+          <div className="mb-4">
+            <span className={`inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+              Rekommenderas
+            </span>
           </div>
         )}
         
         {/* Header */}
-        <div className="flex items-start justify-between">
-          <div>
-            <h4 className="text-lg sm:text-xl font-bold text-white">{level.name}</h4>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <span className={`rounded-full ${colors.bg}/20 px-3 py-1 text-xs font-medium ${colors.text}`}>
-                {level.duration}
-              </span>
-              <span className="rounded-full bg-slate-700/50 px-3 py-1 text-xs font-medium text-slate-300">
-                {level.format}
-              </span>
-            </div>
+        <div>
+          <h4 className="text-lg sm:text-xl font-bold text-white">{level.name}</h4>
+          <div className="mt-2 flex flex-wrap gap-2">
+            <span className={`rounded-full ${colors.bg}/20 px-3 py-1 text-xs font-medium ${colors.text}`}>
+              {level.duration}
+            </span>
+            <span className="rounded-full bg-slate-700/50 px-3 py-1 text-xs font-medium text-slate-300">
+              {level.format}
+            </span>
           </div>
         </div>
 
