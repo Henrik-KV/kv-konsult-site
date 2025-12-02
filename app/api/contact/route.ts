@@ -100,9 +100,10 @@ Skickat via kontaktformuläret på kvkonsult.com
 
     // Skicka e-post via Resend
     // OBS: Använder onboarding@resend.dev tills egen domän är verifierad
-    const toEmail = process.env.CONTACT_EMAIL || "info@kvkonsult.com";
+    // Trimma CONTACT_EMAIL för att ta bort eventuella osynliga tecken
+    const toEmail = (process.env.CONTACT_EMAIL || "info@kvkonsult.com").trim();
     
-    console.log("Skickar e-post till:", toEmail);
+    console.log("Skickar e-post till:", JSON.stringify(toEmail));
     
     const { data, error } = await resend.emails.send({
       from: "KV Konsult <onboarding@resend.dev>",
