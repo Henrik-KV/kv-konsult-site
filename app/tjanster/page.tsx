@@ -452,49 +452,84 @@ function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) 
   const colors = colorClasses[color] || colorClasses.indigo;
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-[500px]">
-        <thead>
-          <tr>
-            <th className="p-4 text-left text-sm font-medium text-slate-400"></th>
-            {levels.map((level) => (
-              <th key={level.name} className="p-4 text-center">
-                <div className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
-                  {level.recommended && (
-                    <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
-                      Rekommenderas
-                    </span>
-                  )}
-                  <h4 className="text-lg font-bold text-white">{level.name}</h4>
-                  <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
-                  <p className="mt-1 text-xs text-slate-400">{level.format}</p>
-                </div>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {features.map((feature, index) => (
-            <tr key={feature.key} className={index % 2 === 0 ? "bg-slate-800/20" : ""}>
-              <td className="p-4 text-sm text-slate-300">{feature.label}</td>
-              {levels.map((level) => (
-                <td key={`${level.name}-${feature.key}`} className="p-4 text-center">
+    <>
+      {/* Mobile: Stacked cards */}
+      <div className="space-y-4 md:hidden">
+        {levels.map((level) => (
+          <div key={level.name} className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
+            {level.recommended && (
+              <span className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+                Rekommenderas
+              </span>
+            )}
+            <h4 className="text-lg font-bold text-white">{level.name}</h4>
+            <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
+            <p className="mt-1 text-xs text-slate-400">{level.format}</p>
+            <div className="mt-4 space-y-2">
+              {features.map((feature) => (
+                <div key={feature.key} className="flex items-center justify-between">
+                  <span className="text-sm text-slate-300">{feature.label}</span>
                   {level.features[feature.key as keyof typeof level.features] ? (
-                    <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text}`}>
+                    <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text} text-xs`}>
                       ✓
                     </span>
                   ) : (
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-700/30 text-slate-500">
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-700/30 text-slate-500 text-xs">
                       –
                     </span>
                   )}
-                </td>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop: Table */}
+      <div className="hidden md:block overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr>
+              <th className="p-4 text-left text-sm font-medium text-slate-400"></th>
+              {levels.map((level) => (
+                <th key={level.name} className="p-4 text-center">
+                  <div className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
+                    {level.recommended && (
+                      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+                        Rekommenderas
+                      </span>
+                    )}
+                    <h4 className="text-lg font-bold text-white">{level.name}</h4>
+                    <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
+                    <p className="mt-1 text-xs text-slate-400">{level.format}</p>
+                  </div>
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {features.map((feature, index) => (
+              <tr key={feature.key} className={index % 2 === 0 ? "bg-slate-800/20" : ""}>
+                <td className="p-4 text-sm text-slate-300">{feature.label}</td>
+                {levels.map((level) => (
+                  <td key={`${level.name}-${feature.key}`} className="p-4 text-center">
+                    {level.features[feature.key as keyof typeof level.features] ? (
+                      <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text}`}>
+                        ✓
+                      </span>
+                    ) : (
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-700/30 text-slate-500">
+                        –
+                      </span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 
@@ -542,17 +577,18 @@ function ExpandablePackageCard({ level, color }: { level: Level; color: string }
           : "border-white/10 bg-slate-800/40 hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/10"
       }`}
     >
-      {level.recommended && (
-        <div className={`absolute right-4 top-4 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
-          Rekommenderas
-        </div>
-      )}
-
-      <div className="p-6 md:p-8">
+      <div className="p-4 sm:p-6 md:p-8">
+        {/* Recommended badge - inside content for mobile */}
+        {level.recommended && (
+          <div className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+            Rekommenderas
+          </div>
+        )}
+        
         {/* Header */}
         <div className="flex items-start justify-between">
           <div>
-            <h4 className="text-xl font-bold text-white">{level.name}</h4>
+            <h4 className="text-lg sm:text-xl font-bold text-white">{level.name}</h4>
             <div className="mt-2 flex flex-wrap gap-2">
               <span className={`rounded-full ${colors.bg}/20 px-3 py-1 text-xs font-medium ${colors.text}`}>
                 {level.duration}
@@ -649,35 +685,35 @@ export default function TjansterPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-20 md:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-12 sm:py-20 md:py-28">
         <LavaLampBackground />
 
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400">
+            <span className="inline-block rounded-full bg-sky-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-400">
               Våra tjänster
             </span>
-            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
               Tjänster &{" "}
               <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
                 Paket
               </span>
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-300 md:text-xl">
+            <p className="mx-auto mt-4 sm:mt-6 max-w-3xl text-base sm:text-lg text-slate-300 md:text-xl px-2">
               Vi erbjuder föreläsningar, workshops och rådgivning som gör AI begripligt och användbart. Alla våra paket kan kombineras och skräddarsys efter era behov.
             </p>
           </div>
 
           {/* Kombinationsöversikt */}
-          <div className="mx-auto mt-12 max-w-4xl">
-            <div className="rounded-2xl border border-white/10 bg-slate-800/40 p-6 md:p-8">
-              <h2 className="text-center text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+          <div className="mx-auto mt-8 sm:mt-12 max-w-4xl px-2">
+            <div className="rounded-2xl border border-white/10 bg-slate-800/40 p-4 sm:p-6 md:p-8">
+              <h2 className="text-center text-xl sm:text-2xl font-bold text-white md:text-3xl lg:text-4xl">
                 Bygg er egen <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">AI-dag</span>
               </h2>
-              <p className="mt-4 text-center text-lg text-slate-300">
+              <p className="mt-3 sm:mt-4 text-center text-sm sm:text-base lg:text-lg text-slate-300">
                 Kombinera föreläsning och workshop för att skapa en heldag anpassad efter er verksamhet.
               </p>
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="mt-4 sm:mt-6 grid gap-3 sm:gap-4 md:grid-cols-3">
                 <Link 
                   href="/kontakt?type=exempel1"
                   className="rounded-xl border border-sky-500/20 bg-slate-900/50 p-4 text-center transition-all duration-300 hover:border-sky-500/50 hover:bg-slate-800/70 hover:shadow-lg hover:shadow-sky-500/10"
@@ -717,12 +753,12 @@ export default function TjansterPage() {
           </div>
 
           {/* Quick navigation */}
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-10 flex flex-wrap justify-center gap-2 sm:gap-3 px-2">
             {Object.values(packages).map((pkg) => (
               <a
                 key={pkg.id}
                 href={`#${pkg.id}`}
-                className="rounded-full border border-white/10 bg-slate-800/50 px-4 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-sky-500/30 hover:bg-slate-800 hover:text-white"
+                className="rounded-full border border-white/10 bg-slate-800/50 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-slate-300 transition-all duration-300 hover:border-sky-500/30 hover:bg-slate-800 hover:text-white"
               >
                 {pkg.title}
               </a>

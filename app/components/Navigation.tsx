@@ -27,9 +27,10 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Stäng mobilmeny vid navigering
+  // Stäng mobilmeny vid navigering och scrolla till toppen
   useEffect(() => {
     setMobileOpen(false);
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
