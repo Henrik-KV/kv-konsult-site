@@ -462,7 +462,7 @@ function ProcessSection() {
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60 transition-all duration-500 hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/15"
+              className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60"
             >
               {/* Inre wrapper som säkerställer sömlös bakgrund */}
               <div className="relative h-full rounded-3xl bg-slate-800/60">
@@ -472,7 +472,7 @@ function ProcessSection() {
                     src={step.image}
                     alt={step.imageAlt}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover"
                   />
                   {/* Gradient som smälter ihop med kortets bakgrund */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-slate-800/70 to-transparent" />
