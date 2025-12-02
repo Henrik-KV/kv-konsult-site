@@ -768,22 +768,22 @@ export default function TjansterPage() {
       </section>
 
       {/* Tjänster */}
-      <section className="relative bg-slate-900 py-16 md:py-24">
+      <section className="relative bg-slate-900 py-16 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="space-y-32">
+          <div className="space-y-20 sm:space-y-32">
             {Object.values(packages).map((pkg, pkgIndex) => (
               <article
                 key={pkg.id}
                 id={pkg.id}
-                className="scroll-mt-24"
+                className="scroll-mt-24 overflow-hidden"
               >
                 {/* Service header med bild - balanserad layout */}
-                <div className={`grid items-stretch gap-12 lg:grid-cols-2 ${pkgIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={`grid items-stretch gap-8 sm:gap-12 lg:grid-cols-2 ${pkgIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className={`flex flex-col justify-center ${pkgIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <span className={`inline-flex w-fit rounded-full bg-${pkg.color}-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-${pkg.color}-400`}>
+                    <span className={`inline-flex w-fit rounded-full bg-${pkg.color}-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-${pkg.color}-400`}>
                       {pkg.subtitle}
                     </span>
-                    <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
+                    <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold text-white md:text-4xl">
                       {pkg.id === 'microsoft365' ? (
                         <>Föreläsningar: <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Microsoft 365 & Copilot</span></>
                       ) : pkg.id === 'workshops' ? (
@@ -798,13 +798,13 @@ export default function TjansterPage() {
                         pkg.title
                       )}
                     </h2>
-                    <p className="mt-4 text-lg text-slate-400 leading-relaxed">
+                    <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-400 leading-relaxed">
                       {pkg.description}
                     </p>
                   </div>
                   
                   <div className={`relative flex items-center ${pkgIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 shadow-2xl bg-slate-800/30">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl bg-slate-800/30">
                       <Image
                         src={pkg.image}
                         alt={pkg.imageAlt}
@@ -813,15 +813,15 @@ export default function TjansterPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                     </div>
-                    {/* Decorative glow element */}
-                    <div className={`absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-3xl bg-gradient-to-br from-${pkg.color}-600/20 to-cyan-600/20 blur-xl`} />
+                    {/* Decorative glow element - hidden on mobile to prevent overflow */}
+                    <div className={`hidden sm:block absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-3xl bg-gradient-to-br from-${pkg.color}-600/20 to-cyan-600/20 blur-xl`} />
                   </div>
                 </div>
 
                 {/* Jämförelsetabell - visa bara om fler än 1 nivå */}
                 {pkg.levels.length > 1 && (
-                  <div className="mt-12">
-                    <h3 className="mb-6 text-xl font-semibold text-white">
+                  <div className="mt-8 sm:mt-12 overflow-hidden">
+                    <h3 className="mb-4 sm:mb-6 text-lg sm:text-xl font-semibold text-white">
                       Jämför paket
                     </h3>
                     <ComparisonTable levels={pkg.levels} color={pkg.color} />
@@ -829,12 +829,12 @@ export default function TjansterPage() {
                 )}
 
                 {/* Expanderbara paket-kort - anpassad layout */}
-                <div className={`mt-12 ${
+                <div className={`mt-8 sm:mt-12 ${
                   pkg.levels.length === 1 
                     ? 'lg:grid lg:grid-cols-2 lg:gap-12' 
                     : pkg.levels.length === 4 
-                      ? 'grid gap-6 md:grid-cols-2' 
-                      : 'grid gap-6 md:grid-cols-2'
+                      ? 'grid gap-4 sm:gap-6 md:grid-cols-2' 
+                      : 'grid gap-4 sm:gap-6 md:grid-cols-2'
                 }`}>
                   {pkg.levels.length === 1 ? (
                     <>
