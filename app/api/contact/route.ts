@@ -99,14 +99,13 @@ Skickat via kontaktformuläret på kvkonsult.com
 `.trim();
 
     // Skicka e-post via Resend
-    // OBS: Använder onboarding@resend.dev tills egen domän är verifierad
-    // Trimma CONTACT_EMAIL för att ta bort eventuella osynliga tecken
+    // Använder noreply@kvkonsult.com som avsändare (verifierad domän)
     const toEmail = (process.env.CONTACT_EMAIL || "info@kvkonsult.com").trim();
     
     console.log("Skickar e-post till:", JSON.stringify(toEmail));
     
     const { data, error } = await resend.emails.send({
-      from: "KV Konsult <onboarding@resend.dev>",
+      from: "KV Konsult <noreply@kvkonsult.com>",
       to: toEmail,
       replyTo: safeEmail,
       subject: `Kontaktförfrågan från ${safeName} (${safeOrganization})`,
