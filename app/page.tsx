@@ -339,7 +339,7 @@ function TargetAudienceSection() {
               href="/kommuner"
               className="group mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-600/20 to-sky-600/10 px-6 py-3 text-sm font-semibold text-sky-300 transition-all duration-300 hover:from-sky-600/30 hover:to-sky-600/20"
             >
-              Läs mer för kommuner
+              Läs mer
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -402,7 +402,7 @@ function TargetAudienceSection() {
               href="/foretag"
               className="group mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-600/20 to-cyan-600/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:from-cyan-600/30 hover:to-cyan-600/20"
             >
-              Läs mer för företag
+              Läs mer
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -517,31 +517,25 @@ const testimonials = [
     avatar: "PL",
   },
   {
-    quote: "Äntligen någon som förklarar AI på ett sätt som alla förstår – inte bara IT-avdelningen.",
+    quote: "Äntligen någon som förklarar AI på ett sätt som alla förstår, inte bara IT-avdelningen.",
     author: "HR-chef",
     org: "Tjänsteföretag",
     avatar: "HR",
   },
   {
-    quote: "Nulägesanalysen gav oss en tydlig bild av var vi ska börja. Ovärderligt.",
-    author: "Digitaliseringschef",
-    org: "Kommun",
-    avatar: "DC",
-  },
-  {
-    quote: "Tack vare utbildningen sparar vårt team flera timmar per vecka. Imponerande resultat.",
+    quote: "Tack vare utbildningen sparar vårt team flera timmar per vecka. Väldigt nöjda!",
     author: "Avdelningschef",
     org: "Region",
     avatar: "AC",
   },
   {
-    quote: "Bästa AI-utbildningen vi gått. Praktiskt, relevant och direkt applicerbart.",
+    quote: "En av de bättre AI-utbildningarna vi gått. Praktiskt, relevant och direkt användbart.",
     author: "VD",
     org: "Konsultbolag",
     avatar: "VD",
   },
   {
-    quote: "De förstod våra utmaningar och anpassade upplägget perfekt efter våra behov.",
+    quote: "De förstod våra utmaningar och anpassade upplägget väl efter våra behov.",
     author: "IT-strateg",
     org: "Medelstort företag",
     avatar: "IT",
