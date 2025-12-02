@@ -431,21 +431,19 @@ export default function KontaktPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
                 {/* Diskret blå/teal color overlay för att matcha sajtens stil */}
                 <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-cyan-900/15 to-teal-900/20" />
-                
-                {/* Overlay badge */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4 backdrop-blur-md">
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500">
-                        <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-white">Börja <span className="text-cyan-400">samtalet</span></p>
-                        <p className="text-sm text-slate-400">Vi lyssnar först, ger råd sedan</p>
-                      </div>
-                    </div>
+              </div>
+              
+              {/* Badge under bilden istället för overlay */}
+              <div className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-4 backdrop-blur-md">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 shrink-0">
+                    <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">Börja <span className="text-cyan-400">samtalet</span></p>
+                    <p className="text-sm text-slate-400">Vi lyssnar först, ger råd sedan</p>
                   </div>
                 </div>
               </div>
