@@ -99,15 +99,14 @@ Skickat via kontaktformuläret på kvkonsult.com
 `.trim();
 
     // Skicka e-post via Resend
-    // Använd onboarding@resend.dev som fallback om domänen inte är verifierad
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+    // OBS: Använder onboarding@resend.dev tills egen domän är verifierad
+    const toEmail = process.env.CONTACT_EMAIL || "info@kvkonsult.com";
     
-    console.log("Försöker skicka e-post med from:", fromEmail);
-    console.log("Till:", process.env.CONTACT_EMAIL || "info@kvkonsult.com");
+    console.log("Skickar e-post till:", toEmail);
     
     const { data, error } = await resend.emails.send({
-      from: `KV Konsult <${fromEmail}>`,
-      to: process.env.CONTACT_EMAIL || "info@kvkonsult.com",
+      from: "KV Konsult <onboarding@resend.dev>",
+      to: toEmail,
       replyTo: safeEmail,
       subject: `Kontaktförfrågan från ${safeName} (${safeOrganization})`,
       text: emailContent,
