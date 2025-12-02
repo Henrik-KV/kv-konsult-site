@@ -99,8 +99,14 @@ Skickat via kontaktformuläret på kvkonsult.com
 `.trim();
 
     // Skicka e-post via Resend
+    // Använd onboarding@resend.dev som fallback om domänen inte är verifierad
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+    
+    console.log("Försöker skicka e-post med from:", fromEmail);
+    console.log("Till:", process.env.CONTACT_EMAIL || "info@kvkonsult.com");
+    
     const { data, error } = await resend.emails.send({
-      from: "KV Konsult <info@kvkonsult.com>",
+      from: `KV Konsult <${fromEmail}>`,
       to: process.env.CONTACT_EMAIL || "info@kvkonsult.com",
       replyTo: safeEmail,
       subject: `Kontaktförfrågan från ${safeName} (${safeOrganization})`,
@@ -108,9 +114,9 @@ Skickat via kontaktformuläret på kvkonsult.com
     });
 
     if (error) {
-      console.error("Resend-fel:", error);
+      console.error("Resend-fel:", JSON.stringify(error, null, 2));
       return NextResponse.json(
-        { error: "Kunde inte skicka meddelandet. Försök igen senare." },
+        { error: "Kunde inte skicka meddelandet. Försök igen senare.", details: error.message },
         { status: 500 }
       );
     }
