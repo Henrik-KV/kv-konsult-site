@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -17,28 +17,59 @@ const links = [
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
+
+  // Scroll-to-top vid sidladdning (hard refresh)
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      setScrolled(currentScrollY > 20);
+      
+      // Visa/dölj navbar på mobil baserat på scroll-riktning
+      // Alltid visa om vi är nära toppen (< 100px)
+      if (currentScrollY < 100) {
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY.current + 10) {
+        // Scrollar nedåt - dölj (med 10px tröskel för att undvika flimmer)
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY.current - 10) {
+        // Scrollar uppåt - visa
+        setVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Stäng mobilmeny vid navigering och scrolla till toppen
   useEffect(() => {
     setMobileOpen(false);
+    setVisible(true);
     window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-all duration-500 ${
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
         scrolled
           ? "border-white/10 bg-slate-950/95 backdrop-blur-xl shadow-2xl shadow-sky-500/5"
           : "border-transparent bg-slate-950/60 backdrop-blur-md"
+      } ${
+        // På mobil: dölj/visa baserat på scroll-riktning
+        visible ? "translate-y-0" : "-translate-y-full lg:translate-y-0"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
