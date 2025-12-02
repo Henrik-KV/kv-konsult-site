@@ -253,11 +253,11 @@ function ServicesSection() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {/* Gradient overlay som smälter in med kortet */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-slate-800/60 to-transparent" />
+                {/* Gradient overlay som smälter in med kortet - reducerad opacitet */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-slate-800/40 to-transparent" />
                 
                 {/* Fallback gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br from-${s.color}-600/20 to-transparent opacity-60`} />
+                <div className={`absolute inset-0 bg-gradient-to-br from-${s.color}-600/10 to-transparent opacity-40`} />
               </div>
 
               {/* Content */}
@@ -474,8 +474,8 @@ function ProcessSection() {
                     fill
                     className="object-cover"
                   />
-                  {/* Gradient som smälter ihop med kortets bakgrund */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-slate-800/70 to-transparent" />
+                  {/* Gradient som smälter ihop med kortets bakgrund - reducerad opacitet */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-slate-800/50 to-transparent" />
                 </div>
 
                 {/* Nummer-sektion med egen grafik i övergångszonen */}
