@@ -162,10 +162,10 @@ function StatsSection() {
             {stats.map((stat, index) => (
               <div
                 key={stat.title}
-                className={`group flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-white/5 bg-slate-800/50 p-3 sm:p-5 transition-all duration-500 hover:border-${stat.color}-500/30 hover:bg-slate-800/80 hover:-translate-y-1 hover:shadow-lg hover:shadow-${stat.color}-500/10`}
+                className={`flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-white/5 bg-slate-800/50 p-3 sm:p-5`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-${stat.color}-500/20 transition-transform duration-300 group-hover:scale-110 shrink-0`}>
+                <div className={`flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-${stat.color}-500/20 shrink-0`}>
                   {stat.icon}
                 </div>
                 <div className="min-w-0">
