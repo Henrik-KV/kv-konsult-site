@@ -100,7 +100,7 @@ Skickat via kontaktformuläret på kvkonsult.com
 
     // Skicka e-post via Resend
     const { data, error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || "KV Konsult <kontakt@resend.dev>",
+      from: "KV Konsult <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL || "info@kvkonsult.com",
       replyTo: safeEmail,
       subject: `Kontaktförfrågan från ${safeName} (${safeOrganization})`,
