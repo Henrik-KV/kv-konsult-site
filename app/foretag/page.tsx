@@ -45,7 +45,7 @@ const focusAreas = [
         "CRM-analys och leads-prioritering",
         "Förberedelse inför kundmöten",
       ],
-      link: "/tjanster#generell-ai",
+      link: "/tjanster#workshops",
       linkText: "Se AI-utbildningar",
     },
   },
@@ -413,7 +413,7 @@ export default function ForetagPage() {
               {
                 title: "Generell AI",
                 description: "ChatGPT, Copilot och andra verktyg för hela teamet",
-                link: "/tjanster#generell-ai",
+                link: "/tjanster#workshops",
                 color: "cyan",
               },
               {

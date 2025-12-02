@@ -30,7 +30,7 @@ const focusAreas = [
         "Stöd till medarbetare som känner oro inför AI",
         "Folkbildande insatser för invånare och föreningsliv",
       ],
-      link: "/tjanster#generell-ai",
+      link: "/tjanster#workshops",
       linkText: "Se AI-utbildningar",
     },
   },

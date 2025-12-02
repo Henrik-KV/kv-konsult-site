@@ -106,10 +106,14 @@ export default function Navigation() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
-        {/* Logotyp */}
-        <Link
+        {/* Logotyp - hard refresh till startsidan */}
+        <a
           href="/"
-          className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/';
+          }}
+          className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
         >
           {/* Logotyp med riktig bild - ännu större */}
           <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-gradient-to-br from-sky-500 via-cyan-500 to-teal-500 p-0.5 shadow-lg shadow-sky-500/25 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-sky-500/40">
@@ -130,7 +134,7 @@ export default function Navigation() {
               AI-utbildning & strategi
             </span>
           </div>
-        </Link>
+        </a>
 
         {/* Desktop-meny */}
         <ul className="hidden items-center gap-1 lg:flex">

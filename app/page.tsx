@@ -198,7 +198,7 @@ const services = [
     imageAlt: "Workshop om AI med deltagare runt whiteboard",
     title: "Generell AI i vardagen",
     text: "ChatGPT, Copilot och andra AI-verktyg – vi lär ut hur hela organisationen kan använda AI på ett smart och säkert sätt.",
-    href: "/tjanster#generell-ai",
+    href: "/tjanster#workshops",
     color: "cyan",
   },
   {
