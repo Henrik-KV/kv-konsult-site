@@ -443,6 +443,107 @@ interface Level {
   recommended?: boolean;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBIL PAKET KORT (för ComparisonTable mobil-vy)
+═══════════════════════════════════════════════════════════════════════════ */
+// Mappning från paketnamn till URL-parameter ID (samma som i ExpandablePackageCard)
+const mobilePackageIdMap: Record<string, string> = {
+  "Microsoft 365 Bas": "m365-bas",
+  "Microsoft 365 Bas+": "m365-bas-plus",
+  "Workshop: Microsoft 365 & Copilot": "workshop-m365",
+  "Workshop: Generell AI i vardagen": "workshop-ai",
+  "Skräddarsydd workshop – halvdag": "workshop-halv",
+  "Skräddarsydd workshop – heldag": "workshop-hel",
+  "AI Nulägesanalys": "nulagesanalys",
+  "Ledningsgruppsworkshop: AI & Handlingsplan": "ledningsworkshop",
+  "AI-partner Lite": "ai-partner-lite",
+  "AI-partner Full": "ai-partner-full",
+  "Webbsida + löpande stöd": "webb-lopande",
+  "Webbsida: Engångsleverans": "webb-engang",
+};
+
+function MobilePackageCard({ level, color }: { level: Level; color: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const packageId = mobilePackageIdMap[level.name] || "";
+
+  const colorClasses: Record<string, { bg: string; text: string; border: string }> = {
+    sky: { bg: "bg-sky-600", text: "text-sky-400", border: "border-sky-500/30" },
+    cyan: { bg: "bg-cyan-600", text: "text-cyan-400", border: "border-cyan-500/30" },
+    teal: { bg: "bg-teal-600", text: "text-teal-400", border: "border-teal-500/30" },
+    emerald: { bg: "bg-emerald-600", text: "text-emerald-400", border: "border-emerald-500/30" },
+    violet: { bg: "bg-violet-600", text: "text-violet-400", border: "border-violet-500/30" },
+  };
+
+  const colors = colorClasses[color] || colorClasses.sky;
+
+  return (
+    <div className={`rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4 transition-all duration-300`}>
+      {/* Header */}
+      {level.recommended && (
+        <div className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+          Rekommenderas
+        </div>
+      )}
+      <h4 className="text-base font-bold text-white">{level.name}</h4>
+      <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
+      <p className="mt-1 text-xs text-slate-400">{level.format}</p>
+      <p className="mt-3 text-sm text-slate-300">{level.shortDesc}</p>
+
+      {/* Expanderbart innehåll */}
+      <div className={`overflow-hidden transition-all duration-500 ${expanded ? 'max-h-[800px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+        <div className="space-y-4 border-t border-white/10 pt-4">
+          {/* Vem passar det för */}
+          <div>
+            <h5 className="text-sm font-semibold text-white mb-2">Vem passar det för?</h5>
+            <p className="text-sm text-slate-400">{level.fullDesc.target}</p>
+          </div>
+
+          {/* Det här ingår */}
+          <div>
+            <h5 className="text-sm font-semibold text-white mb-2">Det här ingår</h5>
+            <ul className="space-y-1.5">
+              {level.fullDesc.includes.map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
+                  <span className={`mt-1 h-1.5 w-1.5 rounded-full ${colors.bg} shrink-0`} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resultat */}
+          <div>
+            <h5 className="text-sm font-semibold text-white mb-2">Resultat</h5>
+            <p className="text-sm text-slate-400">{level.fullDesc.outcome}</p>
+          </div>
+
+          {/* Praktiskt */}
+          <div>
+            <h5 className="text-sm font-semibold text-white mb-2">Praktiskt</h5>
+            <p className="text-sm text-slate-400">{level.fullDesc.practical}</p>
+          </div>
+
+          {/* Boka-knapp */}
+          <Link
+            href={`/kontakt?paket=${packageId}`}
+            className={`mt-2 block w-full rounded-full ${colors.bg} py-3 text-center text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02]`}
+          >
+            Boka {level.name}
+          </Link>
+        </div>
+      </div>
+
+      {/* Läs mer knapp */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className={`mt-4 w-full rounded-full border ${colors.border} bg-transparent py-2 text-sm font-medium ${colors.text} transition-all duration-300 hover:bg-white/5`}
+      >
+        {expanded ? "Visa mindre" : "Läs mer om paketet"}
+      </button>
+    </div>
+  );
+}
+
 function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) {
   const features = [
     { key: "intro", label: "Introduktion & teori" },
@@ -464,35 +565,10 @@ function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) 
 
   return (
     <>
-      {/* Mobile & Tablet: Stacked cards - visas på allt under xl (1280px) */}
+      {/* Mobile & Tablet: Använd ExpandablePackageCard för full funktionalitet */}
       <div className="block xl:hidden space-y-4">
         {levels.map((level) => (
-          <div key={level.name} className={`rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
-            {level.recommended && (
-              <div className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
-                Rekommenderas
-              </div>
-            )}
-            <h4 className="text-base font-bold text-white">{level.name}</h4>
-            <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
-            <p className="mt-1 text-xs text-slate-400">{level.format}</p>
-            <div className="mt-4 space-y-2">
-              {features.map((feature) => (
-                <div key={feature.key} className="flex items-center justify-between">
-                  <span className="text-sm text-slate-300">{feature.label}</span>
-                  {level.features[feature.key as keyof typeof level.features] ? (
-                    <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text} text-xs`}>
-                      ✓
-                    </span>
-                  ) : (
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-700/30 text-slate-500 text-xs">
-                      –
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          <MobilePackageCard key={level.name} level={level} color={color} />
         ))}
       </div>
 
