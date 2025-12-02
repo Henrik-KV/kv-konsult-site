@@ -36,14 +36,14 @@ export default function Navigation() {
       setScrolled(currentScrollY > 20);
       
       // Visa/dölj navbar på mobil baserat på scroll-riktning
-      // Alltid visa om vi är nära toppen (< 100px)
-      if (currentScrollY < 100) {
+      // Alltid visa om vi är nära toppen (< 50px)
+      if (currentScrollY < 50) {
         setVisible(true);
-      } else if (currentScrollY > lastScrollY.current + 10) {
-        // Scrollar nedåt - dölj (med 10px tröskel för att undvika flimmer)
+      } else if (currentScrollY > lastScrollY.current + 5) {
+        // Scrollar nedåt - dölj (låg tröskel för snabb respons)
         setVisible(false);
-      } else if (currentScrollY < lastScrollY.current - 10) {
-        // Scrollar uppåt - visa
+      } else if (currentScrollY < lastScrollY.current - 2) {
+        // Scrollar uppåt - visa DIREKT (mycket låg tröskel)
         setVisible(true);
       }
       

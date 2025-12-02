@@ -551,9 +551,38 @@ const testimonials = [
 function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [itemsPerView, setItemsPerView] = useState(3);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const itemsPerView = 3;
+  // Responsiv: 1 kort på mobil, 2 på tablet, 3 på desktop
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setItemsPerView(1);
+        setIsMobile(true);
+      } else if (width < 1024) {
+        setItemsPerView(2);
+        setIsMobile(false);
+      } else {
+        setItemsPerView(3);
+        setIsMobile(false);
+      }
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   const maxIndex = Math.max(0, testimonials.length - itemsPerView);
+
+  // Återställ index om det går utanför gränserna vid resize
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [maxIndex, currentIndex]);
 
   const goToNext = useCallback(() => {
     if (isAnimating) return;
@@ -616,7 +645,9 @@ function TestimonialsSection() {
               {testimonials.map((t, index) => (
                 <div
                   key={index}
-                  className="w-full flex-shrink-0 px-3 md:w-1/2 lg:w-1/3"
+                  className={`flex-shrink-0 px-2 sm:px-3 ${
+                    isMobile ? 'w-full' : itemsPerView === 2 ? 'w-1/2' : 'w-1/3'
+                  }`}
                 >
                   <div className="group flex h-full flex-col rounded-3xl border border-white/10 bg-slate-800/40 p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-emerald-500/10 md:p-8">
                     {/* Quote - kursiv med citattecken i texten */}
