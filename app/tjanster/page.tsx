@@ -5,6 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   FÄRGMAPPNING FÖR TAILWIND (dynamiska klasser fungerar inte med JIT)
+═══════════════════════════════════════════════════════════════════════════ */
+const subtitleBadgeColors: Record<string, string> = {
+  sky: "bg-sky-500/10 text-sky-400",
+  teal: "bg-teal-500/10 text-teal-400",
+  emerald: "bg-emerald-500/10 text-emerald-400",
+  violet: "bg-violet-500/10 text-violet-400",
+  cyan: "bg-cyan-500/10 text-cyan-400",
+};
+
+/* ═══════════════════════════════════════════════════════════════════════════
    LAVALAMPA BAKGRUND - Ljusblå toner
 ═══════════════════════════════════════════════════════════════════════════ */
 function LavaLampBackground() {
@@ -780,7 +791,7 @@ export default function TjansterPage() {
                 {/* Service header med bild - balanserad layout */}
                 <div className={`grid items-stretch gap-8 sm:gap-12 lg:grid-cols-2 ${pkgIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   <div className={`flex flex-col justify-center ${pkgIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <span className={`inline-flex w-fit rounded-full bg-${pkg.color}-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-${pkg.color}-400`}>
+                    <span className={`inline-flex w-fit rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest ${subtitleBadgeColors[pkg.color] || 'bg-slate-500/10 text-slate-400'}`}>
                       {pkg.subtitle}
                     </span>
                     <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold text-white md:text-4xl">
@@ -828,12 +839,12 @@ export default function TjansterPage() {
                   </div>
                 )}
 
-                {/* Expanderbara paket-kort - anpassad layout */}
+                {/* Expanderbara paket-kort - visa bara på xl+ om jämförelsetabell finns (den visar redan kort på mobil) */}
                 <div className={`mt-8 sm:mt-12 ${
                   pkg.levels.length === 1 
                     ? 'lg:grid lg:grid-cols-2 lg:gap-12' 
-                    : pkg.levels.length === 4 
-                      ? 'grid gap-4 sm:gap-6 md:grid-cols-2' 
+                    : pkg.levels.length > 1 
+                      ? 'hidden xl:grid gap-4 sm:gap-6 xl:grid-cols-2' 
                       : 'grid gap-4 sm:gap-6 md:grid-cols-2'
                 }`}>
                   {pkg.levels.length === 1 ? (
