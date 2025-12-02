@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ContactSection from "./components/ContactSection";
@@ -553,6 +553,11 @@ function TestimonialsSection() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [itemsPerView, setItemsPerView] = useState(3);
   const [isMobile, setIsMobile] = useState(false);
+  
+  // Touch/swipe handling
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Responsiv: 1 kort på mobil, 2 på tablet, 3 på desktop
   useEffect(() => {
@@ -604,6 +609,30 @@ function TestimonialsSection() {
     return () => clearInterval(interval);
   }, [goToNext]);
 
+  // Touch/swipe handlers för mobil
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff > 0) {
+        // Swipe vänster = nästa
+        goToNext();
+      } else {
+        // Swipe höger = föregående
+        goToPrev();
+      }
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 md:py-32">
       <LavaLampBackground />
@@ -637,7 +666,13 @@ function TestimonialsSection() {
           </button>
 
           {/* Testimonials grid */}
-          <div className="overflow-hidden">
+          <div 
+            className="overflow-hidden touch-pan-y"
+            ref={carouselRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}

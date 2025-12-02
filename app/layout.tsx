@@ -59,6 +59,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-white`}
       >
         <Navigation />
+        {/* Spacer för fixed navigation - matchar nav-höjden */}
+        <div className="h-[72px]" />
         {children}
         <Footer />
         <Analytics />
