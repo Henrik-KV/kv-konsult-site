@@ -466,6 +466,14 @@ function MobilePackageCard({ level, color }: { level: Level; color: string }) {
   const [expanded, setExpanded] = useState(false);
   const packageId = mobilePackageIdMap[level.name] || "";
 
+  const features = [
+    { key: "intro", label: "Introduktion & teori" },
+    { key: "demo", label: "Live-demo" },
+    { key: "handson", label: "Hands-on övningar" },
+    { key: "individual", label: "Individuell feedback" },
+    { key: "followup", label: "Uppföljning" },
+  ];
+
   const colorClasses: Record<string, { bg: string; text: string; border: string }> = {
     sky: { bg: "bg-sky-600", text: "text-sky-400", border: "border-sky-500/30" },
     cyan: { bg: "bg-cyan-600", text: "text-cyan-400", border: "border-cyan-500/30" },
@@ -487,11 +495,31 @@ function MobilePackageCard({ level, color }: { level: Level; color: string }) {
       <h4 className="text-base font-bold text-white">{level.name}</h4>
       <p className={`mt-1 text-sm ${colors.text}`}>{level.duration}</p>
       <p className="mt-1 text-xs text-slate-400">{level.format}</p>
-      <p className="mt-3 text-sm text-slate-300">{level.shortDesc}</p>
+      
+      {/* Features checklista - alltid synlig */}
+      <div className="mt-4 space-y-2">
+        {features.map((feature) => (
+          <div key={feature.key} className="flex items-center justify-between">
+            <span className="text-sm text-slate-300">{feature.label}</span>
+            {level.features[feature.key as keyof typeof level.features] ? (
+              <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${colors.bg}/20 ${colors.text} text-xs`}>
+                ✓
+              </span>
+            ) : (
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-700/30 text-slate-500 text-xs">
+                –
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
 
       {/* Expanderbart innehåll */}
       <div className={`overflow-hidden transition-all duration-500 ${expanded ? 'max-h-[800px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
         <div className="space-y-4 border-t border-white/10 pt-4">
+          {/* Kort beskrivning */}
+          <p className="text-sm text-slate-300">{level.shortDesc}</p>
+          
           {/* Vem passar det för */}
           <div>
             <h5 className="text-sm font-semibold text-white mb-2">Vem passar det för?</h5>
