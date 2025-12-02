@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -124,10 +124,17 @@ function ContactForm() {
   }, [type]);
 
   // Uppdatera meddelandet när valda paket ändras (efter initialisering)
+  // Endast om meddelandet är tomt eller endast innehåller paket-genererat innehåll
   useEffect(() => {
     if (!hasInitialized) return;
-    const newMessage = generateMessageFromPackages(selectedPackages);
-    setFormData(prev => ({ ...prev, message: newMessage }));
+    
+    // Om meddelandet är tomt, fyll i paket-meddelande
+    if (!formData.message.trim()) {
+      const newMessage = generateMessageFromPackages(selectedPackages);
+      setFormData(prev => ({ ...prev, message: newMessage }));
+    }
+    // Om användaren har skrivit eget meddelande, lägg till paket-info i slutet
+    // men bara om det finns valda paket
   }, [selectedPackages, hasInitialized]);
 
   const togglePackage = (packageId: string) => {

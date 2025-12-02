@@ -58,9 +58,12 @@ export default function ContactSection() {
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   // Uppdatera meddelandet när valda paket ändras
+  // Endast om meddelandet är tomt - skriv inte över användarens text
   useEffect(() => {
-    const newMessage = generateMessageFromPackages(selectedPackages);
-    setFormData(prev => ({ ...prev, message: newMessage }));
+    if (!formData.message.trim()) {
+      const newMessage = generateMessageFromPackages(selectedPackages);
+      setFormData(prev => ({ ...prev, message: newMessage }));
+    }
   }, [selectedPackages]);
 
   const togglePackage = (packageId: string) => {
