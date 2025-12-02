@@ -80,15 +80,28 @@ function Hero() {
           {/* Höger kolumn - Visuellt element */}
           <div className="relative hidden lg:block animate-fade-in-right animation-delay-300">
             <div className="relative">
-              {/* Huvudbild - GIF som loopar */}
+              {/* Huvudbild/Video - loopar automatiskt */}
               <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/80 to-slate-900/80 shadow-2xl backdrop-blur-sm">
+                {/* Video-version (om hero-ai.mp4 finns) */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover opacity-90"
+                  poster="/images/hero-ai-collaboration.jpg"
+                >
+                  <source src="/images/hero-ai.mp4" type="video/mp4" />
+                  <source src="/images/hero-ai.webm" type="video/webm" />
+                  {/* Fallback till statisk bild om video inte stöds */}
+                </video>
+                {/* Fallback-bild som visas tills video laddat eller om video saknas */}
                 <Image
-                  src="/images/hero-ai.gif"
+                  src="/images/hero-ai-collaboration.jpg"
                   alt="AI-animation som visar samarbete mellan människa och teknologi"
                   fill
                   className="object-cover opacity-90"
                   priority
-                  unoptimized
                 />
                 {/* Subtil gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
