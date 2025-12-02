@@ -54,11 +54,44 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Stäng mobilmeny vid navigering och scrolla till toppen
+  // Stäng mobilmeny vid navigering
   useEffect(() => {
     setMobileOpen(false);
     setVisible(true);
-    window.scrollTo(0, 0);
+    
+    // Scrolla till toppen ENDAST om det inte finns en hash i URL:en
+    // Om det finns en hash, låt webbläsaren hantera scroll till ankaret
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  // Hantera hash-scroll med korrekt offset för fixed navigation
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // Vänta lite så sidan hinner rendera
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            const navHeight = 80; // Fixed nav höjd + lite marginal
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: elementPosition - navHeight,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      }
+    };
+
+    // Kör vid sidladdning om det finns en hash
+    handleHashScroll();
+
+    // Lyssna på hash-ändringar
+    window.addEventListener('hashchange', handleHashScroll);
+    return () => window.removeEventListener('hashchange', handleHashScroll);
   }, [pathname]);
 
   return (

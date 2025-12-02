@@ -786,7 +786,7 @@ export default function TjansterPage() {
               <article
                 key={pkg.id}
                 id={pkg.id}
-                className="scroll-mt-24 overflow-hidden"
+                className="scroll-mt-28 overflow-hidden"
               >
                 {/* Service header med bild - balanserad layout */}
                 <div className={`grid items-stretch gap-8 sm:gap-12 lg:grid-cols-2 ${pkgIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
