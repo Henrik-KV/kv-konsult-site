@@ -453,12 +453,12 @@ function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) 
 
   return (
     <>
-      {/* Mobile: Stacked cards - använd lg breakpoint för att fånga tablets */}
-      <div className="space-y-4 lg:hidden">
+      {/* Mobile & Tablet: Stacked cards - visas på allt under xl (1280px) */}
+      <div className="block xl:hidden space-y-4">
         {levels.map((level) => (
           <div key={level.name} className={`rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4`}>
             {level.recommended && (
-              <div className={`mb-2 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+              <div className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
                 Rekommenderas
               </div>
             )}
@@ -485,15 +485,15 @@ function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) 
         ))}
       </div>
 
-      {/* Desktop: Table - visa endast på lg och uppåt */}
-      <div className="hidden lg:block overflow-x-auto">
+      {/* Desktop only: Table - visas endast på xl (1280px) och uppåt */}
+      <div className="hidden xl:block">
         <table className="w-full">
           <thead>
             <tr>
               <th className="p-4 text-left text-sm font-medium text-slate-400"></th>
               {levels.map((level) => (
                 <th key={level.name} className="p-4 text-center">
-                  <div className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4 pt-6`}>
+                  <div className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4 pt-8`}>
                     {level.recommended && (
                       <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white whitespace-nowrap`}>
                         Rekommenderas
