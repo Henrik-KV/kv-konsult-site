@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 
 /* Floating Color Orbs för contact section */
@@ -56,22 +56,30 @@ export default function ContactSection() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  
+  // Spåra om användaren har redigerat meddelandet manuellt
+  const userHasEditedMessage = useRef(false);
 
-  // Uppdatera meddelandet när valda paket ändras
-  // Endast om meddelandet är tomt - skriv inte över användarens text
-  useEffect(() => {
-    if (!formData.message.trim()) {
-      const newMessage = generateMessageFromPackages(selectedPackages);
+  // Hantera paketval - uppdatera ALDRIG meddelandet om användaren har redigerat det
+  const handlePackageToggle = (packageId: string) => {
+    const newPackages = selectedPackages.includes(packageId)
+      ? selectedPackages.filter(id => id !== packageId)
+      : [...selectedPackages, packageId];
+    
+    setSelectedPackages(newPackages);
+    
+    // Endast uppdatera meddelandet om användaren INTE har redigerat det manuellt
+    if (!userHasEditedMessage.current) {
+      const newMessage = generateMessageFromPackages(newPackages);
       setFormData(prev => ({ ...prev, message: newMessage }));
     }
-  }, [selectedPackages]);
+  };
 
-  const togglePackage = (packageId: string) => {
-    setSelectedPackages(prev => 
-      prev.includes(packageId)
-        ? prev.filter(id => id !== packageId)
-        : [...prev, packageId]
-    );
+  // Markera att användaren har börjat redigera meddelandet
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    userHasEditedMessage.current = true;
+    setFormData({ ...formData, message: e.target.value });
+    if (errors.message) setErrors({ ...errors, message: "" });
   };
 
   const validateForm = () => {
@@ -275,10 +283,7 @@ export default function ContactSection() {
                   id="home-message"
                   rows={5}
                   value={formData.message}
-                  onChange={(e) => {
-                    setFormData({ ...formData, message: e.target.value });
-                    if (errors.message) setErrors({ ...errors, message: "" });
-                  }}
+                  onChange={handleMessageChange}
                   className={`w-full resize-none rounded-xl border ${errors.message ? 'border-red-500' : 'border-white/10'} bg-slate-800/50 px-4 py-3.5 text-white placeholder-slate-500 transition-all duration-200 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20`}
                   placeholder="Berätta kort vad ni behöver hjälp med..."
                 />
@@ -301,7 +306,7 @@ export default function ContactSection() {
                           <button
                             key={pkg.id}
                             type="button"
-                            onClick={() => togglePackage(pkg.id)}
+                            onClick={() => handlePackageToggle(pkg.id)}
                             className={`rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 ${
                               selectedPackages.includes(pkg.id)
                                 ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
