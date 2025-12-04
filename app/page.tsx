@@ -6,25 +6,42 @@ import Image from "next/image";
 import ContactSection from "./components/ContactSection";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LAVALAMPA BAKGRUND KOMPONENT - Ljusblå toner mot svart
+   LAVALAMPA BAKGRUND KOMPONENT - Aura-inspirerad uppgradering
+   Fler lager, mer levande rörelse, djupare känsla
 ═══════════════════════════════════════════════════════════════════════════ */
 function LavaLampBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {/* ═══ DJUPLAGER (längst bak) - stora, subtila orbs för djupkänsla ═══ */}
+      <div className="absolute -top-40 -left-20 h-[900px] w-[900px] rounded-full bg-blue-600/8 blur-[150px] animate-blob-deep-1" />
+      <div className="absolute bottom-0 right-0 h-[800px] w-[800px] rounded-full bg-indigo-500/6 blur-[140px] animate-blob-deep-2" />
+      
+      {/* ═══ PRIMÄRA ORBS - huvudsakliga färgblobs ═══ */}
       {/* Blob 1 - Sky blue, stor och framträdande */}
       <div className="absolute -top-20 left-1/4 h-[700px] w-[700px] rounded-full bg-sky-500/25 blur-[120px] animate-blob-1" />
       
       {/* Blob 2 - Cyan */}
-      <div className="absolute top-1/3 -right-10 h-[600px] w-[600px] rounded-full bg-cyan-400/20 blur-[100px] animate-blob-2" />
+      <div className="absolute top-1/3 -right-10 h-[600px] w-[600px] rounded-full bg-cyan-400/22 blur-[100px] animate-blob-2" />
       
       {/* Blob 3 - Teal/mörkare blå */}
-      <div className="absolute -bottom-40 left-1/3 h-[500px] w-[500px] rounded-full bg-teal-500/15 blur-[100px] animate-blob-3" />
+      <div className="absolute -bottom-40 left-1/3 h-[550px] w-[550px] rounded-full bg-teal-500/18 blur-[110px] animate-blob-3" />
       
       {/* Blob 4 - Light blue accent */}
-      <div className="absolute top-1/2 left-10 h-[400px] w-[400px] rounded-full bg-blue-400/15 blur-[90px] animate-blob-4" />
+      <div className="absolute top-1/2 left-10 h-[450px] w-[450px] rounded-full bg-blue-400/18 blur-[95px] animate-blob-4" />
       
-      {/* Blob 5 - Extra ambient */}
-      <div className="absolute top-20 right-1/4 h-[350px] w-[350px] rounded-full bg-sky-300/10 blur-[80px] animate-blob-5" />
+      {/* Blob 5 - Extra ambient (reverse) */}
+      <div className="absolute top-20 right-1/4 h-[380px] w-[380px] rounded-full bg-sky-300/12 blur-[85px] animate-blob-5" />
+      
+      {/* ═══ MELLANLAGER - mellanstora orbs för dynamik ═══ */}
+      <div className="absolute top-[60%] left-[60%] h-[350px] w-[350px] rounded-full bg-cyan-500/15 blur-[80px] animate-blob-ambient" />
+      <div className="absolute top-[10%] left-[70%] h-[300px] w-[300px] rounded-full bg-teal-400/12 blur-[70px] animate-blob-2" style={{ animationDelay: '-15s' }} />
+      
+      {/* ═══ FÖRGRUNDSLAGER - subtila glow-accenter ═══ */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[700px] rounded-full bg-sky-400/8 blur-[100px] animate-blob-glow" />
+      
+      {/* Extra ambient orbs för rörelse i hela bilden */}
+      <div className="absolute bottom-[20%] right-[30%] h-[280px] w-[280px] rounded-full bg-blue-300/10 blur-[60px] animate-blob-ambient" style={{ animationDelay: '-10s' }} />
+      <div className="absolute top-[40%] left-[5%] h-[250px] w-[250px] rounded-full bg-cyan-300/8 blur-[55px] animate-blob-1" style={{ animationDelay: '-20s' }} />
     </div>
   );
 }
@@ -40,8 +57,8 @@ function Hero() {
   };
 
   return (
-    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden">
-      {/* Bakgrund hanteras nu globalt av PremiumBackground i layout */}
+    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <LavaLampBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:py-16 md:py-24 lg:py-32 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -62,14 +79,14 @@ function Hero() {
             <div className="mt-6 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-4 lg:justify-start animate-fade-in-up animation-delay-200">
               <Link
                 href="/kontakt?type=avstämning"
-                className="group premium-glow-button relative inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-sky-500/25 transition-all duration-300 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
+                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-sky-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/40 hover:scale-105 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
               >
                 <span className="relative z-10">Boka avstämningsmöte</span>
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </Link>
               <Link
                 href="/tjanster"
-                className="group premium-border-glow inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:scale-105 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
               >
                 Se tjänster & paket
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -154,7 +171,7 @@ function StatsSection() {
   return (
     <section className="relative -mt-8 sm:-mt-16 z-10 pb-8 sm:pb-16">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-slate-900/80 p-4 sm:p-8 backdrop-blur-xl shadow-2xl shadow-sky-500/5 premium-glass">
+        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-slate-900/80 p-4 sm:p-8 backdrop-blur-xl shadow-2xl shadow-sky-500/5">
           <p className="mb-4 sm:mb-8 text-center text-xs sm:text-sm font-medium uppercase tracking-widest">
             <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Vi har hjälpt organisationer i hela Sverige</span>
           </p>
@@ -162,7 +179,7 @@ function StatsSection() {
             {stats.map((stat, index) => (
               <div
                 key={stat.title}
-                className={`premium-stats-card flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl p-3 sm:p-5`}
+                className={`flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-white/5 bg-slate-800/50 p-3 sm:p-5`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className={`flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-${stat.color}-500/20 shrink-0`}>
@@ -221,8 +238,8 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
-      {/* Bakgrund hanteras nu globalt av PremiumBackground i layout */}
+    <section className="relative overflow-hidden bg-slate-900 py-16 sm:py-24 md:py-32">
+      <LavaLampBackground />
       
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -243,7 +260,7 @@ function ServicesSection() {
             <Link
               key={s.title}
               href={s.href}
-              className="group premium-card relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60 backdrop-blur-sm transition-all duration-500 hover:border-sky-500/30"
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60 transition-all duration-500 hover:border-sky-500/30 hover:shadow-2xl hover:shadow-cyan-500/20"
             >
               {/* Bild - med overflow-hidden och rundade hörn upptill */}
               <div className="relative h-48 sm:h-64 overflow-hidden">
@@ -294,8 +311,8 @@ function ServicesSection() {
 ═══════════════════════════════════════════════════════════════════════════ */
 function TargetAudienceSection() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
-      {/* Bakgrund hanteras nu globalt av PremiumBackground i layout */}
+    <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 md:py-32">
+      <LavaLampBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -441,8 +458,8 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
-      {/* Bakgrund hanteras nu globalt av PremiumBackground i layout */}
+    <section className="relative overflow-hidden bg-slate-900 py-16 sm:py-24 md:py-32">
+      <LavaLampBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
@@ -462,7 +479,7 @@ function ProcessSection() {
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className="premium-card relative overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60 backdrop-blur-sm"
+              className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60"
             >
               {/* Inre wrapper som säkerställer sömlös bakgrund */}
               <div className="relative h-full rounded-3xl bg-slate-800/60">
@@ -684,7 +701,7 @@ function TestimonialsSection() {
                     isMobile ? 'w-full' : itemsPerView === 2 ? 'w-1/2' : 'w-1/3'
                   }`}
                 >
-                  <div className="group premium-card flex h-full flex-col rounded-3xl border border-white/10 bg-slate-800/40 backdrop-blur-sm p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-slate-800/60 md:p-8">
+                  <div className="group flex h-full flex-col rounded-3xl border border-white/10 bg-slate-800/40 p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-emerald-500/10 md:p-8">
                     {/* Quote - kursiv med citattecken i texten */}
                     <blockquote className="flex-1 text-lg italic leading-relaxed text-slate-200">
                       "{t.quote}"

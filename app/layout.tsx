@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import PremiumBackground from "./components/PremiumBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,13 +58,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-white`}
       >
-        <PremiumBackground />
         <Navigation />
         {/* Spacer för fixed navigation - matchar nav-höjden */}
         <div className="h-[72px]" />
-        <main className="relative z-10">
-          {children}
-        </main>
+        {children}
         <Footer />
         <Analytics />
       </body>
