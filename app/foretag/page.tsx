@@ -3,17 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-/* Lavalampa bakgrund - ljusblå */
-function LavaLampBackground() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-sky-500/20 blur-[100px] animate-blob-1" />
-      <div className="absolute top-1/3 -right-20 h-[500px] w-[500px] rounded-full bg-cyan-400/15 blur-[100px] animate-blob-2" />
-      <div className="absolute -bottom-20 left-1/3 h-[400px] w-[400px] rounded-full bg-teal-500/10 blur-[80px] animate-blob-3" />
-    </div>
-  );
-}
+import VideoBackground, { ScrollIndicator } from "../components/VideoBackground";
 
 /* Fokusområden för företag */
 const focusAreas = [
@@ -293,13 +283,15 @@ export default function ForetagPage() {
   return (
     <main>
       {/* Hero med bild */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-20 md:py-28">
-        <LavaLampBackground />
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Video: foretag-bg.mp4 (byt ut när du har en egen) */}
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" />
+        <ScrollIndicator className="bottom-20 sm:bottom-24" />
 
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-24 md:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400">
+              <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3), inset 0 0 20px rgba(34, 211, 238, 0.1)', textShadow: '0 0 10px rgba(34, 211, 238, 0.6)' }}>
                 För företag
               </span>
               <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -330,7 +322,7 @@ export default function ForetagPage() {
 
             {/* Hero-bild */}
             <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-cyan-500/30 shadow-2xl" style={{ boxShadow: '0 0 40px rgba(34, 211, 238, 0.3), 0 0 80px rgba(34, 211, 238, 0.15)' }}>
                 <Image
                   src="/images/hero-foretag-office.jpg"
                   alt="Företagsteam som arbetar i öppet kontor"
@@ -342,15 +334,15 @@ export default function ForetagPage() {
                 
                 {/* Overlay badge */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4 backdrop-blur-md">
+                  <div className="rounded-2xl border border-cyan-500/30 bg-slate-900/80 p-4 backdrop-blur-md shadow-lg shadow-cyan-500/10">
                     <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20">
-                        <svg className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3)' }}>
+                        <svg className="h-6 w-6 text-cyan-400" style={{ filter: 'drop-shadow(0 0 8px rgba(34, 211, 238, 0.6))' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-white">Näringsliv</p>
+                        <p className="font-semibold text-white" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.5)' }}>Näringsliv</p>
                         <p className="text-sm text-slate-400">Anpassat för företag</p>
                       </div>
                     </div>
@@ -369,7 +361,7 @@ export default function ForetagPage() {
       <section className="bg-slate-900 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400">
+            <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3), inset 0 0 20px rgba(34, 211, 238, 0.1)', textShadow: '0 0 10px rgba(34, 211, 238, 0.6)' }}>
               Era utmaningar
             </span>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
@@ -390,11 +382,24 @@ export default function ForetagPage() {
 
       {/* Snabblänkar till paket */}
       <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
-        <LavaLampBackground />
+        {/* Video-bakgrund: bakgrund-partiklar */}
+        <div className="pointer-events-none absolute inset-0 bg-slate-950">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[150%] min-w-[150%] object-cover"
+            style={{ filter: 'blur(2px) brightness(0.9)' }}
+          >
+            <source src="/images/bakgrund-partiklar.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-slate-950/55" />
+        </div>
         
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400">
+            <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
               Våra paket
             </span>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
@@ -450,7 +455,7 @@ export default function ForetagPage() {
       <section className="bg-slate-900 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-teal-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-teal-400">
+            <span className="inline-block rounded-full bg-teal-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-teal-400" style={{ boxShadow: '0 0 20px rgba(45, 212, 191, 0.3), inset 0 0 20px rgba(45, 212, 191, 0.1)', textShadow: '0 0 10px rgba(45, 212, 191, 0.6)' }}>
               AI i praktiken
             </span>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
@@ -471,7 +476,8 @@ export default function ForetagPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
-        <LavaLampBackground />
+        {/* Video-bakgrund: spiral-effekt */}
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.0} />
         
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">

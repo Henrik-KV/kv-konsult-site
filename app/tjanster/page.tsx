@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import VideoBackground, { ScrollIndicator } from "../components/VideoBackground";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    FÄRGMAPPNING FÖR TAILWIND (dynamiska klasser fungerar inte med JIT)
@@ -15,18 +16,13 @@ const subtitleBadgeColors: Record<string, string> = {
   cyan: "bg-cyan-500/10 text-cyan-400",
 };
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   LAVALAMPA BAKGRUND - Ljusblå toner
-═══════════════════════════════════════════════════════════════════════════ */
-function LavaLampBackground() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-sky-500/20 blur-[100px] animate-blob-1" />
-      <div className="absolute top-1/3 -right-20 h-[500px] w-[500px] rounded-full bg-cyan-400/15 blur-[100px] animate-blob-2" />
-      <div className="absolute -bottom-20 left-1/3 h-[400px] w-[400px] rounded-full bg-teal-500/10 blur-[80px] animate-blob-3" />
-    </div>
-  );
-}
+const subtitleGlowStyles: Record<string, React.CSSProperties> = {
+  sky: { boxShadow: '0 0 20px rgba(56, 189, 248, 0.4)', textShadow: '0 0 10px rgba(56, 189, 248, 0.5)' },
+  teal: { boxShadow: '0 0 20px rgba(45, 212, 191, 0.4)', textShadow: '0 0 10px rgba(45, 212, 191, 0.5)' },
+  emerald: { boxShadow: '0 0 20px rgba(52, 211, 153, 0.4)', textShadow: '0 0 10px rgba(52, 211, 153, 0.5)' },
+  violet: { boxShadow: '0 0 20px rgba(167, 139, 250, 0.4)', textShadow: '0 0 10px rgba(167, 139, 250, 0.5)' },
+  cyan: { boxShadow: '0 0 20px rgba(34, 211, 238, 0.4)', textShadow: '0 0 10px rgba(34, 211, 238, 0.5)' },
+};
 
 /* ═══════════════════════════════════════════════════════════════════════════
    PAKET DATA - Föreläsningar, Workshops, Analys, Partnerskap & Webb
@@ -488,7 +484,7 @@ function MobilePackageCard({ level, color }: { level: Level; color: string }) {
     <div className={`rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4 transition-all duration-300`}>
       {/* Header */}
       {level.recommended && (
-        <div className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+        <div className={`mb-3 inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`} style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.5)', textShadow: '0 0 10px rgba(255, 255, 255, 0.5)' }}>
           Rekommenderas
         </div>
       )}
@@ -610,7 +606,7 @@ function ComparisonTable({ levels, color }: { levels: Level[]; color: string }) 
                 <th key={level.name} className="p-4 text-center">
                   <div className={`relative rounded-2xl border ${level.recommended ? colors.border : 'border-white/10'} bg-slate-800/50 p-4 pt-8`}>
                     {level.recommended && (
-                      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white whitespace-nowrap`}>
+                      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white whitespace-nowrap`} style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.5)', textShadow: '0 0 10px rgba(255, 255, 255, 0.5)' }}>
                         Rekommenderas
                       </span>
                     )}
@@ -696,7 +692,7 @@ function ExpandablePackageCard({ level, color }: { level: Level; color: string }
         {/* Recommended badge - tydligt ovanför allt annat */}
         {level.recommended && (
           <div className="mb-4">
-            <span className={`inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`}>
+            <span className={`inline-block rounded-full ${colors.bg} px-3 py-1 text-xs font-semibold text-white`} style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.5)', textShadow: '0 0 10px rgba(255, 255, 255, 0.5)' }}>
               Rekommenderas
             </span>
           </div>
@@ -800,12 +796,14 @@ export default function TjansterPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-12 sm:py-20 md:py-28">
-        <LavaLampBackground />
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Video: tjanster-bg.mp4 (byt ut när du har en egen) */}
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" />
+        <ScrollIndicator className="bottom-20 sm:bottom-24" />
 
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 pt-8 sm:pt-12 md:pt-16 lg:pt-20 lg:px-8">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-sky-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-400">
+            <span className="inline-block rounded-full bg-sky-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
               Våra tjänster
             </span>
             <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -823,7 +821,7 @@ export default function TjansterPage() {
           <div className="mx-auto mt-8 sm:mt-12 max-w-4xl px-2">
             <div className="rounded-2xl border border-white/10 bg-slate-800/40 p-4 sm:p-6 md:p-8">
               <h2 className="text-center text-xl sm:text-2xl font-bold text-white md:text-3xl lg:text-4xl">
-                Bygg er egen <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">AI-dag</span>
+                Bygg er egen <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent" style={{ textShadow: '0 0 30px rgba(56, 189, 248, 0.6)' }}>AI-dag</span>
               </h2>
               <p className="mt-3 sm:mt-4 text-center text-sm sm:text-base lg:text-lg text-slate-300">
                 Kombinera föreläsning och workshop för att skapa en heldag anpassad efter er verksamhet.
@@ -833,7 +831,7 @@ export default function TjansterPage() {
                   href="/kontakt?type=exempel1"
                   className="rounded-xl border border-sky-500/20 bg-slate-900/50 p-4 text-center transition-all duration-300 hover:border-sky-500/50 hover:bg-slate-800/70 hover:shadow-lg hover:shadow-sky-500/10"
                 >
-                  <p className="text-sm font-medium text-sky-400">Exempel 1</p>
+                  <p className="text-sm font-medium text-sky-400" style={{ textShadow: '0 0 12px rgba(56, 189, 248, 0.7)' }}>Exempel 1</p>
                   <p className="mt-2 text-sm text-slate-300">Föreläsning: M365 Bas</p>
                   <p className="text-slate-500">+</p>
                   <p className="text-sm text-slate-300">Workshop: M365 & Copilot</p>
@@ -843,7 +841,7 @@ export default function TjansterPage() {
                   href="/kontakt?type=exempel2"
                   className="rounded-xl border border-teal-500/20 bg-slate-900/50 p-4 text-center transition-all duration-300 hover:border-teal-500/50 hover:bg-slate-800/70 hover:shadow-lg hover:shadow-teal-500/10"
                 >
-                  <p className="text-sm font-medium text-teal-400">Exempel 2</p>
+                  <p className="text-sm font-medium text-teal-400" style={{ textShadow: '0 0 12px rgba(45, 212, 191, 0.7)' }}>Exempel 2</p>
                   <p className="mt-2 text-sm text-slate-300">Föreläsning: M365 Bas</p>
                   <p className="text-slate-500">+</p>
                   <p className="text-sm text-slate-300">Workshop: Generell AI</p>
@@ -853,7 +851,7 @@ export default function TjansterPage() {
                   href="/kontakt?type=exempel3"
                   className="rounded-xl border border-cyan-500/20 bg-slate-900/50 p-4 text-center transition-all duration-300 hover:border-cyan-500/50 hover:bg-slate-800/70 hover:shadow-lg hover:shadow-cyan-500/10"
                 >
-                  <p className="text-sm font-medium text-cyan-400">Exempel 3</p>
+                  <p className="text-sm font-medium text-cyan-400" style={{ textShadow: '0 0 12px rgba(34, 211, 238, 0.7)' }}>Exempel 3</p>
                   <p className="mt-2 text-sm text-slate-300">Föreläsning: M365 Bas+</p>
                   <p className="text-slate-500">+</p>
                   <p className="text-sm text-slate-300">Skräddarsydd workshop</p>
@@ -861,7 +859,7 @@ export default function TjansterPage() {
                 </Link>
               </div>
               <p className="mt-8 text-center text-base font-medium">
-                <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Alla paket kan anpassas.</span>{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent" style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.5)' }}>Alla paket kan anpassas.</span>{" "}
                 <span className="text-slate-300">Kontakta oss så sätter vi ihop ett upplägg som passar er.</span>
               </p>
             </div>
@@ -873,7 +871,8 @@ export default function TjansterPage() {
               <a
                 key={pkg.id}
                 href={`#${pkg.id}`}
-                className="rounded-full border border-white/10 bg-slate-800/50 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-slate-300 transition-all duration-300 hover:border-sky-500/30 hover:bg-slate-800 hover:text-white"
+                className="rounded-full border border-white/10 bg-slate-800/50 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-slate-300 transition-all duration-300 hover:border-sky-500/30 hover:bg-slate-800 hover:text-white hover:shadow-lg hover:shadow-sky-500/20"
+                style={{ boxShadow: '0 0 15px rgba(56, 189, 248, 0.15)' }}
               >
                 {pkg.title}
               </a>
@@ -890,12 +889,15 @@ export default function TjansterPage() {
               <article
                 key={pkg.id}
                 id={pkg.id}
-                className="scroll-mt-28 overflow-hidden"
+                className="scroll-mt-28"
               >
                 {/* Service header med bild - balanserad layout */}
                 <div className={`grid items-stretch gap-8 sm:gap-12 lg:grid-cols-2 ${pkgIndex % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                  <div className={`flex flex-col justify-center ${pkgIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <span className={`inline-flex w-fit rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest ${subtitleBadgeColors[pkg.color] || 'bg-slate-500/10 text-slate-400'}`}>
+                  <div className={`flex flex-col justify-center pl-1 ${pkgIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
+                    <span 
+                      className={`inline-flex w-fit rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest ${subtitleBadgeColors[pkg.color] || 'bg-slate-500/10 text-slate-400'}`}
+                      style={subtitleGlowStyles[pkg.color] || {}}
+                    >
                       {pkg.subtitle}
                     </span>
                     <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold text-white md:text-4xl">
@@ -979,7 +981,7 @@ export default function TjansterPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-slate-950 py-20 md:py-28">
-        <LavaLampBackground />
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.0} />
 
         <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
           <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">

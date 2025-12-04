@@ -1,30 +1,20 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import VideoBackground from "@/app/components/VideoBackground";
 
 export const metadata: Metadata = {
   title: "Integritetspolicy – KV Konsult",
   description: "Information om hur KV Konsult hanterar personuppgifter.",
 };
 
-/* Floating Color Orbs - samma som Om oss */
-function LavaLampBackground() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-sky-500/20 blur-[100px] animate-blob-1" />
-      <div className="absolute top-1/3 -right-20 h-[500px] w-[500px] rounded-full bg-cyan-400/15 blur-[100px] animate-blob-2" />
-      <div className="absolute -bottom-20 left-1/3 h-[400px] w-[400px] rounded-full bg-teal-500/10 blur-[80px] animate-blob-3" />
-    </div>
-  );
-}
-
 export default function IntegritetspolicyPage() {
   return (
     <main className="bg-slate-950">
       {/* Header */}
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-16 md:py-20">
-        <LavaLampBackground />
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.0} />
         <div className="relative mx-auto max-w-4xl px-4">
-          <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400">
+          <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
             Juridiskt
           </span>
           <h1 className="mt-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">

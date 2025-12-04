@@ -4,17 +4,7 @@ import { useState, useEffect, Suspense, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-
-/* Lavalampa bakgrund - ljusblå */
-function LavaLampBackground() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-sky-500/20 blur-[100px] animate-blob-1" />
-      <div className="absolute top-1/3 -right-20 h-[500px] w-[500px] rounded-full bg-cyan-400/15 blur-[100px] animate-blob-2" />
-      <div className="absolute -bottom-20 left-1/3 h-[400px] w-[400px] rounded-full bg-teal-500/10 blur-[80px] animate-blob-3" />
-    </div>
-  );
-}
+import VideoBackground, { ScrollIndicator } from "../components/VideoBackground";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    PAKET-DATA FÖR VAL
@@ -398,13 +388,15 @@ export default function KontaktPage() {
   return (
     <main>
       {/* Hero med bild */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-20 md:py-28">
-        <LavaLampBackground />
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Video: kontakt-bg.mp4 (byt ut när du har en egen) */}
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" />
+        <ScrollIndicator className="bottom-20 sm:bottom-24" />
 
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-24 md:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400">
+              <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
                 Kontakt
               </span>
               <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -427,7 +419,7 @@ export default function KontaktPage() {
 
             {/* Hero-bild - inbäddad med rundade hörn */}
             <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-cyan-500/30 shadow-2xl" style={{ boxShadow: '0 0 40px rgba(34, 211, 238, 0.3), 0 0 80px rgba(34, 211, 238, 0.15)' }}>
                 <Image
                   src="/images/hero-kontakt-call.png"
                   alt="Person som pratar med kund i videosamtal"
@@ -442,15 +434,15 @@ export default function KontaktPage() {
               </div>
               
               {/* Badge under bilden istället för overlay */}
-              <div className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-4 backdrop-blur-md">
+              <div className="mt-4 rounded-2xl border border-cyan-500/30 bg-slate-900/80 p-4 backdrop-blur-md shadow-lg shadow-cyan-500/10">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 shrink-0">
-                    <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 shrink-0" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.4)' }}>
+                    <svg className="h-6 w-6 text-white" style={{ filter: 'drop-shadow(0 0 6px rgba(255, 255, 255, 0.5))' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Börja <span className="text-cyan-400">samtalet</span></p>
+                    <p className="font-semibold text-white" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.5)' }}>Börja <span className="text-cyan-400" style={{ textShadow: '0 0 12px rgba(34, 211, 238, 0.8)' }}>samtalet</span></p>
                     <p className="text-sm text-slate-400">Vi lyssnar först, ger råd sedan</p>
                   </div>
                 </div>
@@ -465,7 +457,11 @@ export default function KontaktPage() {
 
       {/* Kontaktformulär & info */}
       <section className="relative overflow-hidden bg-slate-900 py-16 md:py-24">
-        <LavaLampBackground />
+        {/* Subtil bakgrund */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-sky-500/10 blur-[100px] animate-blob-1" />
+          <div className="absolute top-1/3 -right-20 h-[500px] w-[500px] rounded-full bg-cyan-400/8 blur-[100px] animate-blob-2" />
+        </div>
         
         <div className="relative mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
@@ -595,7 +591,8 @@ export default function KontaktPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
-        <LavaLampBackground />
+        {/* Video-bakgrund: spiral-effekt */}
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.0} />
         
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">

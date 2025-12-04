@@ -3,17 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-/* Lavalampa bakgrund - ljusblå */
-function LavaLampBackground() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-sky-500/20 blur-[100px] animate-blob-1" />
-      <div className="absolute top-1/3 -right-20 h-[500px] w-[500px] rounded-full bg-cyan-400/15 blur-[100px] animate-blob-2" />
-      <div className="absolute -bottom-20 left-1/3 h-[400px] w-[400px] rounded-full bg-teal-500/10 blur-[80px] animate-blob-3" />
-    </div>
-  );
-}
+import VideoBackground, { ScrollIndicator } from "../components/VideoBackground";
 
 /* Fokusområden för kommuner */
 const focusAreas = [
@@ -151,13 +141,15 @@ export default function KommunerPage() {
   return (
     <main>
       {/* Hero med bild */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-20 md:py-28">
-        <LavaLampBackground />
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Video: kommuner-bg.mp4 (byt ut när du har en egen) */}
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" />
+        <ScrollIndicator className="bottom-20 sm:bottom-24" />
 
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8 py-16 sm:py-24 md:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400">
+              <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
                 För kommuner & regioner
               </span>
               <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -188,7 +180,7 @@ export default function KommunerPage() {
 
             {/* Hero-bild istället för ikoner */}
             <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-sky-500/30 shadow-2xl" style={{ boxShadow: '0 0 40px rgba(56, 189, 248, 0.3), 0 0 80px rgba(56, 189, 248, 0.15)' }}>
                 <Image
                   src="/images/hero-kommun-meeting.jpg"
                   alt="Kommunal ledning i möte"
@@ -200,15 +192,15 @@ export default function KommunerPage() {
                 
                 {/* Overlay badge */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4 backdrop-blur-md">
+                  <div className="rounded-2xl border border-sky-500/30 bg-slate-900/80 p-4 backdrop-blur-md shadow-lg shadow-sky-500/10">
                     <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/20">
-                        <svg className="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/20" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3)' }}>
+                        <svg className="h-6 w-6 text-sky-400" style={{ filter: 'drop-shadow(0 0 8px rgba(56, 189, 248, 0.6))' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-white">Offentlig sektor</p>
+                        <p className="font-semibold text-white" style={{ textShadow: '0 0 15px rgba(56, 189, 248, 0.5)' }}>Offentlig sektor</p>
                         <p className="text-sm text-slate-400">Anpassat för kommuner & regioner</p>
                       </div>
                     </div>
@@ -227,7 +219,7 @@ export default function KommunerPage() {
       <section className="bg-slate-900 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400">
+            <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
               Fokusområden
             </span>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
@@ -248,11 +240,14 @@ export default function KommunerPage() {
 
       {/* Våra upplägg */}
       <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
-        <LavaLampBackground />
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.0} />
         
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400">
+            <span 
+              className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400"
+              style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.4)', textShadow: '0 0 10px rgba(34, 211, 238, 0.5)' }}
+            >
               Våra upplägg
             </span>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
@@ -320,7 +315,7 @@ export default function KommunerPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-slate-900 py-16 md:py-24">
-        <LavaLampBackground />
+        <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.0} />
         
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">

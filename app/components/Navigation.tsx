@@ -127,10 +127,10 @@ export default function Navigation() {
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-white">
+            <span className="text-lg font-bold tracking-tight text-white" style={{ textShadow: '0 0 20px rgba(56, 189, 248, 0.5), 0 0 40px rgba(34, 211, 238, 0.3)' }}>
               KV Konsult
             </span>
-            <span className="hidden text-[10px] font-medium uppercase tracking-widest text-sky-400/80 sm:block">
+            <span className="hidden text-[10px] font-medium uppercase tracking-widest text-sky-400 sm:block" style={{ textShadow: '0 0 15px rgba(56, 189, 248, 0.6)' }}>
               AI-utbildning & strategi
             </span>
           </div>

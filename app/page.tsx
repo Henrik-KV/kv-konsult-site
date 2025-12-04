@@ -4,44 +4,31 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ContactSection from "./components/ContactSection";
+import VideoBackground from "./components/VideoBackground";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LAVALAMPA BAKGRUND KOMPONENT - Aura-inspirerad uppgradering
-   Fler lager, mer levande rörelse, djupare känsla
+   SPIRAL VIDEO BAKGRUND - Fullscreen video bakom hero
+   Experiment: Ljus spiral-effekt med subtil blur
 ═══════════════════════════════════════════════════════════════════════════ */
-function LavaLampBackground() {
+function SpiralVideoBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {/* ═══ DJUPLAGER (längst bak) - stora, subtila orbs för djupkänsla ═══ */}
-      <div className="absolute -top-40 -left-20 h-[900px] w-[900px] rounded-full bg-blue-600/8 blur-[150px] animate-blob-deep-1" />
-      <div className="absolute bottom-0 right-0 h-[800px] w-[800px] rounded-full bg-indigo-500/6 blur-[140px] animate-blob-deep-2" />
+    <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-950">
+      {/* Fullscreen video bakgrund - extra stor för att täcka hela arean */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[120%] min-w-[120%] object-cover"
+        style={{ 
+          filter: 'blur(2px) brightness(1.3)',
+        }}
+      >
+        <source src="/images/spiral-effekt.mp4" type="video/mp4" />
+      </video>
       
-      {/* ═══ PRIMÄRA ORBS - huvudsakliga färgblobs ═══ */}
-      {/* Blob 1 - Sky blue, stor och framträdande */}
-      <div className="absolute -top-20 left-1/4 h-[700px] w-[700px] rounded-full bg-sky-500/25 blur-[120px] animate-blob-1" />
-      
-      {/* Blob 2 - Cyan */}
-      <div className="absolute top-1/3 -right-10 h-[600px] w-[600px] rounded-full bg-cyan-400/22 blur-[100px] animate-blob-2" />
-      
-      {/* Blob 3 - Teal/mörkare blå */}
-      <div className="absolute -bottom-40 left-1/3 h-[550px] w-[550px] rounded-full bg-teal-500/18 blur-[110px] animate-blob-3" />
-      
-      {/* Blob 4 - Light blue accent */}
-      <div className="absolute top-1/2 left-10 h-[450px] w-[450px] rounded-full bg-blue-400/18 blur-[95px] animate-blob-4" />
-      
-      {/* Blob 5 - Extra ambient (reverse) */}
-      <div className="absolute top-20 right-1/4 h-[380px] w-[380px] rounded-full bg-sky-300/12 blur-[85px] animate-blob-5" />
-      
-      {/* ═══ MELLANLAGER - mellanstora orbs för dynamik ═══ */}
-      <div className="absolute top-[60%] left-[60%] h-[350px] w-[350px] rounded-full bg-cyan-500/15 blur-[80px] animate-blob-ambient" />
-      <div className="absolute top-[10%] left-[70%] h-[300px] w-[300px] rounded-full bg-teal-400/12 blur-[70px] animate-blob-2" style={{ animationDelay: '-15s' }} />
-      
-      {/* ═══ FÖRGRUNDSLAGER - subtila glow-accenter ═══ */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[700px] rounded-full bg-sky-400/8 blur-[100px] animate-blob-glow" />
-      
-      {/* Extra ambient orbs för rörelse i hela bilden */}
-      <div className="absolute bottom-[20%] right-[30%] h-[280px] w-[280px] rounded-full bg-blue-300/10 blur-[60px] animate-blob-ambient" style={{ animationDelay: '-10s' }} />
-      <div className="absolute top-[40%] left-[5%] h-[250px] w-[250px] rounded-full bg-cyan-300/8 blur-[55px] animate-blob-1" style={{ animationDelay: '-20s' }} />
+      {/* Subtil mörk overlay för läsbarhet */}
+      <div className="absolute inset-0 bg-slate-950/40" />
     </div>
   );
 }
@@ -57,8 +44,9 @@ function Hero() {
   };
 
   return (
-    <section className="relative min-h-[80vh] lg:min-h-[90vh] overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      <LavaLampBackground />
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Spiral video bakgrund istället för orbs */}
+      <SpiralVideoBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:py-16 md:py-24 lg:py-32 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -98,7 +86,7 @@ function Hero() {
           <div className="relative animate-fade-in-right animation-delay-300 mt-8 lg:mt-0">
             <div className="relative">
               {/* Huvudvideo - loopar automatiskt */}
-              <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-2xl lg:rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/80 to-slate-900/80 shadow-2xl backdrop-blur-sm">
+              <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-2xl lg:rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-slate-800/80 to-slate-900/80 shadow-2xl backdrop-blur-sm" style={{ boxShadow: '0 0 40px rgba(34, 211, 238, 0.3), 0 0 80px rgba(56, 189, 248, 0.15)' }}>
                 <video
                   autoPlay
                   loop
@@ -113,9 +101,9 @@ function Hero() {
                 
                 {/* Citatkort - kursiv text, responsiv */}
                 <div className="absolute bottom-3 left-3 right-3 lg:bottom-6 lg:left-6 lg:right-6">
-                  <div className="rounded-xl lg:rounded-2xl border border-cyan-500/20 bg-slate-900/90 px-4 py-3 lg:px-8 lg:py-6 backdrop-blur-md shadow-xl">
-                    <p className="text-center text-sm lg:text-xl italic leading-relaxed text-slate-100">
-                      "Vi gör <span className="text-cyan-400">AI begripligt</span> och användbart i vardagen."
+                  <div className="rounded-xl lg:rounded-2xl border border-cyan-500/30 bg-slate-900/90 px-4 py-3 lg:px-8 lg:py-6 backdrop-blur-md shadow-xl shadow-cyan-500/10">
+                    <p className="text-center text-sm lg:text-xl italic leading-relaxed text-slate-100" style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.4)' }}>
+                      "Vi gör <span className="text-cyan-400" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.8)' }}>AI begripligt</span> och användbart i vardagen."
                     </p>
                   </div>
                 </div>
@@ -125,8 +113,31 @@ function Hero() {
         </div>
       </div>
       
-      {/* Mjuk övergång till nästa sektion */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent" />
+      {/* Studsande pil nedåt - placerad högre upp så den syns tydligt */}
+      <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-20">
+        <div className="animate-bounce">
+          <svg 
+            className="h-8 w-8 text-transparent bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400" 
+            style={{ 
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+            }}
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="url(#gradient-arrow)"
+            strokeWidth={2}
+          >
+            <defs>
+              <linearGradient id="gradient-arrow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#38bdf8" />
+                <stop offset="50%" stopColor="#22d3ee" />
+                <stop offset="100%" stopColor="#2dd4bf" />
+              </linearGradient>
+            </defs>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+      </div>
     </section>
   );
 }
@@ -169,11 +180,33 @@ function StatsSection() {
   ];
 
   return (
-    <section className="relative -mt-8 sm:-mt-16 z-10 pb-8 sm:pb-16">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-slate-900/80 p-4 sm:p-8 backdrop-blur-xl shadow-2xl shadow-sky-500/5">
+    <section className="relative z-10 pt-12 sm:pt-16 pb-8 sm:pb-12 overflow-hidden">
+      {/* Fortsatt video-bakgrund som kopplar ihop med hero */}
+      <div className="pointer-events-none absolute inset-0 bg-slate-950">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[150%] min-w-[150%] object-cover"
+          style={{ 
+            filter: 'blur(2px) brightness(0.9)',
+          }}
+        >
+          <source src="/images/bakgrund-partiklar.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-slate-950/55" />
+        {/* Mjuk gradient-övergång mot nästa sektion */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-950 to-transparent" />
+      </div>
+      
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-slate-900/70 p-4 sm:p-8 backdrop-blur-md shadow-2xl shadow-sky-500/5">
           <p className="mb-4 sm:mb-8 text-center text-xs sm:text-sm font-medium uppercase tracking-widest">
-            <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Vi har hjälpt organisationer i hela Sverige</span>
+            <span 
+              className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent"
+              style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.6), 0 0 40px rgba(56, 189, 248, 0.4)' }}
+            >Vi har hjälpt organisationer i hela Sverige</span>
           </p>
           <div className="grid gap-3 sm:gap-6 grid-cols-1 sm:grid-cols-3">
             {stats.map((stat, index) => (
@@ -238,12 +271,15 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="relative overflow-hidden bg-slate-900 py-16 sm:py-24 md:py-32">
-      <LavaLampBackground />
+    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
+      <VideoBackground videoSrc="/images/bakgrund-under.mp4" brightness={0.9} overlayOpacity={0.65} />
+      
+      {/* Mjuk gradient-övergång nedåt */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent z-10" />
       
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-sky-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-400">
+          <span className="inline-block rounded-full bg-sky-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
             Våra tjänster
           </span>
           <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -311,12 +347,18 @@ function ServicesSection() {
 ═══════════════════════════════════════════════════════════════════════════ */
 function TargetAudienceSection() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 md:py-32">
-      <LavaLampBackground />
+    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
+      {/* Mjuk gradient-övergång uppifrån */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-950 to-transparent z-10" />
+      
+      <VideoBackground videoSrc="/images/bakgrund-under-alt.mp4" brightness={0.9} overlayOpacity={0.6} />
+      
+      {/* Mjuk gradient-övergång nedåt */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent z-10" />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-cyan-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-cyan-400">
+          <span className="inline-block rounded-full bg-cyan-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-cyan-400" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3), inset 0 0 20px rgba(34, 211, 238, 0.1)', textShadow: '0 0 10px rgba(34, 211, 238, 0.6)' }}>
             Våra målgrupper
           </span>
           <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -330,7 +372,7 @@ function TargetAudienceSection() {
         {/* Kommuner - Text vänster, bild höger */}
         <div className="mt-12 sm:mt-20 grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="animate-fade-in-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-sky-400">
+            <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-sky-400" style={{ boxShadow: '0 0 15px rgba(56, 189, 248, 0.25)', textShadow: '0 0 8px rgba(56, 189, 248, 0.5)' }}>
               <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-sky-500/20">
                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -393,7 +435,7 @@ function TargetAudienceSection() {
           </div>
           
           <div className="order-1 lg:order-2 animate-fade-in-right">
-            <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-400">
+            <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-400" style={{ boxShadow: '0 0 15px rgba(34, 211, 238, 0.25)', textShadow: '0 0 8px rgba(34, 211, 238, 0.5)' }}>
               <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-cyan-500/20">
                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -458,12 +500,18 @@ const steps = [
 
 function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-slate-900 py-16 sm:py-24 md:py-32">
-      <LavaLampBackground />
+    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
+      {/* Mjuk gradient-övergång uppifrån */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-900 to-transparent z-10" />
+      
+      <VideoBackground videoSrc="/images/bakgrund-under.mp4" brightness={0.9} overlayOpacity={0.65} />
+      
+      {/* Mjuk gradient-övergång nedåt */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent z-10" />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-cyan-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-cyan-400">
+          <span className="inline-block rounded-full bg-cyan-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-cyan-400" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3), inset 0 0 20px rgba(34, 211, 238, 0.1)', textShadow: '0 0 10px rgba(34, 211, 238, 0.6)' }}>
             Vår process
           </span>
           <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -651,12 +699,18 @@ function TestimonialsSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-16 sm:py-24 md:py-32">
-      <LavaLampBackground />
+    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
+      {/* Mjuk gradient-övergång uppifrån */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-950 to-transparent z-10" />
+      
+      <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.2} overlayOpacity={0.35} />
+      
+      {/* Mjuk gradient-övergång nedåt mot kontakt */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent z-10" />
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-emerald-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400">
+          <span className="inline-block rounded-full bg-emerald-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400" style={{ boxShadow: '0 0 20px rgba(52, 211, 153, 0.3), inset 0 0 20px rgba(52, 211, 153, 0.1)', textShadow: '0 0 10px rgba(52, 211, 153, 0.6)' }}>
             Feedback
           </span>
           <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
