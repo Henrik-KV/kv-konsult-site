@@ -296,10 +296,11 @@ function ServicesSection() {
             <Link
               key={s.title}
               href={s.href}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-800/60 transition-all duration-500 hover:border-sky-500/30 hover:shadow-2xl hover:shadow-cyan-500/20"
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-cyan-500/30 bg-slate-800/60 transition-all duration-500 hover:border-cyan-400/50 hover:shadow-2xl hover:shadow-cyan-500/30"
+              style={{ boxShadow: '0 0 25px rgba(34, 211, 238, 0.15)' }}
             >
-              {/* Bild - med overflow-hidden och rundade hörn upptill */}
-              <div className="relative h-48 sm:h-64 overflow-hidden">
+              {/* Bild - med overflow-hidden, rundade hörn och glow-effekt */}
+              <div className="relative h-48 sm:h-64 overflow-hidden" style={{ boxShadow: '0 0 30px rgba(34, 211, 238, 0.2), inset 0 0 20px rgba(34, 211, 238, 0.05)' }}>
                 <Image
                   src={s.image}
                   alt={s.imageAlt}
@@ -577,39 +578,39 @@ function ProcessSection() {
 const testimonials = [
   {
     quote: "Konkreta exempel som vi kunde använda direkt dagen efter workshopen. Riktigt bra!",
-    author: "Projektledare",
+    author: "Microsoft 365 Workshop",
     org: "Tillverkande företag",
-    avatar: "PL",
+    avatar: "M365",
   },
   {
     quote: "Äntligen någon som förklarar AI på ett sätt som alla förstår – inte bara IT-avdelningen.",
-    author: "HR-chef",
+    author: "Microsoft 365 Bas",
     org: "Tjänsteföretag",
-    avatar: "HR",
+    avatar: "Bas",
   },
   {
     quote: "Nulägesanalysen gav oss en tydlig bild av var vi ska börja. Ovärderligt.",
-    author: "Digitaliseringschef",
+    author: "AI Nulägesanalys",
     org: "Kommun",
-    avatar: "DC",
+    avatar: "AI",
   },
   {
     quote: "Tack vare utbildningen sparar vårt team flera timmar per vecka. Imponerande resultat.",
-    author: "Avdelningschef",
+    author: "Microsoft 365 Bas+",
     org: "Region",
-    avatar: "AC",
+    avatar: "Bas+",
   },
   {
     quote: "Bästa AI-utbildningen vi gått. Praktiskt, relevant och direkt applicerbart.",
-    author: "VD",
+    author: "Generell AI Workshop",
     org: "Konsultbolag",
-    avatar: "VD",
+    avatar: "AI",
   },
   {
     quote: "De förstod våra utmaningar och anpassade upplägget perfekt efter våra behov.",
-    author: "IT-strateg",
+    author: "AI-partner",
     org: "Medelstort företag",
-    avatar: "IT",
+    avatar: "AIP",
   },
 ];
 

@@ -921,7 +921,7 @@ export default function TjansterPage() {
                   </div>
                   
                   <div className={`relative flex items-center ${pkgIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 shadow-2xl bg-slate-800/30">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl sm:rounded-3xl border border-cyan-500/30 shadow-2xl bg-slate-800/30" style={{ boxShadow: '0 0 40px rgba(34, 211, 238, 0.25), 0 0 80px rgba(56, 189, 248, 0.1)' }}>
                       <Image
                         src={pkg.image}
                         alt={pkg.imageAlt}

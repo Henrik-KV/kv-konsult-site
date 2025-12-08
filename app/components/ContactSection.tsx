@@ -416,13 +416,13 @@ export default function ContactSection() {
                 <h3 className="text-lg sm:text-xl font-bold text-white">Ulrika Andersson</h3>
                 <div className="mt-3 sm:mt-4 space-y-2">
                   <a
-                    href="mailto:ulrika@kvkonsult.com"
+                    href="mailto:Ulrika@kvkonsult.com"
                     className="flex items-center gap-3 text-slate-400 transition-colors duration-200 hover:text-sky-400"
                   >
                     <svg className="h-5 w-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    ulrika@kvkonsult.com
+                    Ulrika@kvkonsult.com
                   </a>
                   <a
                     href="tel:+46703328508"
