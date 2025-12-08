@@ -58,7 +58,7 @@ export default function VideoBackground({
 ═══════════════════════════════════════════════════════════════════════════ */
 export function ScrollIndicator({ className = "bottom-8" }: { className?: string }) {
   return (
-    <div className={`absolute left-1/2 -translate-x-1/2 z-20 ${className}`}>
+    <div className={`hidden sm:block absolute left-1/2 -translate-x-1/2 z-20 ${className}`}>
       <div className="animate-bounce">
         <svg
           className="h-8 w-8"

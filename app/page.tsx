@@ -113,8 +113,8 @@ function Hero() {
         </div>
       </div>
       
-      {/* Studsande pil nedåt - placerad högre upp så den syns tydligt */}
-      <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-20">
+      {/* Studsande pil nedåt - döljs på mobil för att undvika krock med innehåll */}
+      <div className="hidden sm:block absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-20">
         <div className="animate-bounce">
           <svg 
             className="h-8 w-8 text-transparent bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400" 
