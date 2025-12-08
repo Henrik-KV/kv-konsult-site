@@ -579,37 +579,37 @@ const testimonials = [
   {
     quote: "Konkreta exempel som vi kunde använda direkt dagen efter workshopen. Riktigt bra!",
     author: "Microsoft 365 Workshop",
-    org: "Tillverkande företag",
+    org: "Deltagare",
     avatar: "M365",
   },
   {
     quote: "Äntligen någon som förklarar AI på ett sätt som alla förstår – inte bara IT-avdelningen.",
     author: "Microsoft 365 Bas",
-    org: "Tjänsteföretag",
+    org: "Deltagare",
     avatar: "Bas",
   },
   {
     quote: "Nulägesanalysen gav oss en tydlig bild av var vi ska börja. Ovärderligt.",
     author: "AI Nulägesanalys",
-    org: "Kommun",
+    org: "Deltagare",
     avatar: "AI",
   },
   {
     quote: "Tack vare utbildningen sparar vårt team flera timmar per vecka. Imponerande resultat.",
     author: "Microsoft 365 Bas+",
-    org: "Region",
+    org: "Deltagare",
     avatar: "Bas+",
   },
   {
     quote: "Bästa AI-utbildningen vi gått. Praktiskt, relevant och direkt applicerbart.",
     author: "Generell AI Workshop",
-    org: "Konsultbolag",
+    org: "Deltagare",
     avatar: "AI",
   },
   {
     quote: "De förstod våra utmaningar och anpassade upplägget perfekt efter våra behov.",
     author: "AI-partner",
-    org: "Medelstort företag",
+    org: "Kund",
     avatar: "AIP",
   },
 ];
