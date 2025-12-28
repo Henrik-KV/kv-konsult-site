@@ -241,8 +241,10 @@ export default function TjansterPage() {
               className="group rounded-2xl border border-white/10 bg-slate-800/40 p-6 sm:p-8 transition-all duration-300 hover:border-sky-500/30 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-sky-500/10"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 text-2xl">
-                  🏛️
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-500/20" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3)' }}>
+                  <svg className="h-7 w-7 text-sky-400" style={{ filter: 'drop-shadow(0 0 8px rgba(56, 189, 248, 0.6))' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
@@ -267,8 +269,10 @@ export default function TjansterPage() {
               className="group rounded-2xl border border-white/10 bg-slate-800/40 p-6 sm:p-8 transition-all duration-300 hover:border-cyan-500/30 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-cyan-500/10"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500/20 to-teal-500/20 text-2xl">
-                  🏢
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-500/20" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3)' }}>
+                  <svg className="h-7 w-7 text-cyan-400" style={{ filter: 'drop-shadow(0 0 8px rgba(34, 211, 238, 0.6))' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
