@@ -29,7 +29,7 @@ export default function Navigation() {
   const [visible, setVisible] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLLIElement>(null);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
