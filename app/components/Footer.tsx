@@ -114,7 +114,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-12 border-t border-white/5 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 text-xs text-slate-500 md:flex-row">
-            <span>© {new Date().getFullYear()} KV Konsult. Alla rättigheter reserverade.</span>
+            <span>© {new Date().getFullYear()} KV Konsult AB. Alla rättigheter reserverade.</span>
             <div className="flex gap-6">
               <Link
                 href="/integritetspolicy"

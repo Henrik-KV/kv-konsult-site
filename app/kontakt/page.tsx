@@ -22,6 +22,9 @@ const allPackages = [
   { id: "ai-partner-full", name: "AI-partner Full", category: "Partnerskap" },
   { id: "webb-lopande", name: "Webbsida + löpande stöd", category: "Webb" },
   { id: "webb-engang", name: "Webbsida: Engångsleverans", category: "Webb" },
+  { id: "social-bas", name: "Sociala medier Bas", category: "Sociala medier" },
+  { id: "social-plus", name: "Sociala medier Plus", category: "Sociala medier" },
+  { id: "social-premium", name: "Sociala medier Premium", category: "Sociala medier" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════

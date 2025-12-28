@@ -7,7 +7,16 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { label: "Hem", href: "/" },
-  { label: "Tjänster & paket", href: "/tjanster" },
+  { 
+    label: "Tjänster", 
+    href: "/tjanster",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "Utbildning & partnerskap", href: "/utbildning-ai", icon: "🎓", description: "Föreläsningar, workshops och löpande AI-stöd" },
+      { label: "Webbsidor", href: "/webbsidor", icon: "🌐", description: "Moderna webbsidor med AI-stöd" },
+      { label: "Sociala medier", href: "/sociala-medier", icon: "📱", description: "Löpande innehållsproduktion" },
+    ]
+  },
   { label: "För kommuner", href: "/kommuner" },
   { label: "För företag", href: "/foretag" },
   { label: "Om oss", href: "/om-oss" },
@@ -18,6 +27,9 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
@@ -57,6 +69,8 @@ export default function Navigation() {
   // Stäng mobilmeny vid navigering
   useEffect(() => {
     setMobileOpen(false);
+    setMobileServicesOpen(false);
+    setDropdownOpen(false);
     setVisible(true);
     
     // Scrolla till toppen ENDAST om det inte finns en hash i URL:en
@@ -65,6 +79,17 @@ export default function Navigation() {
       window.scrollTo(0, 0);
     }
   }, [pathname]);
+
+  // Stäng dropdown om man klickar utanför
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Hantera hash-scroll med korrekt offset för fixed navigation
   useEffect(() => {
@@ -149,9 +174,91 @@ export default function Navigation() {
             } else if (l.href === "/") {
               // Hem är bara aktiv om vi är exakt på /
               isActive = pathname === "/";
+            } else if (l.hasDropdown) {
+              // Tjänster är aktiv om vi är på någon av undersidorna
+              isActive = pathname === "/tjanster" || 
+                         pathname === "/utbildning-ai" || 
+                         pathname === "/webbsidor" || 
+                         pathname === "/sociala-medier";
             } else {
               // Andra sidor är aktiva om pathname börjar med deras path
               isActive = pathname.startsWith(basePath);
+            }
+            
+            // Hantera dropdown för Tjänster
+            if (l.hasDropdown) {
+              return (
+                <li key={l.label} className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className={`relative flex items-center gap-1 px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                      isActive
+                        ? "text-white bg-gradient-to-r from-sky-600/30 to-cyan-600/30 shadow-lg shadow-sky-500/10"
+                        : "text-slate-300 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    {l.label}
+                    <svg 
+                      className={`h-4 w-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 h-0.5 w-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-400 to-cyan-400" />
+                    )}
+                  </button>
+                  
+                  {/* Dropdown menu */}
+                  <div 
+                    className={`absolute left-0 top-full mt-2 w-80 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/98 backdrop-blur-xl shadow-2xl shadow-sky-500/10 transition-all duration-300 ${
+                      dropdownOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+                    }`}
+                  >
+                    <div className="p-2">
+                      {/* Link till översiktssidan */}
+                      <Link
+                        href="/tjanster"
+                        onClick={() => setDropdownOpen(false)}
+                        className="flex items-center gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-white/5 group"
+                      >
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 text-lg">
+                          📋
+                        </div>
+                        <div>
+                          <p className="font-medium text-white group-hover:text-sky-400 transition-colors">Alla tjänster</p>
+                          <p className="text-xs text-slate-400">Översikt över våra erbjudanden</p>
+                        </div>
+                      </Link>
+                      
+                      <div className="my-2 border-t border-white/5" />
+                      
+                      {l.dropdownItems?.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setDropdownOpen(false)}
+                          className={`flex items-center gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-white/5 group ${
+                            pathname === item.href ? 'bg-white/5' : ''
+                          }`}
+                        >
+                          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 text-lg">
+                            {item.icon}
+                          </div>
+                          <div>
+                            <p className={`font-medium transition-colors ${
+                              pathname === item.href ? 'text-sky-400' : 'text-white group-hover:text-sky-400'
+                            }`}>{item.label}</p>
+                            <p className="text-xs text-slate-400">{item.description}</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              );
             }
             
             return (
@@ -209,7 +316,7 @@ export default function Navigation() {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
-          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <ul className="flex flex-col gap-1 border-t border-white/10 bg-slate-950/98 px-4 py-4 backdrop-blur-xl">
@@ -222,8 +329,70 @@ export default function Navigation() {
               isActive = pathname === "/kontakt";
             } else if (l.href === "/") {
               isActive = pathname === "/";
+            } else if (l.hasDropdown) {
+              isActive = pathname === "/tjanster" || 
+                         pathname === "/utbildning-ai" || 
+                         pathname === "/webbsidor" || 
+                         pathname === "/sociala-medier";
             } else {
               isActive = pathname.startsWith(basePath);
+            }
+            
+            // Hantera Tjänster med undermeny på mobil
+            if (l.hasDropdown) {
+              return (
+                <li
+                  key={l.label}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all duration-200 ${
+                      isActive
+                        ? "bg-gradient-to-r from-sky-600/20 to-cyan-600/20 text-white"
+                        : "text-slate-300 hover:bg-white/5 hover:text-white"
+                    }`}
+                  >
+                    {l.label}
+                    <svg 
+                      className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Undermeny på mobil */}
+                  <div className={`overflow-hidden transition-all duration-300 ${mobileServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="mt-1 ml-4 space-y-1 border-l border-white/10 pl-4">
+                      <Link
+                        href="/tjanster"
+                        className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                          pathname === '/tjanster' ? 'text-sky-400 bg-sky-500/10' : 'text-slate-400 hover:text-white hover:bg-white/5'
+                        }`}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        📋 Alla tjänster
+                      </Link>
+                      {l.dropdownItems?.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                            pathname === item.href ? 'text-sky-400 bg-sky-500/10' : 'text-slate-400 hover:text-white hover:bg-white/5'
+                          }`}
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {item.icon} {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              );
             }
             
             return (
