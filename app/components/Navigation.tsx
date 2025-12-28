@@ -12,9 +12,9 @@ const links = [
     href: "/tjanster",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Utbildning & partnerskap", href: "/utbildning-ai", icon: "🎓", description: "Föreläsningar, workshops och löpande AI-stöd" },
-      { label: "Webbsidor", href: "/webbsidor", icon: "🌐", description: "Moderna webbsidor med AI-stöd" },
-      { label: "Sociala medier", href: "/sociala-medier", icon: "📱", description: "Löpande innehållsproduktion" },
+      { label: "Utbildning & partnerskap", href: "/utbildning-ai", iconType: "education", description: "Föreläsningar, workshops och löpande AI-stöd" },
+      { label: "Webbsidor", href: "/webbsidor", iconType: "web", description: "Moderna webbsidor med AI-stöd" },
+      { label: "Sociala medier", href: "/sociala-medier", iconType: "social", description: "Löpande innehållsproduktion" },
     ]
   },
   { label: "För kommuner", href: "/kommuner" },
@@ -22,6 +22,30 @@ const links = [
   { label: "Om oss", href: "/om-oss" },
   { label: "Kontakt", href: "/kontakt" },
 ];
+
+// Clean SVG-ikoner för dropdown
+const dropdownIcons: Record<string, React.ReactNode> = {
+  education: (
+    <svg className="h-5 w-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+    </svg>
+  ),
+  web: (
+    <svg className="h-5 w-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+    </svg>
+  ),
+  social: (
+    <svg className="h-5 w-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+    </svg>
+  ),
+  overview: (
+    <svg className="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+    </svg>
+  ),
+};
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -224,8 +248,8 @@ export default function Navigation() {
                         onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-white/5 group"
                       >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 text-lg">
-                          📋
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20">
+                          {dropdownIcons.overview}
                         </div>
                         <div>
                           <p className="font-medium text-white group-hover:text-sky-400 transition-colors">Alla tjänster</p>
@@ -244,8 +268,8 @@ export default function Navigation() {
                             pathname === item.href ? 'bg-white/5' : ''
                           }`}
                         >
-                          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 text-lg">
-                            {item.icon}
+                          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20">
+                            {dropdownIcons[item.iconType]}
                           </div>
                           <div>
                             <p className={`font-medium transition-colors ${
@@ -370,23 +394,25 @@ export default function Navigation() {
                     <div className="mt-1 ml-4 space-y-1 border-l border-white/10 pl-4">
                       <Link
                         href="/tjanster"
-                        className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                        className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
                           pathname === '/tjanster' ? 'text-sky-400 bg-sky-500/10' : 'text-slate-400 hover:text-white hover:bg-white/5'
                         }`}
                         onClick={() => setMobileOpen(false)}
                       >
-                        📋 Alla tjänster
+                        <span className="flex-shrink-0">{dropdownIcons.overview}</span>
+                        <span>Alla tjänster</span>
                       </Link>
                       {l.dropdownItems?.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                          className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
                             pathname === item.href ? 'text-sky-400 bg-sky-500/10' : 'text-slate-400 hover:text-white hover:bg-white/5'
                           }`}
                           onClick={() => setMobileOpen(false)}
                         >
-                          {item.icon} {item.label}
+                          <span className="flex-shrink-0">{dropdownIcons[item.iconType]}</span>
+                          <span>{item.label}</span>
                         </Link>
                       ))}
                     </div>
