@@ -25,6 +25,9 @@ const allPackages = [
   { id: "social-bas", name: "Sociala medier Bas", category: "Sociala medier" },
   { id: "social-plus", name: "Sociala medier Plus", category: "Sociala medier" },
   { id: "social-premium", name: "Sociala medier Premium", category: "Sociala medier" },
+  { id: "losning-upptack", name: "Upptäcktsfas", category: "Appar & lösningar" },
+  { id: "losning-mvp", name: "MVP-utveckling", category: "Appar & lösningar" },
+  { id: "losning-fullskala", name: "Fullskalig utveckling", category: "Appar & lösningar" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════

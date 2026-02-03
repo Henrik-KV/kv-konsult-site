@@ -59,6 +59,23 @@ const serviceCategories = [
       "Analys och månadsrapportering",
     ],
   },
+  {
+    id: "losningsarkitekter",
+    title: "Appar & lösningar",
+    subtitle: "Skräddarsydda appar & system",
+    description: "Vi lyssnar in på era utmaningar och bygger skräddarsydda digitala lösningar. Webbapplikationer, mobilappar för App Store och Google Play – allt designat för att lösa just era problem.",
+    image: "/images/Applikation-bild.png",
+    imageAlt: "Skräddarsydd apputveckling",
+    href: "/losningsarkitekter",
+    color: "emerald",
+    gradient: "from-emerald-500 to-teal-500",
+    features: [
+      "Webbapplikationer & mobilappar",
+      "Från problemanalys till färdig lösning",
+      "Integration med befintliga system",
+      "Support och vidareutveckling",
+    ],
+  },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -96,6 +113,12 @@ function ServiceCard({ category }: { category: ServiceCategory }) {
       border: "border-orange-500/30", 
       glow: "hover:shadow-orange-500/20",
       bg: "bg-orange-600/20"
+    },
+    emerald: { 
+      text: "text-emerald-400", 
+      border: "border-emerald-500/30", 
+      glow: "hover:shadow-emerald-500/20",
+      bg: "bg-emerald-600/20"
     },
   };
 
@@ -179,7 +202,7 @@ export default function TjansterPage() {
               </span>
             </h1>
             <p className="mx-auto mt-4 sm:mt-6 max-w-3xl text-base sm:text-lg text-slate-300 md:text-xl">
-              Vi erbjuder tre huvudområden – utbildning & AI-partnerskap, webbsidor och sociala medier. Alla våra tjänster kan kombineras och skräddarsys efter just era behov.
+              Vi erbjuder fyra huvudområden – utbildning & AI-partnerskap, webbsidor, sociala medier och skräddarsydd apputveckling. Alla våra tjänster kan kombineras och skräddarsys efter just era behov.
             </p>
           </div>
         </div>
@@ -188,7 +211,7 @@ export default function TjansterPage() {
       {/* Tjänstekort */}
       <section className="relative bg-slate-900 py-16 md:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {serviceCategories.map((category) => (
               <ServiceCard key={category.id} category={category} />
             ))}

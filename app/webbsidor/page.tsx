@@ -211,7 +211,7 @@ export default function WebbsidorPage() {
               className="inline-block rounded-full bg-violet-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-violet-400" 
               style={subtitleGlowStyles}
             >
-              Billigast i Sverige*
+              Otroligt prisvärda
             </span>
             <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
               <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
@@ -266,9 +266,6 @@ export default function WebbsidorPage() {
               </div>
               <p className="mt-6 text-center text-sm text-slate-400">
                 <span className="text-violet-400">Tips:</span> Börja med engångsleverans och lägg till löpande stöd när ni ser behovet.
-              </p>
-              <p className="mt-4 text-center text-xs text-slate-500">
-                * Vi har jämfört priser hos andra leverantörer och är övertygade om att vi erbjuder marknadens bästa pris–kvalitet. Hittar du billigare? Hör av dig så matchar vi.
               </p>
             </div>
           </div>

@@ -242,7 +242,7 @@ export default function SocialaMedierPage() {
               className="inline-block rounded-full bg-orange-500/10 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-widest text-orange-400" 
               style={subtitleGlowStyles}
             >
-              Billigast i Sverige*
+              Otroligt prisvärda
             </span>
             <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
               <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
@@ -292,9 +292,6 @@ export default function SocialaMedierPage() {
                   <p className="mt-2 text-sm text-slate-400">Vi tar hand om allt – ni fokuserar på verksamheten.</p>
                 </div>
               </div>
-              <p className="mt-6 text-center text-xs text-slate-500">
-                * Vi har jämfört priser hos andra leverantörer och är övertygade om att vi erbjuder marknadens bästa pris–kvalitet. Hittar du billigare? Hör av dig så matchar vi.
-              </p>
             </div>
           </div>
         </div>
