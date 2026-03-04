@@ -327,14 +327,49 @@ export default function LosningsarkitekterPage() {
             </div>
             
             <div className="relative flex items-center">
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl sm:rounded-3xl border border-emerald-500/30 shadow-2xl bg-slate-800/30" style={{ boxShadow: '0 0 40px rgba(52, 211, 153, 0.25), 0 0 80px rgba(20, 184, 166, 0.1)' }}>
-                <Image
-                  src="/images/Applikation-bild.png"
-                  alt="Skräddarsydd apputveckling"
-                  fill
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="relative flex flex-col items-center">
+                {/* Telefon-mockup med Lägesbild Resa */}
+                <Link href="/demo-appar" className="group relative block">
+                  <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-br from-emerald-500/20 via-teal-500/15 to-cyan-500/20 blur-3xl" />
+                  <div
+                    className="relative w-[200px] sm:w-[240px] md:w-[260px] rounded-[2.4rem] p-[5px] shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+                    style={{
+                      background: 'linear-gradient(145deg, #5a5a6e 0%, #2a2a3e 30%, #1a1a2e 60%, #3a3a4e 100%)',
+                      boxShadow: '0 25px 60px -15px rgba(0,0,0,0.6), 0 0 40px -10px rgba(52, 211, 153, 0.3)',
+                    }}
+                  >
+                    <div className="relative overflow-hidden rounded-[2.1rem] bg-black">
+                      <div className="absolute left-1/2 top-[6px] z-20 -translate-x-1/2">
+                        <div className="h-[20px] w-[80px] rounded-full" style={{ background: 'linear-gradient(180deg, #000, #111)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.8)' }} />
+                      </div>
+                      <div className="relative w-full overflow-hidden bg-black" style={{ aspectRatio: '9/19' }}>
+                        <Image
+                          src="/images/app-mockup/Lagesbild-Resa.jpg"
+                          alt="Lägesbild – Reseplan"
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, 260px"
+                          quality={90}
+                        />
+                        <div className="pointer-events-none absolute inset-0 z-10" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%, transparent 70%, rgba(255,255,255,0.02) 100%)' }} />
+                      </div>
+                    </div>
+                    <div className="absolute -left-[1.5px] top-[72px] h-[22px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                    <div className="absolute -left-[1.5px] top-[102px] h-[38px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                    <div className="absolute -left-[1.5px] top-[148px] h-[38px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                    <div className="absolute -right-[1.5px] top-[100px] h-[50px] w-[2.5px] rounded-r-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                  </div>
+                </Link>
+
+                {/* Se demo-appar knapp */}
+                <Link
+                  href="/demo-appar"
+                  className="group mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/40 hover:scale-105"
+                >
+                  Se våra demo-appar
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </Link>
+                <p className="mt-2 text-xs text-slate-500">Klicka på telefonen eller knappen för att se exempel</p>
               </div>
               <div className="hidden sm:block absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-3xl bg-gradient-to-br from-emerald-600/20 to-teal-600/20 blur-xl" />
             </div>

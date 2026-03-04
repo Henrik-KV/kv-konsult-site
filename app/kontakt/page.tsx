@@ -25,9 +25,7 @@ const allPackages = [
   { id: "social-bas", name: "Sociala medier Bas", category: "Sociala medier" },
   { id: "social-plus", name: "Sociala medier Plus", category: "Sociala medier" },
   { id: "social-premium", name: "Sociala medier Premium", category: "Sociala medier" },
-  { id: "losning-upptack", name: "Upptäcktsfas", category: "Appar & lösningar" },
-  { id: "losning-mvp", name: "MVP-utveckling", category: "Appar & lösningar" },
-  { id: "losning-fullskala", name: "Fullskalig utveckling", category: "Appar & lösningar" },
+  { id: "losning-app", name: "Appar & lösningar", category: "Appar & lösningar" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -44,7 +42,11 @@ function getPrefilledMessage(type: string | null, packages: string[]): string {
     case "exempel3":
       return "Vi är intresserade av upplägget i Exempel 3 – föreläsning Microsoft 365 Bas+ + skräddarsydd workshop. Hör gärna av er med förslag på datum och pris.";
     case "avstamning":
-      return "Vi vill boka ett första avstämningsmöte för att diskutera hur vi kan komma igång med AI och era utbildningar.";
+      return "Vi vill boka ett första avstämningsmöte för att diskutera hur vi kan komma igång med era tjänster.";
+    case "demo":
+      return "Vi är intresserade av att få en demo-app byggd. Berätta gärna mer om processen och nästa steg.";
+    case "app":
+      return "Vi har en idé till en app och vill diskutera möjligheterna. Hör gärna av er.";
     case "paket":
       return generateMessageFromPackages(packages);
     default:
@@ -78,6 +80,9 @@ function getPreselectedPackages(type: string | null, packagesParam: string[]): s
       return ["m365-bas", "workshop-ai"];
     case "exempel3":
       return ["m365-bas-plus", "workshop-halv"];
+    case "demo":
+    case "app":
+      return ["losning-app"];
     default:
       return [];
   }
@@ -390,9 +395,32 @@ function ContactForm() {
 /* ═══════════════════════════════════════════════════════════════════════════
    HUVUDSIDAN
 ═══════════════════════════════════════════════════════════════════════════ */
+function AutoScrollToForm() {
+  const searchParams = useSearchParams();
+  const type = searchParams.get("type");
+
+  useEffect(() => {
+    if (type === "app" || type === "demo") {
+      // Scroll to the form section after a brief delay for render
+      setTimeout(() => {
+        const formEl = document.getElementById("kontakt-formular");
+        if (formEl) {
+          formEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    }
+  }, [type]);
+
+  return null;
+}
+
 export default function KontaktPage() {
   return (
     <main>
+      <Suspense fallback={null}>
+        <AutoScrollToForm />
+      </Suspense>
+
       {/* Hero med bild */}
       <section className="relative min-h-screen overflow-hidden">
         {/* Video: kontakt-bg.mp4 (byt ut när du har en egen) */}
@@ -412,7 +440,7 @@ export default function KontaktPage() {
                 </span>
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                Vi börjar gärna med ett kostnadsfritt samtal för att förstå era behov. Ingen förpliktelse – bara ett ärligt samtal om hur AI kan göra skillnad hos just er.
+                Vi börjar gärna med ett kostnadsfritt samtal för att förstå era behov. Ingen förpliktelse – bara ett ärligt samtal om hur vi kan hjälpa er framåt.
               </p>
               
               {/* Snabb info - större och mer framträdande */}
@@ -462,7 +490,7 @@ export default function KontaktPage() {
       </section>
 
       {/* Kontaktformulär & info */}
-      <section className="relative overflow-hidden bg-slate-900 py-16 md:py-24">
+      <section id="kontakt-formular" className="relative overflow-hidden bg-slate-900 py-16 md:py-24">
         {/* Subtil bakgrund */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full bg-sky-500/10 blur-[100px] animate-blob-1" />

@@ -53,14 +53,14 @@ function Hero() {
           {/* Vänster kolumn - Text */}
           <div className="text-center lg:text-left">
             <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl animate-fade-in-up">
-              AI och Microsoft 365 som faktiskt gör{" "}
+              Vi bygger det ni{" "}
               <span className="bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
-                skillnad i vardagen
+                behöver
               </span>
             </h1>
 
             <p className="mt-4 text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg md:text-xl animate-fade-in-up animation-delay-100">
-              Vi hjälper företag och kommuner att ta nästa steg med AI, Microsoft 365 Copilot, utbildning och nulägesanalys – på ett sätt som alla i organisationen kan använda.
+              Vi bygger skräddarsydda appar, webbsidor och digitala lösningar – och stöttar er med AI-utbildning, sociala medier och strategisk rådgivning.
             </p>
 
             {/* Knappar */}
@@ -69,45 +69,104 @@ function Hero() {
                 href="/kontakt?type=avstämning"
                 className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-sky-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/40 hover:scale-105 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
               >
-                <span className="relative z-10">Boka avstämningsmöte</span>
+                <span className="relative z-10">Boka ett samtal</span>
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </Link>
               <Link
                 href="/tjanster"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:scale-105 sm:px-8 sm:py-4 sm:text-base sm:w-auto"
               >
-                Se tjänster & paket
+                Se våra tjänster
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Link>
             </div>
           </div>
 
-          {/* Höger kolumn - Visuellt element (visas även på mobil) */}
-          <div className="relative animate-fade-in-right animation-delay-300 mt-8 lg:mt-0">
-            <div className="relative">
-              {/* Huvudvideo - loopar automatiskt */}
-              <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-2xl lg:rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-slate-800/80 to-slate-900/80 shadow-2xl backdrop-blur-sm" style={{ boxShadow: '0 0 40px rgba(34, 211, 238, 0.3), 0 0 80px rgba(56, 189, 248, 0.15)' }}>
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 h-full w-full object-cover opacity-90"
+          {/* Höger kolumn - Två telefoner sida vid sida */}
+          <div className="relative animate-fade-in-right animation-delay-300 mt-8 lg:mt-0 flex justify-center">
+            <div className="relative flex items-end gap-3 sm:gap-5">
+              {/* Gemensam glow bakom båda telefoner */}
+              <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-br from-sky-500/20 via-cyan-500/15 to-teal-500/20 blur-3xl" />
+
+              {/* ─── Telefon 1: "Din app här" (klickbar) ─── */}
+              <Link href="/kontakt?type=app" className="relative group block">
+                <div
+                  className="relative w-[150px] sm:w-[180px] md:w-[200px] rounded-[2.4rem] p-[5px] shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+                  style={{
+                    background: 'linear-gradient(145deg, #5a5a6e 0%, #2a2a3e 30%, #1a1a2e 60%, #3a3a4e 100%)',
+                    boxShadow: '0 25px 60px -15px rgba(0,0,0,0.6), 0 0 40px -10px rgba(56, 189, 248, 0.3)',
+                  }}
                 >
-                  <source src="/images/hero-ai.mp4" type="video/mp4" />
-                </video>
-                {/* Subtil gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
-                
-                {/* Citatkort - kursiv text, responsiv */}
-                <div className="absolute bottom-3 left-3 right-3 lg:bottom-6 lg:left-6 lg:right-6">
-                  <div className="rounded-xl lg:rounded-2xl border border-cyan-500/30 bg-slate-900/90 px-4 py-3 lg:px-8 lg:py-6 backdrop-blur-md shadow-xl shadow-cyan-500/10">
-                    <p className="text-center text-sm lg:text-xl italic leading-relaxed text-slate-100" style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.4)' }}>
-                      "Vi gör <span className="text-cyan-400" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.8)' }}>AI begripligt</span> och användbart i vardagen."
-                    </p>
+                  <div className="relative overflow-hidden rounded-[2.1rem] bg-black">
+                    <div className="absolute left-1/2 top-[6px] z-20 -translate-x-1/2">
+                      <div className="h-[18px] w-[65px] rounded-full" style={{ background: 'linear-gradient(180deg, #000, #111)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.8)' }} />
+                    </div>
+                    <div className="relative flex w-full flex-col items-center justify-center" style={{ aspectRatio: '9/19' }}>
+                      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900" />
+                      <div className="relative h-16 w-16 sm:h-20 sm:w-20">
+                        <div className="absolute inset-0 animate-ping rounded-full border border-sky-500/20" style={{ animationDuration: '3s' }} />
+                        <div className="absolute inset-3 animate-ping rounded-full border border-cyan-500/20" style={{ animationDuration: '3s', animationDelay: '0.6s' }} />
+                        <div className="absolute inset-6 animate-ping rounded-full border border-teal-500/20" style={{ animationDuration: '3s', animationDelay: '1.2s' }} />
+                        <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-sky-500/15 to-cyan-500/15 ring-1 ring-cyan-400/30 transition-all duration-300 group-hover:ring-cyan-400/60 group-hover:from-sky-500/25 group-hover:to-cyan-500/25">
+                          <svg className="h-7 w-7 sm:h-8 sm:w-8 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="url(#neon-plus-grad)" strokeWidth={2}>
+                            <defs>
+                              <linearGradient id="neon-plus-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#38bdf8" />
+                                <stop offset="100%" stopColor="#22d3ee" />
+                              </linearGradient>
+                            </defs>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                          </svg>
+                        </div>
+                      </div>
+                      <p
+                        className="relative mt-4 text-xs font-bold sm:text-sm bg-gradient-to-r from-cyan-400 via-sky-400 to-teal-400 bg-clip-text text-transparent"
+                        style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(56, 189, 248, 0.5)' }}
+                      >
+                        Din app här
+                      </p>
+                    </div>
                   </div>
+                  <div className="absolute -left-[1.5px] top-[72px] h-[20px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                  <div className="absolute -left-[1.5px] top-[98px] h-[34px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                  <div className="absolute -left-[1.5px] top-[138px] h-[34px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                  <div className="absolute -right-[1.5px] top-[95px] h-[44px] w-[2.5px] rounded-r-sm bg-gradient-to-b from-slate-500 to-slate-600" />
                 </div>
-              </div>
+              </Link>
+
+              {/* ─── Telefon 2: Lägesbild karta ─── */}
+              <Link href="/demo-appar" className="relative group block -mb-4 sm:-mb-6">
+                <div
+                  className="relative w-[150px] sm:w-[180px] md:w-[200px] rounded-[2.4rem] p-[5px] shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+                  style={{
+                    background: 'linear-gradient(145deg, #5a5a6e 0%, #2a2a3e 30%, #1a1a2e 60%, #3a3a4e 100%)',
+                    boxShadow: '0 25px 60px -15px rgba(0,0,0,0.6), 0 0 40px -10px rgba(56, 189, 248, 0.25)',
+                  }}
+                >
+                  <div className="relative overflow-hidden rounded-[2.1rem] bg-black">
+                    <div className="absolute left-1/2 top-[6px] z-20 -translate-x-1/2">
+                      <div className="h-[18px] w-[65px] rounded-full" style={{ background: 'linear-gradient(180deg, #000, #111)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.8)' }} />
+                    </div>
+                    <div className="relative w-full overflow-hidden bg-black" style={{ aspectRatio: '9/19' }}>
+                      <Image
+                        src="/images/app-mockup/Lagesbild-karta.jpg"
+                        alt="Lägesbild – Karta"
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 640px) 150px, (max-width: 768px) 180px, 200px"
+                        quality={90}
+                        priority
+                      />
+                      <div className="pointer-events-none absolute inset-0 z-10" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%, transparent 70%, rgba(255,255,255,0.02) 100%)' }} />
+                    </div>
+                  </div>
+                  <div className="absolute -left-[1.5px] top-[72px] h-[20px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                  <div className="absolute -left-[1.5px] top-[98px] h-[34px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                  <div className="absolute -left-[1.5px] top-[138px] h-[34px] w-[2.5px] rounded-l-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                  <div className="absolute -right-[1.5px] top-[95px] h-[44px] w-[2.5px] rounded-r-sm bg-gradient-to-b from-slate-500 to-slate-600" />
+                </div>
+                <p className="mt-2 text-center text-[10px] font-medium text-slate-500 sm:text-xs">Lägesbild</p>
+              </Link>
             </div>
           </div>
         </div>
@@ -148,8 +207,8 @@ function Hero() {
 function StatsSection() {
   const stats = [
     { 
-      title: "Nöjda deltagare", 
-      subtitle: "i våra workshops", 
+      title: "Nöjda kunder", 
+      subtitle: "företag & kommuner", 
       color: "sky",
       icon: (
         <svg className="h-7 w-7 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -238,33 +297,33 @@ const services = [
   {
     image: "/images/service-microsoft365.jpg",
     imageAlt: "Person använder Microsoft 365 Copilot på laptop",
-    title: "AI i Microsoft 365",
-    text: "Få ut mesta möjliga av Copilot i Word, Excel, Teams och Outlook. Vi visar hur ni sparar tid – varje dag.",
-    href: "/tjanster#microsoft365",
+    title: "Utbildning & AI",
+    text: "Föreläsningar och workshops kring AI, Microsoft 365 Copilot och digitalisering – anpassat för hela organisationen.",
+    href: "/utbildning-ai",
     color: "sky",
   },
   {
-    image: "/images/service-ai-general.jpg",
-    imageAlt: "Workshop om AI med deltagare runt whiteboard",
-    title: "Generell AI i vardagen",
-    text: "ChatGPT, Copilot och andra AI-verktyg – vi lär ut hur hela organisationen kan använda AI på ett smart och säkert sätt.",
-    href: "/tjanster#workshops",
+    image: "/images/appar-&-lösningar.jpg",
+    imageAlt: "Appar och lösningar – skräddarsydd utveckling",
+    title: "Appar & lösningar",
+    text: "Från idé till färdig app – vi bygger skräddarsydda mobil- och webbapplikationer som löser verkliga problem.",
+    href: "/demo-appar",
     color: "cyan",
   },
   {
     image: "/images/service-analysis.jpg",
     imageAlt: "Konsult presenterar analys på storbildsskärm",
-    title: "AI Nulägesanalys",
-    text: "Vi kartlägger era behov, processer och potential – och tar fram en konkret handlingsplan för AI.",
-    href: "/tjanster#nulagesanalys",
+    title: "Webbsidor & digitalt",
+    text: "Moderna, snabba webbsidor och digitala lösningar som stärker ert varumärke och driver resultat.",
+    href: "/webbsidor",
     color: "teal",
   },
   {
     image: "/images/service-partnership.jpg",
-    imageAlt: "Handskakning mellan konsult och kund",
-    title: "Löpande AI-partner",
-    text: "Vi följer med er över tid som rådgivare, coach och bollplank – så att AI blir en naturlig del av vardagen.",
-    href: "/tjanster#ai-partner",
+    imageAlt: "Team som samarbetar",
+    title: "Sociala medier & strategi",
+    text: "Vi hjälper er med innehållsstrategi, sociala medier och löpande stöd – så att ni syns och växer.",
+    href: "/sociala-medier",
     color: "emerald",
   },
 ];
@@ -286,7 +345,7 @@ function ServicesSection() {
             Vad vi <span className="text-cyan-400">gör</span>
           </h2>
           <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-400 px-2">
-            Våra tjänster är designade för att skapa verklig effekt – oavsett var ni befinner er i er AI-resa.
+            Utbildning, appar, webbsidor och strategi – allt ni behöver för att digitalisera och växa.
           </p>
         </div>
 
@@ -317,14 +376,14 @@ function ServicesSection() {
               {/* Content */}
               <div className="flex flex-1 flex-col p-4 sm:p-6 md:p-8 bg-slate-800/60">
                   <h3 className="text-lg sm:text-xl font-bold text-white md:text-2xl">
-                    {s.title === "AI i Microsoft 365" ? (
-                      <><span className="text-sky-400">AI</span> i Microsoft 365</>
-                    ) : s.title === "Generell AI i vardagen" ? (
-                      <>Generell <span className="text-cyan-400">AI</span> i vardagen</>
-                    ) : s.title === "AI Nulägesanalys" ? (
-                      <><span className="text-teal-400">AI</span> Nulägesanalys</>
-                    ) : s.title === "Löpande AI-partner" ? (
-                      <>Löpande <span className="text-emerald-400">AI-partner</span></>
+                    {s.title === "Utbildning & AI" ? (
+                      <><span className="text-sky-400">Utbildning</span> & AI</>
+                    ) : s.title === "Appar & lösningar" ? (
+                      <><span className="text-cyan-400">Appar</span> & lösningar</>
+                    ) : s.title === "Webbsidor & digitalt" ? (
+                      <><span className="text-teal-400">Webbsidor</span> & digitalt</>
+                    ) : s.title === "Sociala medier & strategi" ? (
+                      <><span className="text-emerald-400">Sociala medier</span> & strategi</>
                     ) : s.title}
                   </h3>
                   <p className="mt-3 flex-1 text-slate-400 leading-relaxed">
@@ -366,7 +425,7 @@ function TargetAudienceSection() {
             För vem vi <span className="text-cyan-400">jobbar</span>
           </h2>
           <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-400 px-2">
-            Vi samarbetar med både offentlig sektor och näringsliv – anpassat efter era förutsättningar.
+            Vi samarbetar med både offentlig sektor och näringsliv – och bygger de digitala lösningar ni behöver.
           </p>
         </div>
 
@@ -385,10 +444,10 @@ function TargetAudienceSection() {
               För <span className="text-sky-400">kommuner</span> & regioner
             </h3>
             <p className="mt-3 sm:mt-4 text-base sm:text-lg leading-relaxed text-slate-400">
-              Vi hjälper politiker och tjänstepersoner att förstå och tillämpa AI i den kommunala vardagen. Det handlar om digitalisering, effektivare handläggning och att minska digitalt utanförskap bland invånare och medarbetare.
+              Vi bygger skräddarsydda appar, webbsidor och digitala verktyg åt kommuner och regioner – och stöttar med AI-utbildning och strategisk rådgivning för att effektivisera verksamheten.
             </p>
             <ul className="mt-6 space-y-3">
-              {["AI-introduktion för nämnder", "Workshops för förvaltningar", "Nulägesanalys & handlingsplan", "Minska digitalt utanförskap"].map((item) => (
+              {["Skräddarsydda appar & digitala lösningar", "Moderna webbsidor för kommuner", "AI-utbildning för nämnder & förvaltningar", "Nulägesanalys & strategiskt stöd"].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-slate-300">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-500/20 text-sky-400">✓</span>
                   {item}
@@ -448,10 +507,10 @@ function TargetAudienceSection() {
               För <span className="text-cyan-400">företag</span>
             </h3>
             <p className="mt-4 text-lg leading-relaxed text-slate-400">
-              Ledning, sälj, HR, ekonomi och kundservice – vi möter era team där de är och visar hur AI kan frigöra tid, höja kvaliteten och skapa konkurrensfördelar i ert dagliga arbete.
+              Vi bygger appar, webbsidor och digitala verktyg som effektiviserar er verksamhet – och stöttar med AI-utbildning, sociala medier och strategisk rådgivning.
             </p>
             <ul className="mt-6 space-y-3">
-              {["AI-strategi för ledning", "Effektivare säljprocesser", "Automatiserad rapportering", "AI-driven kundservice"].map((item) => (
+              {["Skräddarsydda appar & system", "Moderna webbsidor & e-handel", "AI-utbildning & strategi", "Sociala medier & innehåll"].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-slate-300">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">✓</span>
                   {item}
@@ -479,21 +538,21 @@ const steps = [
   {
     number: "01",
     title: "Utforska & förstå",
-    text: "Vi börjar med att lyssna – på era mål, era utmaningar och era arbetsflöden. Tillsammans identifierar vi var AI kan göra mest nytta.",
+    text: "Vi börjar med att lyssna – på era mål, era utmaningar och era behov. Tillsammans identifierar vi var vi kan göra mest nytta.",
     image: "/images/process-1-meeting.jpg",
     imageAlt: "Konsult lyssnar på kund i möte",
   },
   {
     number: "02",
-    title: "Träna & testa",
-    text: "Genom workshops, utbildningar och hands-on-labbar ser vi till att kunskapen landar – och att ni vågar prova direkt.",
+    title: "Designa & bygga",
+    text: "Vi tar idén vidare – oavsett om det är en app, utbildning, webbsida eller strategi. Ni är med i varje steg.",
     image: "/images/process-2-workshop.jpg",
-    imageAlt: "Workshop med deltagare vid datorer",
+    imageAlt: "Team arbetar tillsammans vid skärm",
   },
   {
     number: "03",
-    title: "Förankra & följa upp",
-    text: "Vi följer upp, mäter resultat och justerar så att förändringen sitter. AI ska bli en naturlig del av vardagen – inte ett engångsprojekt.",
+    title: "Leverera & följa upp",
+    text: "Vi levererar, följer upp och justerar så att resultatet sitter. Vi är inte klara förrän ni är nöjda.",
     image: "/images/process-3-celebration.jpg",
     imageAlt: "Team firar framgång tillsammans",
   },
@@ -519,7 +578,7 @@ function ProcessSection() {
             Så skapar vi <span className="text-cyan-400">effekt</span>
           </h2>
           <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-400 px-2">
-            Vår process är enkel men beprövad – och alltid anpassad efter er verksamhet.
+            Vår process är enkel men beprövad – oavsett om vi bygger en app, webbsida eller levererar en utbildning.
           </p>
         </div>
 

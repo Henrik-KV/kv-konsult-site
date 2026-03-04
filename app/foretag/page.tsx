@@ -295,13 +295,13 @@ export default function ForetagPage() {
                 För företag
               </span>
               <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
-                AI som driver{" "}
+                Vi bygger det som driver{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
-                  affärsnytta
+                  ert företag framåt
                 </span>
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                Vi hjälper ledning, sälj, HR, ekonomi och kundservice att använda AI på ett sätt som frigör tid, höjer kvaliteten och skapar konkurrensfördelar.
+                Från skräddarsydda appar och webbsidor till AI-utbildning och strategiskt stöd – vi hjälper ert företag att digitalisera, effektivisera och växa.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -365,7 +365,7 @@ export default function ForetagPage() {
               Era utmaningar
             </span>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-              Så hjälper AI ert <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">företag</span>
+              Så hjälper vi ert <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">företag</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-slate-400">
               Klicka på ett område för att läsa mer och se relevanta tjänster.
@@ -451,6 +451,32 @@ export default function ForetagPage() {
         </div>
       </section>
 
+      {/* Demo-appar – vision */}
+      <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-cyan-500/6 via-teal-500/4 to-emerald-500/6 blur-[80px]" />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
+          <span className="inline-block rounded-full bg-cyan-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-cyan-400" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3), inset 0 0 20px rgba(34, 211, 238, 0.1)', textShadow: '0 0 10px rgba(34, 211, 238, 0.6)' }}>
+            Appar för företag
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+            Se hur en app kan se ut{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">för ert företag</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+            Vi har byggt demo-appar som visar vad som är möjligt – från mässhantering och eventappar till skräddarsydda verktyg. Få en vision av vad vi kan bygga åt just er.
+          </p>
+          <Link
+            href="/demo-appar"
+            className="group mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:shadow-xl hover:scale-105"
+          >
+            Se våra demo-appar
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
+        </div>
+      </section>
+
       {/* Användningsområden per avdelning */}
       <section className="bg-slate-900 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -481,10 +507,10 @@ export default function ForetagPage() {
         
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">
-            Redo att accelerera med AI?
+            Redo att ta nästa steg digitalt?
           </h2>
           <p className="mt-4 text-slate-400">
-            Vi börjar gärna med ett kostnadsfritt samtal för att förstå era behov och ge konkreta tips.
+            Vi börjar gärna med ett kostnadsfritt samtal för att förstå era behov och ge konkreta förslag.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link

@@ -153,13 +153,13 @@ export default function KommunerPage() {
                 För kommuner & regioner
               </span>
               <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
-                AI som stärker{" "}
+                Digitala lösningar som{" "}
                 <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
-                  den kommunala verksamheten
+                  stärker kommunen
                 </span>
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                Vi hjälper politiker, nämnder och tjänstepersoner att förstå, testa och tillämpa AI på ett sätt som passar offentlig sektor. Fokus ligger på nytta, trygghet och att minska digitalt utanförskap.
+                Vi bygger skräddarsydda appar, webbsidor och digitala verktyg åt kommuner och regioner. Utöver det stöttar vi med AI-utbildning, nulägesanalys och strategisk rådgivning – allt för att effektivisera verksamheten.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -223,7 +223,7 @@ export default function KommunerPage() {
               Fokusområden
             </span>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-              Så skapar AI <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">värde</span> i kommunen
+              Så bygger vi <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">värde</span> åt kommunen
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-slate-400">
               Klicka på ett område för att läsa mer och se relevanta tjänster.
@@ -235,6 +235,32 @@ export default function KommunerPage() {
               <FocusAreaCard key={area.id} area={area} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Demo-appar – vision */}
+      <section className="relative overflow-hidden bg-slate-950 py-16 md:py-24">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-sky-500/6 via-cyan-500/4 to-teal-500/6 blur-[80px]" />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
+          <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
+            Appar för kommuner
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+            Se hur en app kan se ut{" "}
+            <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">för er kommun</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+            Vi har byggt demo-appar som visar vad som är möjligt – från realtidsöversikt och lägesbilder till eventhantering. Få en vision av vad vi kan skapa åt just er.
+          </p>
+          <Link
+            href="/demo-appar"
+            className="group mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:shadow-xl hover:scale-105"
+          >
+            Se våra demo-appar
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
         </div>
       </section>
 
@@ -319,10 +345,10 @@ export default function KommunerPage() {
         
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">
-            Redo att utforska AI för er kommun?
+            Redo att digitalisera er kommun?
           </h2>
           <p className="mt-4 text-slate-400">
-            Vi börjar gärna med ett kostnadsfritt samtal för att förstå era behov och ge konkreta tips.
+            Vi börjar gärna med ett kostnadsfritt samtal för att förstå era behov – oavsett om det handlar om en app, webbsida eller utbildning.
           </p>
           <Link
             href="/kontakt?type=avstamning"

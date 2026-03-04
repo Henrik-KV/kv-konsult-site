@@ -412,3 +412,42 @@ html {
   opacity: 0.03;
   pointer-events: none;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PHONE LIGHT SWEEP – Diagonal light beam across phone screen
+═══════════════════════════════════════════════════════════════════════════ */
+@keyframes phone-light-sweep {
+  0% {
+    transform: translateX(-120%) translateY(-120%) rotate(25deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(120%) translateY(120%) rotate(25deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(120%) translateY(120%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.phone-light-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.07) 42%,
+    rgba(255, 255, 255, 0.15) 48%,
+    rgba(255, 255, 255, 0.07) 54%,
+    transparent 61%,
+    transparent 100%
+  );
+  animation: phone-light-sweep 4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}

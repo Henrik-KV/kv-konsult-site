@@ -31,17 +31,17 @@ const journey = [
   {
     year: "Startpunkt",
     title: "Insikten",
-    text: "Vi såg hur AI snabbt förändrade spelplanen – men också hur många organisationer stod bredvid och inte visste var de skulle börja. Teknikjättarna pratade om 'revolutionen', men för de flesta handlade det om vardagliga utmaningar.",
+    text: "Vi såg hur digitaliseringen snabbt förändrade spelplanen – men också hur många organisationer stod bredvid utan att veta var de skulle börja. Det saknades en partner som kunde både bygga och utbilda.",
   },
   {
     year: "Drivkraft",
     title: "Vardagens behov",
-    text: "Mejl som tar för lång tid, rapporter som ingen hinner läsa, möten som inte leder någonstans. Vi ville hjälpa till på riktigt – inte med buzzwords och framtidsprognoser, utan med konkret kunskap som gör skillnad imorgon.",
+    text: "Företag och kommuner behövde appar som inte fanns, webbsidor som inte fungerade och utbildning som var för teoretisk. Vi ville hjälpa till på riktigt – med konkreta lösningar som gör skillnad i vardagen.",
   },
   {
     year: "Vision",
     title: "Bred erfarenhet",
-    text: "Idag jobbar vi med allt från kommunala nämnder som vill förstå vad AI innebär, till företagsledningar som vill effektivisera hela organisationen. Vår vision är att göra AI tillgängligt för alla.",
+    text: "Idag bygger vi allt från skräddarsydda appar och moderna webbsidor till AI-utbildningar för hela organisationer. Vår vision är att vara den digitala partnern som verkligen levererar.",
   },
 ];
 
@@ -80,8 +80,8 @@ export default function OmOssPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-semibold text-white">Bron</p>
-                      <p className="text-sm text-slate-400">AI ↔ Verksamhet</p>
+                      <p className="font-semibold text-white">Helheten</p>
+                      <p className="text-sm text-slate-400">Idé → Verklighet</p>
                     </div>
                   </div>
                 </div>
@@ -96,13 +96,13 @@ export default function OmOssPage() {
                 Om oss
               </span>
               <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
-                Vi bygger broar mellan{" "}
+                Vi bygger digitala lösningar som{" "}
                 <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
-                  AI och verksamheten
+                  gör skillnad
                 </span>
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                KV Konsult grundades med en tydlig vision: att göra AI tillgängligt, begripligt och användbart för svenska företag och kommuner – på riktigt.
+                KV Konsult grundades med en tydlig vision: att bygga digitala lösningar som verkligen gör nytta – appar, webbsidor, AI-utbildning och strategiskt stöd för svenska företag och kommuner.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -180,17 +180,17 @@ export default function OmOssPage() {
                 Vår roll
               </span>
               <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-                Bron mellan <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">teknik</span> och <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">verksamhet</span>
+                Bron mellan <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">idé</span> och <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">verklighet</span>
               </h2>
               <div className="mt-6 space-y-4 text-slate-400 leading-relaxed">
                 <p>
-                  Vi ser oss som en bro mellan två världar. Å ena sidan finns teknikutvecklingen som går allt snabbare – nya AI-modeller, nya verktyg, nya möjligheter.
+                  Vi ser oss som en bro mellan två världar. Å ena sidan finns era idéer, utmaningar och behov – en app som behöver byggas, en webbsida som behöver moderniseras, ett team som behöver utbildas.
                 </p>
                 <p>
-                  Å andra sidan finns verksamheten: kommuner som ska leverera välfärd, företag som ska skapa värde, medarbetare som vill göra ett bra jobb.
+                  Å andra sidan finns tekniken: moderna ramverk, AI-verktyg, molntjänster och design-metoder som gör det möjligt att bygga riktigt bra saker.
                 </p>
                 <p className="text-white font-medium">
-                  Vår uppgift är att översätta, förenkla och konkretisera.
+                  Vår uppgift är att koppla ihop dessa två världar och leverera resultat.
                 </p>
               </div>
 
@@ -202,7 +202,7 @@ export default function OmOssPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <p className="mt-2 text-xs font-medium text-slate-400">AI & teknik</p>
+                  <p className="mt-2 text-xs font-medium text-slate-400">Era behov</p>
                 </div>
                 <div className="relative flex items-center justify-center">
                   <div className="absolute inset-x-0 top-1/2 h-0.5 bg-gradient-to-r from-sky-500 to-cyan-500" />
@@ -226,7 +226,7 @@ export default function OmOssPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                   </div>
-                  <p className="mt-2 text-xs font-medium text-slate-400">Verksamhet</p>
+                  <p className="mt-2 text-xs font-medium text-slate-400">Digital lösning</p>
                 </div>
               </div>
             </div>
@@ -246,7 +246,7 @@ export default function OmOssPage() {
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="rounded-2xl border border-cyan-500/30 bg-slate-900/90 px-8 py-6 backdrop-blur-md shadow-xl shadow-cyan-500/10">
                     <p className="text-center text-lg italic leading-relaxed text-slate-100" style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.4)' }}>
-                      "Vi gör <span className="text-cyan-400" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.8)' }}>AI begripligt</span> utan att dumma ner det. Vi visar vad som är möjligt utan att hypa."
+                      "Vi <span className="text-cyan-400" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.8)' }}>bygger det ni behöver</span> – från appar och webbsidor till AI-utbildningar och strategier."
                     </p>
                   </div>
                 </div>

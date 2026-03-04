@@ -30,6 +30,7 @@ const allPackages = [
   { id: "social-bas", name: "Sociala medier Bas", category: "Sociala medier" },
   { id: "social-plus", name: "Sociala medier Plus", category: "Sociala medier" },
   { id: "social-premium", name: "Sociala medier Premium", category: "Sociala medier" },
+  { id: "losning-app", name: "Appar & lösningar", category: "Appar & lösningar" },
 ];
 
 /* Generera meddelande baserat på valda paket */
