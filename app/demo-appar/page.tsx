@@ -569,12 +569,12 @@ function Hero() {
               className="mt-10 flex items-center gap-6 sm:gap-10 justify-center lg:justify-start"
             >
               {[
-                { icon: "📱", label: "Skräddarsytt" },
-                { icon: "⚡", label: "Snabb leverans" },
-                { icon: "🔒", label: "Säker drift" },
+                { icon: <svg className="h-4 w-4 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>, label: "Skräddarsytt" },
+                { icon: <svg className="h-4 w-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>, label: "Snabb leverans" },
+                { icon: <svg className="h-4 w-4 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>, label: "Säker drift" },
               ].map((s) => (
                 <div key={s.label} className="flex items-center gap-2">
-                  <span className="text-lg">{s.icon}</span>
+                  {s.icon}
                   <span className="text-xs font-semibold text-slate-300 sm:text-sm">{s.label}</span>
                 </div>
               ))}
