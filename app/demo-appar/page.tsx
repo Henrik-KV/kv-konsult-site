@@ -7,7 +7,6 @@ import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
   useInView,
   AnimatePresence,
 } from "framer-motion";
@@ -320,23 +319,6 @@ function PhoneCarousel({
 }) {
   const [centerIdx, setCenterIdx] = useState(1);
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const spring = { stiffness: 80, damping: 25, mass: 0.5 };
-
-  const centerScale = useSpring(useTransform(scrollYProgress, [0.1, 0.4], [0.85, 1.05]), spring);
-  const centerY = useSpring(useTransform(scrollYProgress, [0.1, 0.4], [30, 0]), spring);
-
-  const leftRotateY = useSpring(useTransform(scrollYProgress, [0.05, 0.4], [42, 20]), spring);
-  const leftX = useSpring(useTransform(scrollYProgress, [0.05, 0.4], [-20, 8]), spring);
-  const sideScale = useSpring(useTransform(scrollYProgress, [0.05, 0.4], [0.72, 0.86]), spring);
-  const sideOpacity = useSpring(useTransform(scrollYProgress, [0.05, 0.3], [0.35, 0.75]), spring);
-
-  const rightRotateY = useSpring(useTransform(scrollYProgress, [0.05, 0.4], [-42, -20]), spring);
-  const rightX = useSpring(useTransform(scrollYProgress, [0.05, 0.4], [20, -8]), spring);
 
   const leftIdx = (centerIdx - 1 + screens.length) % screens.length;
   const rightIdx = (centerIdx + 1) % screens.length;
@@ -371,43 +353,30 @@ function PhoneCarousel({
 
       <div className="flex items-center justify-center">
         {/* Left */}
-        <motion.div
-          style={{
-            rotateY: leftRotateY,
-            x: leftX,
-            scale: sideScale,
-            opacity: sideOpacity,
-            transformStyle: "preserve-3d",
-          }}
-          className="relative z-10 -mr-3 sm:-mr-1"
+        <div
+          className="relative z-10 -mr-3 sm:-mr-1 opacity-70 scale-[0.85]"
+          style={{ transform: "perspective(1400px) rotateY(22deg) scale(0.85)", transformStyle: "preserve-3d" }}
         >
           <PhoneMockup src={screens[leftIdx].src} alt={`${appName} – ${screens[leftIdx].label}`} glowColor={glowColor} size="sm" />
           <p className="mt-2 text-center text-[10px] font-medium text-slate-500 sm:text-xs">{screens[leftIdx].label}</p>
-        </motion.div>
+        </div>
 
         {/* Center */}
-        <motion.div
-          style={{ scale: centerScale, y: centerY, transformStyle: "preserve-3d" }}
+        <div
           className="relative z-20"
         >
           <PhoneMockup src={screens[centerIdx].src} alt={`${appName} – ${screens[centerIdx].label}`} glowColor={glowColor} showLightSweep size="md" />
           <p className="mt-2 text-center text-xs font-semibold text-white/80 sm:text-sm">{screens[centerIdx].label}</p>
-        </motion.div>
+        </div>
 
         {/* Right */}
-        <motion.div
-          style={{
-            rotateY: rightRotateY,
-            x: rightX,
-            scale: sideScale,
-            opacity: sideOpacity,
-            transformStyle: "preserve-3d",
-          }}
-          className="relative z-10 -ml-3 sm:-ml-1"
+        <div
+          className="relative z-10 -ml-3 sm:-ml-1 opacity-70 scale-[0.85]"
+          style={{ transform: "perspective(1400px) rotateY(-22deg) scale(0.85)", transformStyle: "preserve-3d" }}
         >
           <PhoneMockup src={screens[rightIdx].src} alt={`${appName} – ${screens[rightIdx].label}`} glowColor={glowColor} size="sm" />
           <p className="mt-2 text-center text-[10px] font-medium text-slate-500 sm:text-xs">{screens[rightIdx].label}</p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Dot indicators */}
@@ -442,14 +411,14 @@ function AnimatedSection({
   delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={className}
     >
       {children}
@@ -462,7 +431,7 @@ function AnimatedSection({
 ═══════════════════════════════════════════════════════════════════════════ */
 function FeatureItem({ text, index, accentColor }: { text: string; index: number; accentColor: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-30px" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
 
   const accent = accentColor === "violet"
     ? "from-violet-500/20 to-purple-500/20 ring-violet-500/30 text-violet-400"
@@ -497,21 +466,11 @@ function FeatureItem({ text, index, accentColor }: { text: string; index: number
    HERO – Phone showcase right on landing
 ═══════════════════════════════════════════════════════════════════════════ */
 function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       <VideoBackground brightness={1.0} blur={4} overlayOpacity={0.6} />
 
-      <motion.div
-        style={{ y: heroY, opacity: heroOpacity }}
+      <div
         className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pt-6 sm:pt-10 lg:px-8"
       >
         <div className="grid flex-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
@@ -600,7 +559,7 @@ function Hero() {
         >
           <ScrollIndicator className="relative bottom-0" />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -618,7 +577,7 @@ function AppShowcase({ app, index }: { app: DemoApp; index: number }) {
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-16 sm:py-24 md:py-32">
+    <section ref={sectionRef} className="relative overflow-hidden py-12 sm:py-24 md:py-32">
       {/* Background glow */}
       <motion.div style={{ y: bgY }} className="pointer-events-none absolute inset-0">
         <div
@@ -706,13 +665,9 @@ function AppShowcase({ app, index }: { app: DemoApp; index: number }) {
    "DIN APP" – COMING SOON SECTION
 ═══════════════════════════════════════════════════════════════════════════ */
 function YourAppSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const rotate = useSpring(useTransform(scrollYProgress, [0.2, 0.6], [-4, 4]), { stiffness: 60, damping: 20 });
-  const scale = useSpring(useTransform(scrollYProgress, [0.15, 0.5], [0.88, 1]), { stiffness: 80, damping: 25 });
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-16 sm:py-24 md:py-32">
+    <section className="relative overflow-hidden py-16 sm:py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-emerald-500/6 via-teal-500/4 to-cyan-500/6 blur-[80px]" />
       </div>
@@ -740,10 +695,7 @@ function YourAppSection() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <motion.div
-              style={{ rotateY: rotate, scale, transformStyle: "preserve-3d", perspective: "1200px" }}
-              className="mt-10"
-            >
+            <div className="mt-10">
               <div className="relative mx-auto w-[190px] sm:w-[230px] md:w-[250px]">
                 <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-b from-emerald-500/15 via-teal-500/10 to-transparent blur-3xl" />
 
@@ -789,7 +741,7 @@ function YourAppSection() {
                 <div className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 <div className="phone-light-sweep pointer-events-none absolute inset-0 z-20 rounded-[2.4rem] overflow-hidden" />
               </div>
-            </motion.div>
+            </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
