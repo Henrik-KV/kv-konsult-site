@@ -83,7 +83,7 @@ function Hero() {
           </div>
 
           {/* Höger kolumn - Två telefoner sida vid sida */}
-          <div className="relative animate-fade-in-right animation-delay-300 mt-8 lg:mt-0 flex justify-center">
+          <div className="relative animate-fade-in-right animation-delay-300 mt-8 lg:mt-0 flex flex-col items-center">
             <div className="relative flex items-end gap-3 sm:gap-5">
               {/* Gemensam glow bakom båda telefoner */}
               <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-br from-sky-500/20 via-cyan-500/15 to-teal-500/20 blur-3xl" />

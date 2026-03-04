@@ -320,6 +320,16 @@ function PhoneCarousel({
   const [centerIdx, setCenterIdx] = useState(1);
   const ref = useRef<HTMLDivElement>(null);
 
+  // Auto-rotate on mobile
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    if (!mq.matches) return;
+    const interval = setInterval(() => {
+      setCenterIdx((prev) => (prev + 1) % screens.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [screens.length]);
+
   const leftIdx = (centerIdx - 1 + screens.length) % screens.length;
   const rightIdx = (centerIdx + 1) % screens.length;
 
