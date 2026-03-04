@@ -184,7 +184,7 @@ function HeroPhoneShowcase() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % allScreens.length);
-    }, 3500);
+    }, 5500);
     return () => clearInterval(interval);
   }, [allScreens.length]);
 
@@ -352,27 +352,25 @@ function PhoneCarousel({
       />
 
       <div className="flex items-center justify-center">
-        {/* Left */}
+        {/* Left – hidden on mobile */}
         <div
-          className="relative z-10 -mr-3 sm:-mr-1 opacity-70 scale-[0.85]"
-          style={{ transform: "perspective(1400px) rotateY(22deg) scale(0.85)", transformStyle: "preserve-3d" }}
+          className="relative z-10 -mr-3 sm:-mr-1 hidden sm:block"
+          style={{ transform: "perspective(1400px) rotateY(22deg) scale(0.85)", opacity: 0.7, transformStyle: "preserve-3d" }}
         >
           <PhoneMockup src={screens[leftIdx].src} alt={`${appName} – ${screens[leftIdx].label}`} glowColor={glowColor} size="sm" />
           <p className="mt-2 text-center text-[10px] font-medium text-slate-500 sm:text-xs">{screens[leftIdx].label}</p>
         </div>
 
-        {/* Center */}
-        <div
-          className="relative z-20"
-        >
+        {/* Center – always visible */}
+        <div className="relative z-20">
           <PhoneMockup src={screens[centerIdx].src} alt={`${appName} – ${screens[centerIdx].label}`} glowColor={glowColor} showLightSweep size="md" />
           <p className="mt-2 text-center text-xs font-semibold text-white/80 sm:text-sm">{screens[centerIdx].label}</p>
         </div>
 
-        {/* Right */}
+        {/* Right – hidden on mobile */}
         <div
-          className="relative z-10 -ml-3 sm:-ml-1 opacity-70 scale-[0.85]"
-          style={{ transform: "perspective(1400px) rotateY(-22deg) scale(0.85)", transformStyle: "preserve-3d" }}
+          className="relative z-10 -ml-3 sm:-ml-1 hidden sm:block"
+          style={{ transform: "perspective(1400px) rotateY(-22deg) scale(0.85)", opacity: 0.7, transformStyle: "preserve-3d" }}
         >
           <PhoneMockup src={screens[rightIdx].src} alt={`${appName} – ${screens[rightIdx].label}`} glowColor={glowColor} size="sm" />
           <p className="mt-2 text-center text-[10px] font-medium text-slate-500 sm:text-xs">{screens[rightIdx].label}</p>
