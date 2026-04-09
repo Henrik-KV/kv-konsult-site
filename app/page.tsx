@@ -13,13 +13,14 @@ import VideoBackground from "./components/VideoBackground";
 function SpiralVideoBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-950">
-      {/* Fullscreen video bakgrund - extra stor för att täcka hela arean */}
+      {/* Fullscreen video bakgrund - lazy loaded, dold på mobil */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[120%] min-w-[120%] object-cover"
+        preload="none"
+        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[120%] min-w-[120%] object-cover"
         style={{ 
           filter: 'blur(2px) brightness(1.3)',
         }}

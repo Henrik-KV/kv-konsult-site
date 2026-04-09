@@ -1,15 +1,10 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 /* ═══════════════════════════════════════════════════════════════════════════
    VIDEO BACKGROUND KOMPONENT - Återanvändbar för alla sidor
-   
-   Användning:
-   <VideoBackground videoSrc="/images/spiral-effekt.mp4" />
-   
-   Tillgängliga videor (lägg till fler i public/images/):
-   - spiral-effekt.mp4 (standard)
-   - hero-ai.mp4
-   - (lägg till fler här)
+   Optimerad: lazy loading, preload=none, döljs på mobil med reduced-motion
 ═══════════════════════════════════════════════════════════════════════════ */
 
 interface VideoBackgroundProps {
@@ -25,20 +20,46 @@ export default function VideoBackground({
   blur = 2,
   overlayOpacity = 0.4,
 }: VideoBackgroundProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Hoppa över video på mobil för prestanda
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.innerWidth < 768;
+    if (prefersReducedMotion || isMobile) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const el = videoRef.current;
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden bg-slate-950">
-      {/* Fullscreen video bakgrund - extra stor för att undvika kanter */}
+      {/* Fullscreen video bakgrund - lazy loaded, dold på mobil */}
       <video
-        autoPlay
+        ref={videoRef}
+        autoPlay={isVisible}
         loop
         muted
         playsInline
+        preload="none"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[115%] min-w-[115%] object-cover"
         style={{
           filter: `blur(${blur}px) brightness(${brightness})`,
         }}
       >
-        <source src={videoSrc} type="video/mp4" />
+        {isVisible && <source src={videoSrc} type="video/mp4" />}
       </video>
 
       {/* Mörk overlay för läsbarhet */}

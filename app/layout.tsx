@@ -48,6 +48,30 @@ export const metadata: Metadata = {
   },
 };
 
+// JSON-LD Organization schema för Google
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "KV Konsult",
+  url: siteUrl,
+  logo: `${siteUrl}/images/kvkonsult-logo.png`,
+  description:
+    "Vi hjälper företag och kommuner att ta nästa steg med AI, Microsoft 365 Copilot, utbildning och nulägesanalys.",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "SE",
+  },
+  sameAs: [],
+};
+
+// JSON-LD WebSite schema för sitelinks i Google
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "KV Konsult",
+  url: siteUrl,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,6 +79,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-white`}
       >
