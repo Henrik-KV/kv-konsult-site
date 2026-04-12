@@ -46,6 +46,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "ARIDJsQU-6bWU5jNSxku8mhG5lc5hAlhGekJ2OwlsZA",
+  },
 };
 
 // JSON-LD Organization schema för Google
