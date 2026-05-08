@@ -1,0 +1,445 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "KV Konsult logotyp KV Konsult AI-utbildning & strategi" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "KV Konsult logotyp" [ref=e7]
+        - generic [ref=e8]:
+          - generic [ref=e9]: KV Konsult
+          - generic [ref=e10]: AI-utbildning & strategi
+      - button "Öppna meny" [ref=e11]
+    - list [ref=e15]:
+      - listitem [ref=e16]:
+        - link "Hem" [ref=e17] [cursor=pointer]:
+          - /url: /
+      - listitem [ref=e18]:
+        - button "Tjänster" [ref=e19]:
+          - text: Tjänster
+          - img [ref=e20]
+        - generic [ref=e22]:
+          - link "Alla tjänster" [ref=e23] [cursor=pointer]:
+            - /url: /tjanster
+            - img [ref=e25]
+            - generic [ref=e27]: Alla tjänster
+          - link "Utbildning & partnerskap" [ref=e28] [cursor=pointer]:
+            - /url: /utbildning-ai
+            - img [ref=e30]
+            - generic [ref=e32]: Utbildning & partnerskap
+          - link "Webbsidor" [ref=e33] [cursor=pointer]:
+            - /url: /webbsidor
+            - img [ref=e35]
+            - generic [ref=e37]: Webbsidor
+          - link "Sociala medier" [ref=e38] [cursor=pointer]:
+            - /url: /sociala-medier
+            - img [ref=e40]
+            - generic [ref=e42]: Sociala medier
+          - link "Appar & lösningar" [ref=e43] [cursor=pointer]:
+            - /url: /losningsarkitekter
+            - img [ref=e45]
+            - generic [ref=e48]: Appar & lösningar
+          - link "Demo-appar" [ref=e49] [cursor=pointer]:
+            - /url: /demo-appar
+            - img [ref=e51]
+            - generic [ref=e53]: Demo-appar
+      - listitem [ref=e54]:
+        - link "För kommuner" [ref=e55] [cursor=pointer]:
+          - /url: /kommuner
+      - listitem [ref=e56]:
+        - link "För företag" [ref=e57] [cursor=pointer]:
+          - /url: /foretag
+      - listitem [ref=e58]:
+        - link "Om oss" [ref=e59] [cursor=pointer]:
+          - /url: /om-oss
+      - listitem [ref=e60]:
+        - link "Kontakt" [ref=e61] [cursor=pointer]:
+          - /url: /kontakt
+      - listitem [ref=e62]:
+        - link "Boka möte" [ref=e63] [cursor=pointer]:
+          - /url: /kontakt
+  - main [ref=e65]:
+    - generic [ref=e66]:
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - heading "Vi bygger det ni behöver" [level=1] [ref=e70]
+          - paragraph [ref=e71]: Vi bygger skräddarsydda appar, webbsidor och digitala lösningar – och stöttar er med AI-utbildning, sociala medier och strategisk rådgivning.
+          - generic [ref=e72]:
+            - link "Boka ett samtal" [ref=e73] [cursor=pointer]:
+              - /url: /kontakt?type=avstämning
+              - generic [ref=e74]: Boka ett samtal
+            - link "Se våra tjänster →" [ref=e76] [cursor=pointer]:
+              - /url: /tjanster
+              - text: Se våra tjänster
+              - generic [ref=e77]: →
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - link "Din app här" [ref=e81] [cursor=pointer]:
+              - /url: /kontakt?type=app
+              - generic [ref=e86]:
+                - img [ref=e93]
+                - paragraph [ref=e95]: Din app här
+            - link "Lägesbild – Karta Lägesbild" [ref=e100] [cursor=pointer]:
+              - /url: /demo-appar
+              - img "Lägesbild – Karta" [ref=e106]
+              - paragraph [ref=e111]: Lägesbild
+          - link "Se demo-appar →" [ref=e112] [cursor=pointer]:
+            - /url: /demo-appar
+            - text: Se demo-appar
+            - generic [ref=e113]: →
+      - img [ref=e116]
+    - generic [ref=e120]:
+      - paragraph [ref=e121]: Vi har hjälpt organisationer i hela Sverige
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - img [ref=e125]
+          - generic [ref=e127]:
+            - paragraph [ref=e128]: Nöjda kunder
+            - paragraph [ref=e129]: företag & kommuner
+        - generic [ref=e130]:
+          - img [ref=e132]
+          - generic [ref=e134]:
+            - paragraph [ref=e135]: Levererade uppdrag
+            - paragraph [ref=e136]: för företag & kommuner
+        - generic [ref=e137]:
+          - img [ref=e139]
+          - generic [ref=e141]:
+            - paragraph [ref=e142]: Återkommande
+            - paragraph [ref=e143]: kunder
+    - generic [ref=e146]:
+      - generic [ref=e147]:
+        - generic [ref=e148]: Våra tjänster
+        - heading "Vad vi gör" [level=2] [ref=e149]
+        - paragraph [ref=e150]: Utbildning, appar, webbsidor och strategi – allt ni behöver för att digitalisera och växa.
+      - generic [ref=e151]:
+        - link "Person använder Microsoft 365 Copilot på laptop Utbildning & AI Föreläsningar och workshops kring AI, Microsoft 365 Copilot och digitalisering – anpassat för hela organisationen. Läs mer →" [ref=e152] [cursor=pointer]:
+          - /url: /utbildning-ai
+          - img "Person använder Microsoft 365 Copilot på laptop" [ref=e154]
+          - generic [ref=e157]:
+            - heading "Utbildning & AI" [level=3] [ref=e158]
+            - paragraph [ref=e159]: Föreläsningar och workshops kring AI, Microsoft 365 Copilot och digitalisering – anpassat för hela organisationen.
+            - generic [ref=e160]:
+              - text: Läs mer
+              - generic [ref=e161]: →
+        - link "Appar och lösningar – skräddarsydd utveckling Appar & lösningar Från idé till färdig app – vi bygger skräddarsydda mobil- och webbapplikationer som löser verkliga problem. Läs mer →" [ref=e162] [cursor=pointer]:
+          - /url: /demo-appar
+          - img "Appar och lösningar – skräddarsydd utveckling" [ref=e164]
+          - generic [ref=e167]:
+            - heading "Appar & lösningar" [level=3] [ref=e168]
+            - paragraph [ref=e169]: Från idé till färdig app – vi bygger skräddarsydda mobil- och webbapplikationer som löser verkliga problem.
+            - generic [ref=e170]:
+              - text: Läs mer
+              - generic [ref=e171]: →
+        - link "Konsult presenterar analys på storbildsskärm Webbsidor & digitalt Moderna, snabba webbsidor och digitala lösningar som stärker ert varumärke och driver resultat. Läs mer →" [ref=e172] [cursor=pointer]:
+          - /url: /webbsidor
+          - img "Konsult presenterar analys på storbildsskärm" [ref=e174]
+          - generic [ref=e177]:
+            - heading "Webbsidor & digitalt" [level=3] [ref=e178]
+            - paragraph [ref=e179]: Moderna, snabba webbsidor och digitala lösningar som stärker ert varumärke och driver resultat.
+            - generic [ref=e180]:
+              - text: Läs mer
+              - generic [ref=e181]: →
+        - link "Team som samarbetar Sociala medier & strategi Vi hjälper er med innehållsstrategi, sociala medier och löpande stöd – så att ni syns och växer. Läs mer →" [ref=e182] [cursor=pointer]:
+          - /url: /sociala-medier
+          - img "Team som samarbetar" [ref=e184]
+          - generic [ref=e187]:
+            - heading "Sociala medier & strategi" [level=3] [ref=e188]
+            - paragraph [ref=e189]: Vi hjälper er med innehållsstrategi, sociala medier och löpande stöd – så att ni syns och växer.
+            - generic [ref=e190]:
+              - text: Läs mer
+              - generic [ref=e191]: →
+    - generic [ref=e195]:
+      - generic [ref=e196]:
+        - generic [ref=e197]: Våra målgrupper
+        - heading "För vem vi jobbar" [level=2] [ref=e198]
+        - paragraph [ref=e199]: Vi samarbetar med både offentlig sektor och näringsliv – och bygger de digitala lösningar ni behöver.
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - generic [ref=e202]:
+            - img [ref=e204]
+            - text: Offentlig sektor
+          - heading "För kommuner & regioner" [level=3] [ref=e206]
+          - paragraph [ref=e207]: Vi bygger skräddarsydda appar, webbsidor och digitala verktyg åt kommuner och regioner – och stöttar med AI-utbildning och strategisk rådgivning för att effektivisera verksamheten.
+          - list [ref=e208]:
+            - listitem [ref=e209]:
+              - generic [ref=e210]: ✓
+              - text: Skräddarsydda appar & digitala lösningar
+            - listitem [ref=e211]:
+              - generic [ref=e212]: ✓
+              - text: Moderna webbsidor för kommuner
+            - listitem [ref=e213]:
+              - generic [ref=e214]: ✓
+              - text: AI-utbildning för nämnder & förvaltningar
+            - listitem [ref=e215]:
+              - generic [ref=e216]: ✓
+              - text: Nulägesanalys & strategiskt stöd
+          - link "Läs mer för kommuner →" [ref=e217] [cursor=pointer]:
+            - /url: /kommuner
+            - text: Läs mer för kommuner
+            - generic [ref=e218]: →
+        - img "Kommunhus och tjänstepersoner i möte" [ref=e221]
+      - generic [ref=e224]:
+        - img "Företagsledning i modern kontorsmiljö" [ref=e227]
+        - generic [ref=e230]:
+          - generic [ref=e231]:
+            - img [ref=e233]
+            - text: Näringsliv
+          - heading "För företag" [level=3] [ref=e235]
+          - paragraph [ref=e236]: Vi bygger appar, webbsidor och digitala verktyg som effektiviserar er verksamhet – och stöttar med AI-utbildning, sociala medier och strategisk rådgivning.
+          - list [ref=e237]:
+            - listitem [ref=e238]:
+              - generic [ref=e239]: ✓
+              - text: Skräddarsydda appar & system
+            - listitem [ref=e240]:
+              - generic [ref=e241]: ✓
+              - text: Moderna webbsidor & e-handel
+            - listitem [ref=e242]:
+              - generic [ref=e243]: ✓
+              - text: AI-utbildning & strategi
+            - listitem [ref=e244]:
+              - generic [ref=e245]: ✓
+              - text: Sociala medier & innehåll
+          - link "Läs mer för företag →" [ref=e246] [cursor=pointer]:
+            - /url: /foretag
+            - text: Läs mer för företag
+            - generic [ref=e247]: →
+    - generic [ref=e251]:
+      - generic [ref=e252]:
+        - generic [ref=e253]: Vår process
+        - heading "Så skapar vi effekt" [level=2] [ref=e254]
+        - paragraph [ref=e255]: Vår process är enkel men beprövad – oavsett om vi bygger en app, webbsida eller levererar en utbildning.
+      - generic [ref=e256]:
+        - generic [ref=e258]:
+          - img "Konsult lyssnar på kund i möte" [ref=e260]
+          - generic [ref=e265]: "01"
+          - generic [ref=e267]:
+            - heading "Utforska & förstå" [level=3] [ref=e268]
+            - paragraph [ref=e269]: Vi börjar med att lyssna – på era mål, era utmaningar och era behov. Tillsammans identifierar vi var vi kan göra mest nytta.
+        - generic [ref=e271]:
+          - img "Team arbetar tillsammans vid skärm" [ref=e273]
+          - generic [ref=e278]: "02"
+          - generic [ref=e280]:
+            - heading "Designa & bygga" [level=3] [ref=e281]
+            - paragraph [ref=e282]: Vi tar idén vidare – oavsett om det är en app, utbildning, webbsida eller strategi. Ni är med i varje steg.
+        - generic [ref=e284]:
+          - img "Team firar framgång tillsammans" [ref=e286]
+          - generic [ref=e291]: "03"
+          - generic [ref=e293]:
+            - heading "Leverera & följa upp" [level=3] [ref=e294]
+            - paragraph [ref=e295]: Vi levererar, följer upp och justerar så att resultatet sitter. Vi är inte klara förrän ni är nöjda.
+    - generic [ref=e299]:
+      - generic [ref=e300]:
+        - generic [ref=e301]: Feedback
+        - heading "Det här säger deltagarna" [level=2] [ref=e302]
+      - generic [ref=e303]:
+        - button "Föregående citat" [ref=e304]: ←
+        - button "Nästa citat" [ref=e305]: →
+        - generic [ref=e307]:
+          - generic [ref=e309]:
+            - blockquote [ref=e310]: "\"Konkreta exempel som vi kunde använda direkt dagen efter workshopen. Riktigt bra!\""
+            - generic [ref=e311]:
+              - generic [ref=e312]: M365
+              - generic [ref=e313]:
+                - paragraph [ref=e314]: Microsoft 365 Workshop
+                - paragraph [ref=e315]: Deltagare
+          - generic [ref=e317]:
+            - blockquote [ref=e318]: "\"Äntligen någon som förklarar AI på ett sätt som alla förstår – inte bara IT-avdelningen.\""
+            - generic [ref=e319]:
+              - generic [ref=e320]: Bas
+              - generic [ref=e321]:
+                - paragraph [ref=e322]: Microsoft 365 Bas
+                - paragraph [ref=e323]: Deltagare
+          - generic [ref=e325]:
+            - blockquote [ref=e326]: "\"Nulägesanalysen gav oss en tydlig bild av var vi ska börja. Ovärderligt.\""
+            - generic [ref=e327]:
+              - generic [ref=e328]: AI
+              - generic [ref=e329]:
+                - paragraph [ref=e330]: AI Nulägesanalys
+                - paragraph [ref=e331]: Deltagare
+          - generic [ref=e333]:
+            - blockquote [ref=e334]: "\"Tack vare utbildningen sparar vårt team flera timmar per vecka. Imponerande resultat.\""
+            - generic [ref=e335]:
+              - generic [ref=e336]: Bas+
+              - generic [ref=e337]:
+                - paragraph [ref=e338]: Microsoft 365 Bas+
+                - paragraph [ref=e339]: Deltagare
+          - generic [ref=e341]:
+            - blockquote [ref=e342]: "\"Bästa AI-utbildningen vi gått. Praktiskt, relevant och direkt applicerbart.\""
+            - generic [ref=e343]:
+              - generic [ref=e344]: AI
+              - generic [ref=e345]:
+                - paragraph [ref=e346]: Generell AI Workshop
+                - paragraph [ref=e347]: Deltagare
+          - generic [ref=e349]:
+            - blockquote [ref=e350]: "\"De förstod våra utmaningar och anpassade upplägget perfekt efter våra behov.\""
+            - generic [ref=e351]:
+              - generic [ref=e352]: AIP
+              - generic [ref=e353]:
+                - paragraph [ref=e354]: AI-partner
+                - paragraph [ref=e355]: Kund
+        - generic [ref=e356]:
+          - button "Gå till sida 1" [ref=e357]
+          - button "Gå till sida 2" [ref=e358]
+          - button "Gå till sida 3" [ref=e359]
+          - button "Gå till sida 4" [ref=e360]
+          - button "Gå till sida 5" [ref=e361]
+    - generic [ref=e364]:
+      - generic [ref=e365]:
+        - heading "Skicka ett meddelande" [level=2] [ref=e366]
+        - paragraph [ref=e367]: Beskriv kort vad ni behöver hjälp med så återkommer vi inom en arbetsdag.
+        - generic [ref=e368]:
+          - generic [ref=e369]:
+            - generic [ref=e370]: Namn *
+            - textbox "Namn *" [ref=e371]:
+              - /placeholder: Ditt namn
+          - generic [ref=e372]:
+            - generic [ref=e373]: E-post *
+            - textbox "E-post *" [ref=e374]:
+              - /placeholder: din.epost@exempel.se
+          - generic [ref=e375]:
+            - generic [ref=e376]: Organisation *
+            - textbox "Organisation *" [ref=e377]:
+              - /placeholder: Företag eller kommun
+          - generic [ref=e378]:
+            - generic [ref=e379]: Meddelande *
+            - textbox "Meddelande *" [ref=e380]:
+              - /placeholder: Berätta kort vad ni behöver hjälp med...
+          - button "Skicka meddelande →" [ref=e381]:
+            - generic [ref=e382]:
+              - text: Skicka meddelande
+              - generic [ref=e383]: →
+          - generic [ref=e385]:
+            - generic [ref=e386]: Vilka tjänster är ni intresserade av? (valfritt)
+            - generic [ref=e387]:
+              - generic [ref=e388]:
+                - paragraph [ref=e389]: Föreläsningar
+                - generic [ref=e390]:
+                  - button "Microsoft 365 Bas" [ref=e391]
+                  - button "Microsoft 365 Bas+" [ref=e392]
+              - generic [ref=e393]:
+                - paragraph [ref=e394]: Workshops
+                - generic [ref=e395]:
+                  - 'button "Workshop: Microsoft 365 & Copilot" [ref=e396]'
+                  - 'button "Workshop: Generell AI" [ref=e397]'
+                  - button "Skräddarsydd workshop – halvdag" [ref=e398]
+                  - button "Skräddarsydd workshop – heldag" [ref=e399]
+              - generic [ref=e400]:
+                - paragraph [ref=e401]: Analys
+                - generic [ref=e402]:
+                  - button "AI Nulägesanalys" [ref=e403]
+                  - button "Ledningsgruppsworkshop" [ref=e404]
+              - generic [ref=e405]:
+                - paragraph [ref=e406]: Partnerskap
+                - generic [ref=e407]:
+                  - button "AI-partner Lite" [ref=e408]
+                  - button "AI-partner Full" [ref=e409]
+              - generic [ref=e410]:
+                - paragraph [ref=e411]: Webb
+                - generic [ref=e412]:
+                  - button "Webbsida + löpande stöd" [ref=e413]
+                  - 'button "Webbsida: Engångsleverans" [ref=e414]'
+              - generic [ref=e415]:
+                - paragraph [ref=e416]: Sociala medier
+                - generic [ref=e417]:
+                  - button "Sociala medier Bas" [ref=e418]
+                  - button "Sociala medier Plus" [ref=e419]
+                  - button "Sociala medier Premium" [ref=e420]
+              - generic [ref=e421]:
+                - paragraph [ref=e422]: Appar & lösningar
+                - button "Appar & lösningar" [ref=e424]
+      - generic [ref=e425]:
+        - heading "Kontakta oss direkt" [level=2] [ref=e426]
+        - paragraph [ref=e427]: Nå oss via e-post eller ring någon av oss direkt.
+        - generic [ref=e428]:
+          - generic [ref=e429]:
+            - heading "Henrik Karlström" [level=3] [ref=e430]
+            - generic [ref=e431]:
+              - link "Henrik@kvkonsult.com" [ref=e432] [cursor=pointer]:
+                - /url: mailto:Henrik@kvkonsult.com
+                - img [ref=e433]
+                - text: Henrik@kvkonsult.com
+              - link "+46 70 331 76 77" [ref=e435] [cursor=pointer]:
+                - /url: tel:+46703317677
+                - img [ref=e436]
+                - text: +46 70 331 76 77
+          - generic [ref=e438]:
+            - heading "Eric Vidmark" [level=3] [ref=e439]
+            - generic [ref=e440]:
+              - link "Eric@kvkonsult.com" [ref=e441] [cursor=pointer]:
+                - /url: mailto:Eric@kvkonsult.com
+                - img [ref=e442]
+                - text: Eric@kvkonsult.com
+              - link "+46 70 247 47 56" [ref=e444] [cursor=pointer]:
+                - /url: tel:+46702474756
+                - img [ref=e445]
+                - text: +46 70 247 47 56
+          - generic [ref=e447]:
+            - heading "Ulrika Andersson" [level=3] [ref=e448]
+            - generic [ref=e449]:
+              - link "Ulrika@kvkonsult.com" [ref=e450] [cursor=pointer]:
+                - /url: mailto:Ulrika@kvkonsult.com
+                - img [ref=e451]
+                - text: Ulrika@kvkonsult.com
+              - link "+46 70 332 85 08" [ref=e453] [cursor=pointer]:
+                - /url: tel:+46703328508
+                - img [ref=e454]
+                - text: +46 70 332 85 08
+        - generic [ref=e456]:
+          - heading "Vad händer sedan?" [level=3] [ref=e457]
+          - list [ref=e458]:
+            - listitem [ref=e459]:
+              - generic [ref=e460]: "1"
+              - text: Vi läser igenom ert meddelande
+            - listitem [ref=e461]:
+              - generic [ref=e462]: "2"
+              - text: Vi återkommer inom 24 timmar
+            - listitem [ref=e463]:
+              - generic [ref=e464]: "3"
+              - text: Vi bokar in ett kostnadsfritt samtal
+            - listitem [ref=e465]:
+              - generic [ref=e466]: "4"
+              - text: Vi ger konkreta förslag utifrån era behov
+        - link "Gå till kontaktsidan →" [ref=e468] [cursor=pointer]:
+          - /url: /kontakt
+          - text: Gå till kontaktsidan
+          - generic [ref=e469]: →
+  - contentinfo [ref=e470]:
+    - generic [ref=e472]:
+      - generic [ref=e473]:
+        - generic [ref=e474]:
+          - link "KV Konsult KV Konsult" [ref=e475] [cursor=pointer]:
+            - /url: /
+            - img "KV Konsult" [ref=e478]
+            - generic [ref=e479]: KV Konsult
+          - paragraph [ref=e480]: Vi hjälper företag och kommuner att ta nästa steg med AI och Microsoft 365 – på ett sätt som skapar verklig nytta i vardagen.
+        - generic [ref=e481]:
+          - heading "Snabblänkar" [level=3] [ref=e482]
+          - list [ref=e483]:
+            - listitem [ref=e484]:
+              - link "Tjänster & paket" [ref=e485] [cursor=pointer]:
+                - /url: /tjanster
+            - listitem [ref=e486]:
+              - link "För kommuner" [ref=e487] [cursor=pointer]:
+                - /url: /kommuner
+            - listitem [ref=e488]:
+              - link "För företag" [ref=e489] [cursor=pointer]:
+                - /url: /foretag
+            - listitem [ref=e490]:
+              - link "Om oss" [ref=e491] [cursor=pointer]:
+                - /url: /om-oss
+        - generic [ref=e492]:
+          - heading "Kontakt" [level=3] [ref=e493]
+          - link "Kontakta oss →" [ref=e494] [cursor=pointer]:
+            - /url: /kontakt
+            - text: Kontakta oss
+            - generic [ref=e495]: →
+          - link "info@kvkonsult.com" [ref=e496] [cursor=pointer]:
+            - /url: mailto:info@kvkonsult.com
+      - generic [ref=e498]:
+        - generic [ref=e499]: © 2026 KV Konsult AB. Alla rättigheter reserverade.
+        - generic [ref=e500]:
+          - link "Integritetspolicy" [ref=e501] [cursor=pointer]:
+            - /url: /integritetspolicy
+          - link "Villkor" [ref=e502] [cursor=pointer]:
+            - /url: /villkor
+  - button "Open Next.js Dev Tools" [ref=e508] [cursor=pointer]:
+    - img [ref=e509]
+  - alert [ref=e512]

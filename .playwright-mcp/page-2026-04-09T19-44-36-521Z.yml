@@ -1,0 +1,258 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "KV Konsult logotyp KV Konsult AI-utbildning & strategi" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "KV Konsult logotyp" [ref=e7]
+        - generic [ref=e8]:
+          - generic [ref=e9]: KV Konsult
+          - generic [ref=e10]: AI-utbildning & strategi
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - link "Hem" [ref=e13] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e14]:
+          - button "Tjänster" [ref=e15]:
+            - text: Tjänster
+            - img [ref=e16]
+          - generic:
+            - generic:
+              - link "Alla tjänster Översikt över våra erbjudanden":
+                - /url: /tjanster
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Alla tjänster
+                  - paragraph: Översikt över våra erbjudanden
+              - link "Utbildning & partnerskap Föreläsningar, workshops och löpande AI-stöd":
+                - /url: /utbildning-ai
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Utbildning & partnerskap
+                  - paragraph: Föreläsningar, workshops och löpande AI-stöd
+              - link "Webbsidor Moderna webbsidor med AI-stöd":
+                - /url: /webbsidor
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Webbsidor
+                  - paragraph: Moderna webbsidor med AI-stöd
+              - link "Sociala medier Löpande innehållsproduktion":
+                - /url: /sociala-medier
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Sociala medier
+                  - paragraph: Löpande innehållsproduktion
+              - link "Appar & lösningar Skräddarsydda appar & system":
+                - /url: /losningsarkitekter
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Appar & lösningar
+                  - paragraph: Skräddarsydda appar & system
+              - link "Demo-appar Se våra POC-demos i action":
+                - /url: /demo-appar
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Demo-appar
+                  - paragraph: Se våra POC-demos i action
+        - listitem [ref=e19]:
+          - link "För kommuner" [ref=e20] [cursor=pointer]:
+            - /url: /kommuner
+        - listitem [ref=e21]:
+          - link "För företag" [ref=e22] [cursor=pointer]:
+            - /url: /foretag
+        - listitem [ref=e23]:
+          - link "Om oss" [ref=e24] [cursor=pointer]:
+            - /url: /om-oss
+        - listitem [ref=e25]:
+          - link "Kontakt" [ref=e26] [cursor=pointer]:
+            - /url: /kontakt
+      - link "Boka möte" [ref=e27] [cursor=pointer]:
+        - /url: /kontakt
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - img [ref=e33]
+      - generic [ref=e36]:
+        - generic [ref=e37]: Våra tjänster
+        - heading "Tjänster & Paket" [level=1] [ref=e38]
+        - paragraph [ref=e39]: Vi erbjuder fyra huvudområden – utbildning & AI-partnerskap, webbsidor, sociala medier och skräddarsydd apputveckling. Alla våra tjänster kan kombineras och skräddarsys efter just era behov.
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - 'link "AI-utbildning och workshop Föreläsningar, workshops & rådgivning Utbildning & partnerskap Gör AI begripligt och användbart för hela organisationen. Föreläsningar om Microsoft 365 Copilot, praktiska workshops, nulägesanalys och löpande AI-partnerskap. ✓ Föreläsningar: Microsoft 365 Bas & Bas+ ✓ Praktiska workshops med live-demo ✓ AI Nulägesanalys & handlingsplan ✓ Löpande AI-partner (Lite & Full) Läs mer →" [ref=e43] [cursor=pointer]':
+          - /url: /utbildning-ai
+          - generic [ref=e44]:
+            - img "AI-utbildning och workshop" [ref=e45]
+            - generic [ref=e48]: Föreläsningar, workshops & rådgivning
+          - generic [ref=e49]:
+            - heading "Utbildning & partnerskap" [level=3] [ref=e50]
+            - paragraph [ref=e51]: Gör AI begripligt och användbart för hela organisationen. Föreläsningar om Microsoft 365 Copilot, praktiska workshops, nulägesanalys och löpande AI-partnerskap.
+            - list [ref=e52]:
+              - listitem [ref=e53]:
+                - generic [ref=e54]: ✓
+                - text: "Föreläsningar: Microsoft 365 Bas & Bas+"
+              - listitem [ref=e55]:
+                - generic [ref=e56]: ✓
+                - text: Praktiska workshops med live-demo
+              - listitem [ref=e57]:
+                - generic [ref=e58]: ✓
+                - text: AI Nulägesanalys & handlingsplan
+              - listitem [ref=e59]:
+                - generic [ref=e60]: ✓
+                - text: Löpande AI-partner (Lite & Full)
+            - generic [ref=e61]:
+              - text: Läs mer
+              - generic [ref=e62]: →
+        - 'link "Modern webbdesign Moderna webbsidor med AI-stöd Webbsidor Vi designar och bygger professionella webbsidor anpassade efter ert varumärke. Välj mellan engångsleverans eller löpande stöd där vi sköter allt åt er. ✓ Modern, responsiv design ✓ AI-stöd för effektiv innehållsproduktion ✓ Engångsleverans eller löpande stöd ✓ Flexibla plattformar: WordPress, Next.js m.fl. Läs mer →" [ref=e64] [cursor=pointer]':
+          - /url: /webbsidor
+          - generic [ref=e65]:
+            - img "Modern webbdesign" [ref=e66]
+            - generic [ref=e69]: Moderna webbsidor med AI-stöd
+          - generic [ref=e70]:
+            - heading "Webbsidor" [level=3] [ref=e71]
+            - paragraph [ref=e72]: Vi designar och bygger professionella webbsidor anpassade efter ert varumärke. Välj mellan engångsleverans eller löpande stöd där vi sköter allt åt er.
+            - list [ref=e73]:
+              - listitem [ref=e74]:
+                - generic [ref=e75]: ✓
+                - text: Modern, responsiv design
+              - listitem [ref=e76]:
+                - generic [ref=e77]: ✓
+                - text: AI-stöd för effektiv innehållsproduktion
+              - listitem [ref=e78]:
+                - generic [ref=e79]: ✓
+                - text: Engångsleverans eller löpande stöd
+              - listitem [ref=e80]:
+                - generic [ref=e81]: ✓
+                - text: "Flexibla plattformar: WordPress, Next.js m.fl."
+            - generic [ref=e82]:
+              - text: Läs mer
+              - generic [ref=e83]: →
+        - link "Sociala medier strategi Löpande innehållsproduktion Sociala medier Vi hjälper er att bygga närvaro och engagemang på sociala medier. Innehållsplanering, produktion och publicering – ni fokuserar på verksamheten. ✓ Innehåll anpassat efter ert varumärke ✓ Planering, produktion & publicering ✓ AI-stöd för effektivitet ✓ Analys och månadsrapportering Läs mer →" [ref=e85] [cursor=pointer]:
+          - /url: /sociala-medier
+          - generic [ref=e86]:
+            - img "Sociala medier strategi" [ref=e87]
+            - generic [ref=e90]: Löpande innehållsproduktion
+          - generic [ref=e91]:
+            - heading "Sociala medier" [level=3] [ref=e92]
+            - paragraph [ref=e93]: Vi hjälper er att bygga närvaro och engagemang på sociala medier. Innehållsplanering, produktion och publicering – ni fokuserar på verksamheten.
+            - list [ref=e94]:
+              - listitem [ref=e95]:
+                - generic [ref=e96]: ✓
+                - text: Innehåll anpassat efter ert varumärke
+              - listitem [ref=e97]:
+                - generic [ref=e98]: ✓
+                - text: Planering, produktion & publicering
+              - listitem [ref=e99]:
+                - generic [ref=e100]: ✓
+                - text: AI-stöd för effektivitet
+              - listitem [ref=e101]:
+                - generic [ref=e102]: ✓
+                - text: Analys och månadsrapportering
+            - generic [ref=e103]:
+              - text: Läs mer
+              - generic [ref=e104]: →
+        - link "Skräddarsydd apputveckling Skräddarsydda appar & system Appar & lösningar Vi lyssnar in på era utmaningar och bygger skräddarsydda digitala lösningar. Webbapplikationer, mobilappar för App Store och Google Play – allt designat för att lösa just era problem. ✓ Webbapplikationer & mobilappar ✓ Från problemanalys till färdig lösning ✓ Integration med befintliga system ✓ Support och vidareutveckling Läs mer →" [ref=e106] [cursor=pointer]:
+          - /url: /losningsarkitekter
+          - generic [ref=e107]:
+            - img "Skräddarsydd apputveckling" [ref=e108]
+            - generic [ref=e111]: Skräddarsydda appar & system
+          - generic [ref=e112]:
+            - heading "Appar & lösningar" [level=3] [ref=e113]
+            - paragraph [ref=e114]: Vi lyssnar in på era utmaningar och bygger skräddarsydda digitala lösningar. Webbapplikationer, mobilappar för App Store och Google Play – allt designat för att lösa just era problem.
+            - list [ref=e115]:
+              - listitem [ref=e116]:
+                - generic [ref=e117]: ✓
+                - text: Webbapplikationer & mobilappar
+              - listitem [ref=e118]:
+                - generic [ref=e119]: ✓
+                - text: Från problemanalys till färdig lösning
+              - listitem [ref=e120]:
+                - generic [ref=e121]: ✓
+                - text: Integration med befintliga system
+              - listitem [ref=e122]:
+                - generic [ref=e123]: ✓
+                - text: Support och vidareutveckling
+            - generic [ref=e124]:
+              - text: Läs mer
+              - generic [ref=e125]: →
+      - generic [ref=e128]:
+        - heading "Osäker på var ni ska börja?" [level=2] [ref=e129]
+        - paragraph [ref=e130]: Boka ett kostnadsfritt avstämningsmöte så hjälper vi er att hitta rätt upplägg. Vi lyssnar på era behov och föreslår en kombination som passar er organisation.
+        - generic [ref=e131]:
+          - link "Boka avstämningsmöte →" [ref=e132] [cursor=pointer]:
+            - /url: /kontakt?type=avstamning
+            - text: Boka avstämningsmöte
+            - generic [ref=e133]: →
+          - link "Mejla oss direkt" [ref=e134] [cursor=pointer]:
+            - /url: mailto:info@kvkonsult.com
+    - generic [ref=e136]:
+      - generic [ref=e137]:
+        - heading "Vi hjälper både kommuner och företag" [level=2] [ref=e138]
+        - paragraph [ref=e139]: Vi anpassar våra tjänster efter er typ av organisation och era specifika utmaningar.
+      - generic [ref=e140]:
+        - link "För kommuner AI-utbildning och stöd för offentlig sektor Vi förstår kommuners unika förutsättningar kring säkerhet, upphandling och organisation. Läs mer om hur vi hjälper kommuner att komma igång med AI. Läs mer om kommuner →" [ref=e141] [cursor=pointer]:
+          - /url: /kommuner
+          - generic [ref=e142]:
+            - img [ref=e144]
+            - generic [ref=e146]:
+              - heading "För kommuner" [level=3] [ref=e147]
+              - paragraph [ref=e148]: AI-utbildning och stöd för offentlig sektor
+          - paragraph [ref=e149]: Vi förstår kommuners unika förutsättningar kring säkerhet, upphandling och organisation. Läs mer om hur vi hjälper kommuner att komma igång med AI.
+          - generic [ref=e150]:
+            - text: Läs mer om kommuner
+            - generic [ref=e151]: →
+        - link "För företag AI-utbildning och digitala tjänster för privat sektor Oavsett bransch och storlek hjälper vi företag att dra nytta av AI, bygga digital närvaro och spara tid. Läs mer om hur vi kan hjälpa just er. Läs mer om företag →" [ref=e152] [cursor=pointer]:
+          - /url: /foretag
+          - generic [ref=e153]:
+            - img [ref=e155]
+            - generic [ref=e157]:
+              - heading "För företag" [level=3] [ref=e158]
+              - paragraph [ref=e159]: AI-utbildning och digitala tjänster för privat sektor
+          - paragraph [ref=e160]: Oavsett bransch och storlek hjälper vi företag att dra nytta av AI, bygga digital närvaro och spara tid. Läs mer om hur vi kan hjälpa just er.
+          - generic [ref=e161]:
+            - text: Läs mer om företag
+            - generic [ref=e162]: →
+  - contentinfo [ref=e163]:
+    - generic [ref=e165]:
+      - generic [ref=e166]:
+        - generic [ref=e167]:
+          - link "KV Konsult KV Konsult" [ref=e168] [cursor=pointer]:
+            - /url: /
+            - img "KV Konsult" [ref=e171]
+            - generic [ref=e172]: KV Konsult
+          - paragraph [ref=e173]: Vi hjälper företag och kommuner att ta nästa steg med AI och Microsoft 365 – på ett sätt som skapar verklig nytta i vardagen.
+        - generic [ref=e174]:
+          - heading "Snabblänkar" [level=3] [ref=e175]
+          - list [ref=e176]:
+            - listitem [ref=e177]:
+              - link "Tjänster & paket" [ref=e178] [cursor=pointer]:
+                - /url: /tjanster
+            - listitem [ref=e179]:
+              - link "För kommuner" [ref=e180] [cursor=pointer]:
+                - /url: /kommuner
+            - listitem [ref=e181]:
+              - link "För företag" [ref=e182] [cursor=pointer]:
+                - /url: /foretag
+            - listitem [ref=e183]:
+              - link "Om oss" [ref=e184] [cursor=pointer]:
+                - /url: /om-oss
+        - generic [ref=e185]:
+          - heading "Kontakt" [level=3] [ref=e186]
+          - link "Kontakta oss →" [ref=e187] [cursor=pointer]:
+            - /url: /kontakt
+            - text: Kontakta oss
+            - generic [ref=e188]: →
+          - link "info@kvkonsult.com" [ref=e189] [cursor=pointer]:
+            - /url: mailto:info@kvkonsult.com
+      - generic [ref=e191]:
+        - generic [ref=e192]: © 2026 KV Konsult AB. Alla rättigheter reserverade.
+        - generic [ref=e193]:
+          - link "Integritetspolicy" [ref=e194] [cursor=pointer]:
+            - /url: /integritetspolicy
+          - link "Villkor" [ref=e195] [cursor=pointer]:
+            - /url: /villkor
+  - button "Open Next.js Dev Tools" [ref=e201] [cursor=pointer]:
+    - img [ref=e202]

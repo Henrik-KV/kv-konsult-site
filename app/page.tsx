@@ -300,6 +300,66 @@ function StatsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   PARTNER-SEKTION – Social proof / utbildningspartner NearYou
+═══════════════════════════════════════════════════════════════════════════ */
+function PartnersSection() {
+  return (
+    <section className="relative z-10 py-8 sm:py-12 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="relative rounded-2xl sm:rounded-3xl border border-sky-500/20 bg-slate-900/70 backdrop-blur-md shadow-2xl shadow-sky-500/5 overflow-hidden">
+          {/* Subtil glow-bakgrund */}
+          <div className="pointer-events-none absolute -top-20 -left-20 h-60 w-60 rounded-full bg-sky-500/5 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-cyan-500/5 blur-3xl" />
+
+          <div className="relative flex flex-col items-center gap-8 px-6 py-10 sm:flex-row sm:justify-between sm:gap-10 sm:px-12 sm:py-12">
+            {/* Vänster: text */}
+            <div className="text-center sm:text-left max-w-lg">
+              <span className="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 15px rgba(56, 189, 248, 0.25)', textShadow: '0 0 8px rgba(56, 189, 248, 0.5)' }}>
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Utbildningspartner
+              </span>
+              <h3 className="mt-3 text-xl sm:text-2xl font-bold text-white">
+                Vi är{" "}
+                <span className="bg-linear-to-r from-sky-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                  utbildningspartner
+                </span>{" "}
+                till nearyou
+              </h3>
+              <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+                Som utbildningspartner genomför vi utbildningar åt nearyou – en av Sveriges ledande aktörer inom utbildning och kompetensutveckling.
+              </p>
+              <Link
+                href="/utbildning-ai"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sky-400 transition-all duration-300 hover:text-sky-300 hover:gap-3"
+              >
+                Se våra utbildningar
+                <span>→</span>
+              </Link>
+            </div>
+
+            {/* Separator – synlig bara på desktop */}
+            <div className="hidden sm:block h-20 w-px shrink-0 bg-linear-to-b from-transparent via-white/15 to-transparent" />
+
+            {/* Höger: logotyp */}
+            <div className="flex shrink-0 items-center justify-center">
+              <Image
+                src="/images/nearyou-logo.png"
+                alt="NearYou – utbildningspartner"
+                width={240}
+                height={72}
+                className="object-contain brightness-0 invert"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    TJÄNSTER / VAD VI GÖR
 ═══════════════════════════════════════════════════════════════════════════ */
 const services = [
@@ -879,6 +939,7 @@ export default function Home() {
     <main>
       <Hero />
       <StatsSection />
+      <PartnersSection />
       <ServicesSection />
       <TargetAudienceSection />
       <ProcessSection />
