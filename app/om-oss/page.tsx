@@ -246,7 +246,7 @@ export default function OmOssPage() {
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="rounded-2xl border border-cyan-500/30 bg-slate-900/90 px-8 py-6 backdrop-blur-md shadow-xl shadow-cyan-500/10">
                     <p className="text-center text-lg italic leading-relaxed text-slate-100" style={{ textShadow: '0 0 20px rgba(34, 211, 238, 0.4)' }}>
-                      "Vi <span className="text-cyan-400" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.8)' }}>bygger det ni behöver</span> – från appar och webbsidor till AI-utbildningar och strategier."
+                      ”Vi <span className="text-cyan-400" style={{ textShadow: '0 0 15px rgba(34, 211, 238, 0.8)' }}>bygger det ni behöver</span> – från appar och webbsidor till AI-utbildningar och strategier.”
                     </p>
                   </div>
                 </div>

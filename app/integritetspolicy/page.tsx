@@ -34,7 +34,7 @@ export default function IntegritetspolicyPage() {
               {/* Intro */}
               <div className="rounded-2xl border border-white/10 bg-slate-800/30 p-6 md:p-8">
                 <p className="text-slate-300 leading-relaxed">
-                  KV Konsult ("vi", "oss", "vår") värnar om din personliga integritet. Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar dina personuppgifter när du besöker vår webbplats eller använder våra tjänster.
+                  KV Konsult (”vi”, ”oss”, ”vår”) värnar om din personliga integritet. Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar dina personuppgifter när du besöker vår webbplats eller använder våra tjänster.
                 </p>
               </div>
 

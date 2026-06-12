@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import VideoBackground, { ScrollIndicator } from "../components/VideoBackground";
+import VideoBackground from "../components/VideoBackground";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    FÄRGMAPPNING FÖR TAILWIND

@@ -22,25 +22,47 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kvkonsult.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "KV Konsult – AI & Microsoft 365 som gör skillnad",
+    default: "KV Konsult – AI-utbildning, AI-strategi & digitala lösningar",
     template: "%s | KV Konsult",
   },
   description:
-    "Vi hjälper företag och kommuner att ta nästa steg med AI, Microsoft 365 Copilot, utbildning och nulägesanalys.",
-  keywords: ["AI", "Microsoft 365", "Copilot", "utbildning", "konsult", "digitalisering", "Sverige"],
-  authors: [{ name: "KV Konsult" }],
-  creator: "KV Konsult",
+    "AI-utbildning, workshops, AI-strategi och praktisk AI-hjälp för företag, kommuner och organisationer i hela Sverige. Vi gör AI begripligt och användbart i vardagen.",
+  keywords: [
+    "AI-utbildning",
+    "AI-konsult",
+    "AI-workshop",
+    "AI-strategi",
+    "Microsoft 365 Copilot",
+    "AI för kommuner",
+    "AI för företag",
+    "digitalisering",
+    "Sverige",
+  ],
+  authors: [{ name: "KV Konsult AB" }],
+  creator: "KV Konsult AB",
   openGraph: {
     type: "website",
     locale: "sv_SE",
+    url: siteUrl,
     siteName: "KV Konsult",
-    title: "KV Konsult – AI & Microsoft 365 som gör skillnad",
-    description: "Vi hjälper företag och kommuner att ta nästa steg med AI, Microsoft 365 Copilot, utbildning och nulägesanalys.",
+    title: "KV Konsult – AI-utbildning, AI-strategi & digitala lösningar",
+    description:
+      "AI-utbildning, workshops, AI-strategi och praktisk AI-hjälp för företag, kommuner och organisationer i hela Sverige.",
+    images: [
+      {
+        url: "/images/kvkonsult-logo.png",
+        width: 512,
+        height: 512,
+        alt: "KV Konsult – AI-utbildning och strategi",
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "KV Konsult – AI & Microsoft 365 som gör skillnad",
-    description: "Vi hjälper företag och kommuner att ta nästa steg med AI, Microsoft 365 Copilot, utbildning och nulägesanalys.",
+    card: "summary",
+    title: "KV Konsult – AI-utbildning, AI-strategi & digitala lösningar",
+    description:
+      "AI-utbildning, workshops, AI-strategi och praktisk AI-hjälp för företag, kommuner och organisationer i hela Sverige.",
+    images: ["/images/kvkonsult-logo.png"],
   },
   robots: {
     index: true,
@@ -54,15 +76,33 @@ export const metadata: Metadata = {
 // JSON-LD Organization schema för Google
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "KV Konsult",
+  "@type": "ProfessionalService",
+  name: "KV Konsult AB",
   url: siteUrl,
   logo: `${siteUrl}/images/kvkonsult-logo.png`,
   description:
-    "Vi hjälper företag och kommuner att ta nästa steg med AI, Microsoft 365 Copilot, utbildning och nulägesanalys.",
+    "AI-utbildning, workshops, AI-strategi och praktisk AI-hjälp för företag, kommuner och organisationer i hela Sverige.",
+  email: "info@kvkonsult.com",
   address: {
     "@type": "PostalAddress",
     addressCountry: "SE",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Sverige",
+  },
+  knowsAbout: [
+    "AI-utbildning",
+    "AI-strategi",
+    "Microsoft 365 Copilot",
+    "Workshops",
+    "Digitalisering",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "info@kvkonsult.com",
+    availableLanguage: ["Swedish"],
   },
   sameAs: [],
 };
@@ -99,10 +139,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-white`}
       >
+        {/* Skip-link för tangentbordsanvändare */}
+        <a href="#innehall" className="skip-link">
+          Hoppa till innehåll
+        </a>
         <Navigation />
         {/* Spacer för fixed navigation - matchar nav-höjden */}
         <div className="h-[72px]" />
-        {children}
+        <div id="innehall">{children}</div>
         <Footer />
         <Analytics />
       </body>

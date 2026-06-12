@@ -103,15 +103,18 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Stäng mobilmeny vid navigering
-  useEffect(() => {
+  // Stäng mobilmeny vid navigering – justeras under render (Reacts rekommenderade mönster)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileOpen(false);
     setMobileServicesOpen(false);
     setDropdownOpen(false);
     setVisible(true);
-    
-    // Scrolla till toppen ENDAST om det inte finns en hash i URL:en
-    // Om det finns en hash, låt webbläsaren hantera scroll till ankaret
+  }
+
+  // Scrolla till toppen vid navigering – ENDAST om det inte finns en hash i URL:en
+  useEffect(() => {
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
@@ -168,13 +171,9 @@ export default function Navigation() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
-        {/* Logotyp - hard refresh till startsidan */}
-        <a
+        {/* Logotyp */}
+        <Link
           href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = '/';
-          }}
           className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
         >
           {/* Logotyp med riktig bild - ännu större */}
@@ -196,7 +195,7 @@ export default function Navigation() {
               AI-utbildning & strategi
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop-meny */}
         <ul className="hidden items-center gap-1 lg:flex">

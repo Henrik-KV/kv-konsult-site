@@ -372,8 +372,48 @@ html {
 
 /* Selection styling */
 ::selection {
-  background-color: rgb(99 102 241 / 0.3);
+  background-color: rgb(56 189 248 / 0.3);
   color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TILLGÄNGLIGHET – fokus, skip-link och reduced motion
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* Tydligt, konsekvent fokusläge för tangentbordsnavigering (WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip-link – synlig endast vid tangentbordsfokus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: #0ea5e9;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Respektera användare som föredrar mindre rörelse (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

@@ -34,7 +34,7 @@ export default function VillkorPage() {
               {/* Intro */}
               <div className="rounded-2xl border border-white/10 bg-slate-800/30 p-6 md:p-8">
                 <p className="text-slate-300 leading-relaxed">
-                  Dessa allmänna villkor gäller för alla tjänster som KV Konsult ("vi", "oss", "vår") tillhandahåller. Genom att boka eller använda våra tjänster accepterar du dessa villkor.
+                  Dessa allmänna villkor gäller för alla tjänster som KV Konsult (”vi”, ”oss”, ”vår”) tillhandahåller. Genom att boka eller använda våra tjänster accepterar du dessa villkor.
                 </p>
               </div>
 

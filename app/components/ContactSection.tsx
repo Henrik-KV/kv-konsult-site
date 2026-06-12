@@ -55,6 +55,7 @@ export default function ContactSection() {
     email: "",
     organization: "",
     message: "",
+    website: "", // Honeypot – ska alltid vara tomt (osynligt för människor)
   });
   const [selectedPackages, setSelectedPackages] = useState<string[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -144,7 +145,7 @@ export default function ContactSection() {
         type: 'success',
         message: 'Tack för ditt meddelande! Vi återkommer inom 24 timmar.',
       });
-      setFormData({ name: '', email: '', organization: '', message: '' });
+      setFormData({ name: '', email: '', organization: '', message: '', website: '' });
       setSelectedPackages([]);
 
     } catch (error) {
@@ -183,6 +184,20 @@ export default function ContactSection() {
             </p>
             
             <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 space-y-4 sm:space-y-6">
+              {/* Honeypot – osynligt fält som fångar spam-bottar */}
+              <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                <label htmlFor="home-website">Lämna detta fält tomt</label>
+                <input
+                  type="text"
+                  id="home-website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                />
+              </div>
+
               {/* Status-meddelande */}
               {submitStatus && (
                 <div
@@ -217,6 +232,8 @@ export default function ContactSection() {
                 <input
                   type="text"
                   id="home-name"
+                  maxLength={200}
+                  autoComplete="name"
                   value={formData.name}
                   onChange={(e) => {
                     setFormData({ ...formData, name: e.target.value });
@@ -240,6 +257,8 @@ export default function ContactSection() {
                 <input
                   type="email"
                   id="home-email"
+                  maxLength={254}
+                  autoComplete="email"
                   value={formData.email}
                   onChange={(e) => {
                     setFormData({ ...formData, email: e.target.value });
@@ -263,6 +282,8 @@ export default function ContactSection() {
                 <input
                   type="text"
                   id="home-organization"
+                  maxLength={200}
+                  autoComplete="organization"
                   value={formData.organization}
                   onChange={(e) => {
                     setFormData({ ...formData, organization: e.target.value });
@@ -286,6 +307,7 @@ export default function ContactSection() {
                 <textarea
                   id="home-message"
                   rows={5}
+                  maxLength={5000}
                   value={formData.message}
                   onChange={handleMessageChange}
                   className={`w-full resize-none rounded-xl border ${errors.message ? 'border-red-500' : 'border-white/10'} bg-slate-800/50 px-4 py-3.5 text-white placeholder-slate-500 transition-all duration-200 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20`}

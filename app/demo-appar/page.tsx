@@ -309,12 +309,10 @@ function HeroPhoneShowcase() {
 function PhoneCarousel({
   screens,
   appName,
-  gradient,
   glowColor,
 }: {
   screens: DemoApp["screens"];
   appName: string;
-  gradient: string;
   glowColor: string;
 }) {
   const [centerIdx, setCenterIdx] = useState(1);
@@ -660,7 +658,7 @@ function AppShowcase({ app, index }: { app: DemoApp; index: number }) {
           {/* Phones */}
           <div className={isReversed ? "lg:[direction:ltr]" : ""}>
             <AnimatedSection delay={0.15}>
-              <PhoneCarousel screens={app.screens} appName={app.name} gradient={app.gradient} glowColor={app.glowColor} />
+              <PhoneCarousel screens={app.screens} appName={app.name} glowColor={app.glowColor} />
             </AnimatedSection>
           </div>
         </div>
@@ -891,7 +889,7 @@ export default function DemoApparPage() {
           <AnimatedSection delay={0.15}>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Link
-                href="/kontakt?type=avstämning"
+                href="/kontakt?type=avstamning"
                 className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-7 py-3.5 text-sm font-semibold text-white shadow-xl shadow-sky-500/20 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/35 hover:scale-105 sm:w-auto"
               >
                 <span className="relative z-10">Boka avstämningsmöte</span>

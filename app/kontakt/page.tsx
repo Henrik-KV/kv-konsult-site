@@ -102,11 +102,11 @@ function ContactForm() {
     email: "",
     organization: "",
     message: "",
+    website: "", // Honeypot – ska alltid vara tomt (osynligt för människor)
   });
   const [selectedPackages, setSelectedPackages] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [hasInitialized, setHasInitialized] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   
   // Spåra om användaren har redigerat meddelandet manuellt
@@ -123,7 +123,6 @@ function ContactForm() {
     if (preselectedPackages.length > 0) {
       setSelectedPackages(preselectedPackages);
     }
-    setHasInitialized(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
 
@@ -208,9 +207,8 @@ function ContactForm() {
         type: 'success',
         message: 'Tack för ditt meddelande! Vi återkommer inom 24 timmar.',
       });
-      setFormData({ name: '', email: '', organization: '', message: '' });
+      setFormData({ name: '', email: '', organization: '', message: '', website: '' });
       setSelectedPackages([]);
-      setHasInitialized(false); // Reset för nästa gång
 
     } catch (error) {
       setSubmitStatus({
@@ -231,6 +229,20 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+      {/* Honeypot – osynligt fält som fångar spam-bottar */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="contact-website">Lämna detta fält tomt</label>
+        <input
+          type="text"
+          id="contact-website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.website}
+          onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+        />
+      </div>
+
       {/* Status-meddelande */}
       {submitStatus && (
         <div
@@ -262,6 +274,8 @@ function ContactForm() {
         <input
           type="text"
           id="name"
+          maxLength={200}
+          autoComplete="name"
           value={formData.name}
           onChange={(e) => {
             setFormData({ ...formData, name: e.target.value });
@@ -282,6 +296,8 @@ function ContactForm() {
         <input
           type="email"
           id="email"
+          maxLength={254}
+          autoComplete="email"
           value={formData.email}
           onChange={(e) => {
             setFormData({ ...formData, email: e.target.value });
@@ -302,6 +318,8 @@ function ContactForm() {
         <input
           type="text"
           id="organization"
+          maxLength={200}
+          autoComplete="organization"
           value={formData.organization}
           onChange={(e) => {
             setFormData({ ...formData, organization: e.target.value });
