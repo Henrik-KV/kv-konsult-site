@@ -6,10 +6,10 @@ Status legend: `[ ]` pending, `[x]` passed.
 
 - [x] Clean source baseline confirmed in GitHub and Desktop checkout.
 - [x] Isolated branch `redesign/kv-premium-vercel-preview` created from `master`.
-- [ ] Branch pushed without force.
-- [ ] Preview deployment confirmed as Preview, not Production.
-- [ ] Production branch/domain/DNS unchanged.
-- [ ] Public URL verified without a Vercel login.
+- [x] Branch pushed without force.
+- [x] Preview deployment confirmed as Preview, not Production.
+- [x] Production branch/domain/DNS unchanged; Vercel reports custom domain assignment skipped.
+- [x] Public URL verified without a Vercel login in a new Playwright context.
 
 ## Code quality
 
@@ -53,7 +53,7 @@ Status legend: `[ ]` pending, `[x]` passed.
 - [x] All demos labelled; no demo represented as client work.
 - [x] No anonymous testimonials, empty counters, or unsupported metrics.
 - [x] Unique title, description, canonical, Open Graph, sitemap entry, and appropriate structured data.
-- [ ] Preview receives `noindex`; canonicals remain on `https://kvkonsult.com` (verify on deployed Preview).
+- [x] Preview receives `noindex, nofollow, noarchive`; canonicals remain on `https://kvkonsult.com`.
 - [x] `robots.txt`, `sitemap.xml`, 404, and error behavior verified.
 
 ## Contact conversion
@@ -62,4 +62,4 @@ Status legend: `[ ]` pending, `[x]` passed.
 - [x] Query package preselection works.
 - [x] Client validation, duplicate-submit prevention, loading, success, and error states are implemented.
 - [x] Honeypot, payload limits, rate limiting, and secrets remain server-only.
-- [ ] Preview API route availability verified without sending personal test content.
+- [x] Preview API route availability verified without sending personal test content; GET returns expected 405 for POST-only endpoint.
