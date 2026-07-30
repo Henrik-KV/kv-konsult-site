@@ -1,0 +1,54 @@
+{
+  "baseUrl": "http://127.0.0.1:3000",
+  "capturedAt": "2026-07-30T12:31:18.676Z",
+  "results": [
+    {
+      "route": "/tjanster",
+      "viewport": "390x844",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "route": "/tjanster",
+      "viewport": "1440x900",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "route": "/utbildning-ai",
+      "viewport": "390x844",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "route": "/utbildning-ai",
+      "viewport": "1440x900",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "route": "/demo-appar",
+      "viewport": "390x844",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "route": "/demo-appar",
+      "viewport": "1440x900",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "route": "/kontakt?type=app",
+      "viewport": "390x844",
+      "status": 200,
+      "errors": []
+    },
+    {
+      "route": "/kontakt?type=app",
+      "viewport": "1440x900",
+      "status": 200,
+      "errors": []
+    }
+  ]
+}

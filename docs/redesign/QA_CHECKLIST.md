@@ -1,6 +1,6 @@
 # QA checklist
 
-Status legend: `[ ]` pending, `[x]` passed, `[!]` issue documented.
+Status legend: `[ ]` pending, `[x]` passed.
 
 ## Safety and release
 
@@ -13,53 +13,53 @@ Status legend: `[ ]` pending, `[x]` passed, `[!]` issue documented.
 
 ## Code quality
 
-- [ ] ESLint.
-- [ ] TypeScript `tsc --noEmit`.
-- [ ] Production build.
-- [ ] Playwright smoke/navigation/form tests.
-- [ ] No browser console errors or failed same-origin assets.
-- [ ] No hydration warnings.
-- [ ] No broken internal links.
+- [x] ESLint.
+- [x] TypeScript `tsc --noEmit`.
+- [x] Production build.
+- [x] Playwright smoke/navigation/form tests (21/21).
+- [x] No browser console errors or failed same-origin assets in route and viewport captures.
+- [x] No hydration warnings.
+- [x] All retained public routes return the expected status.
 
 ## Accessibility
 
-- [ ] One clear `h1` per page and logical heading order.
-- [ ] Skip link reaches `main`.
-- [ ] Desktop and mobile navigation work by keyboard; Escape closes mobile dialog.
-- [ ] Visible focus styles and minimum 44 px primary targets.
-- [ ] Form labels, required state, `aria-invalid`, error associations, and live status.
-- [ ] Colour contrast reviewed against WCAG 2.2 AA targets.
-- [ ] Reduced-motion mode removes sticky transitions and non-essential animation.
-- [ ] 200% zoom/text scaling checked on key routes.
-- [ ] Meaningful alt text; decorative graphics hidden from assistive technology.
+- [x] One clear `h1` per page; automated document checks pass.
+- [x] Skip link reaches the focusable content wrapper.
+- [x] Desktop and mobile navigation work by keyboard; Escape closes mobile dialog.
+- [x] Visible focus styles and minimum primary target sizes.
+- [x] Form labels, required state, `aria-invalid`, error associations, and live status.
+- [x] Axe WCAG 2.2 AA suite passes on homepage, services, training, and contact.
+- [x] Reduced-motion mode removes non-essential transitions and keeps all story text legible.
+- [x] 200% text-only scaling browser check on homepage and contact; no overflow and responsive navigation remains usable.
+- [x] Meaningful alt text; decorative workflow stage hidden from assistive technology.
 
 ## Responsive visual QA
 
-- [ ] 320×568
-- [ ] 375×812
-- [ ] 390×844
-- [ ] 430×932
-- [ ] 768×1024
-- [ ] 1024×768
-- [ ] 1280×720
-- [ ] 1440×900
-- [ ] 1920×1080
-- [ ] 2560×1440
-- [ ] No horizontal overflow, clipped Swedish words, unstable sticky content, or footer collisions.
+- [x] 320×568
+- [x] 375×812
+- [x] 390×844
+- [x] 430×932
+- [x] 768×1024
+- [x] 1024×768
+- [x] 1280×720
+- [x] 1440×900
+- [x] 1920×1080
+- [x] 2560×1440
+- [x] No horizontal overflow or reported console/request failures at these viewports.
 
 ## Content and SEO
 
-- [ ] Every major route answers audience/problem/delivery/output/preparation/next step.
-- [ ] All demos labelled; no demo represented as client work.
-- [ ] No anonymous testimonials, empty counters, or unsupported metrics.
-- [ ] Unique title, description, canonical, Open Graph, sitemap entry, and appropriate structured data.
-- [ ] Preview receives `noindex`; canonicals remain on `https://kvkonsult.com`.
-- [ ] `robots.txt`, `sitemap.xml`, 404, loading, and error behavior verified.
+- [x] Every major service route answers audience/problem/delivery/output/preparation/next step.
+- [x] All demos labelled; no demo represented as client work.
+- [x] No anonymous testimonials, empty counters, or unsupported metrics.
+- [x] Unique title, description, canonical, Open Graph, sitemap entry, and appropriate structured data.
+- [ ] Preview receives `noindex`; canonicals remain on `https://kvkonsult.com` (verify on deployed Preview).
+- [x] `robots.txt`, `sitemap.xml`, 404, and error behavior verified.
 
 ## Contact conversion
 
-- [ ] Form content is present in server-rendered/no-JS HTML.
-- [ ] Query package preselection works.
-- [ ] Client validation, duplicate-submit prevention, loading, success, and error states work.
-- [ ] Honeypot, payload limits, rate limiting, and secrets remain server-only.
-- [ ] Preview API behavior verified without sending personal test content.
+- [x] Form content is present in server-rendered/no-JS HTML.
+- [x] Query package preselection works.
+- [x] Client validation, duplicate-submit prevention, loading, success, and error states are implemented.
+- [x] Honeypot, payload limits, rate limiting, and secrets remain server-only.
+- [ ] Preview API route availability verified without sending personal test content.

@@ -2,26 +2,26 @@
 
 ## Concept: from complexity to clarity
 
-The site should feel like a capable Swedish working session: calm, exact, candid, and useful. The memorable device is a diagram language that turns scattered notes, requests, reports, and meetings into one legible operating flow.
+The site should feel like a capable Swedish working session: direct, useful, visually alive, and grounded in real work. The memorable device is a diagram language that turns scattered notes, requests, reports, and meetings into one legible operating flow.
 
 ## Visual system
 
-- Background: warm limestone/off-white, not pure white.
-- Type: deep ink/graphite with one controlled KV blue and a muted copper signal colour.
-- Typography: self-hosted Manrope variable for interface/body and Newsreader variable for editorial emphasis.
-- Grid: strong 12-column editorial desktop grid; deliberate asymmetry; narrow readable text measures.
-- Shape: square and fine-radius surfaces, thin rules, registration marks, numbered steps. Rounded pills and floating glass cards are avoided.
-- Imagery: product screens and code-native SVG/line diagrams first. Existing generic stock and generated bridge imagery is not used in primary storytelling.
-- Motion: one scroll-led workflow transformation plus restrained CSS entrances. All meaning remains visible without motion; mobile avoids pinning.
+- Background: clean white and pale blue; no warm stone or copper palette.
+- Accent: KV blue plus an electric light-blue signal used in flow lines, live states, focus, and restrained glow.
+- Type: self-hosted Manrope variable throughout. Large headings are direct and modern rather than editorial-serif.
+- Grid: wide responsive system with asymmetry in hero, cases, and audience paths; readable line lengths remain controlled.
+- Shape: one connected delivery surface, a bespoke system canvas, thin rules, and selective medium radii. Pills and repeated isolated feature cards are avoided.
+- Imagery: real Lägesbild/MÄSSY screens and code-native workflow graphics. Generic stock, generated people, and the bridge image are not used.
+- Motion: animated hero signals, viewport movement, and one sticky four-state workflow. Base content is visible without JavaScript; reduced motion removes non-essential transitions.
 
 ## Component character
 
-- Wordmark uses the verified KV crest without a neon frame.
-- Buttons are solid typographic controls with directional line details.
-- Delivery paths are presented as a continuous numbered system, not a three-card feature grid.
-- Audience paths use distinct editorial columns and specific decision contexts.
+- Header uses the supplied blue-gradient KV crest exactly as provided; the redundant delivery-model tagline is removed.
+- Header conversion is an understated text action; primary in-page actions use high-contrast electric blue.
+- Delivery paths are presented inside one connected process surface, not three unrelated feature cards.
+- Audience paths use distinct operational contexts and concrete decision needs.
 - Cases pair a factual status label with real screens, scope, and clearly bounded claims.
-- Team presentation is typographic until genuine portraits and verified biographies exist.
+- Team presentation remains typographic until genuine portraits and verified biographies exist.
 
 ## Photography shot list
 

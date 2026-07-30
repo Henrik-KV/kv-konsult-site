@@ -1,0 +1,167 @@
+{
+  "targetUrl": "http://127.0.0.1:3000",
+  "suite": "final",
+  "capturedAt": "2026-07-30T12:31:37.928Z",
+  "results": [
+    {
+      "viewport": "320x568",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 320,
+      "viewportWidth": 320,
+      "documentHeight": 12214,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "375x812",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 375,
+      "viewportWidth": 375,
+      "documentHeight": 12440,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "390x844",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 390,
+      "viewportWidth": 390,
+      "documentHeight": 12366,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "430x932",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 430,
+      "viewportWidth": 430,
+      "documentHeight": 12523,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "768x1024",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 768,
+      "viewportWidth": 768,
+      "documentHeight": 12160,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "1024x768",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 1024,
+      "viewportWidth": 1024,
+      "documentHeight": 9422,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "1280x720",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 1280,
+      "viewportWidth": 1280,
+      "documentHeight": 8528,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "1440x900",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 1440,
+      "viewportWidth": 1440,
+      "documentHeight": 9360,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "1920x1080",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 1920,
+      "viewportWidth": 1920,
+      "documentHeight": 10180,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "2560x1440",
+      "status": 200,
+      "url": "http://127.0.0.1:3000/",
+      "title": "AI som går att använda på måndag | KV Konsult",
+      "lang": "sv",
+      "h1": [
+        "AI som går att använda på måndag."
+      ],
+      "bodyWidth": 2560,
+      "viewportWidth": 2560,
+      "documentHeight": 11404,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    }
+  ]
+}

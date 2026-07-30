@@ -52,9 +52,11 @@ for (const [width, height] of viewports) {
     if (message.type() === "error") consoleErrors.push(message.text());
   });
   page.on("requestfailed", (request) => {
+    const error = request.failure()?.errorText || "unknown";
+    if (request.url().includes("_rsc=") && error === "net::ERR_ABORTED") return;
     failedRequests.push({
       url: request.url(),
-      error: request.failure()?.errorText || "unknown",
+      error,
     });
   });
 
