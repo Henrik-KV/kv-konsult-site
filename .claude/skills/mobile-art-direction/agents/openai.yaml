@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mobile Art Direction"
+  short_description: "Design mobile as its own composition"
+  default_prompt: "Use $mobile-art-direction to design and review the mobile composition alongside desktop."

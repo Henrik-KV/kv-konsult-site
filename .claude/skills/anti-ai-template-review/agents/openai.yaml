@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti Template Review"
+  short_description: "Reject generic AI landing-page patterns"
+  default_prompt: "Use $anti-ai-template-review to identify and reject templated visual and copy patterns."

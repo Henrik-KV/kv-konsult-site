@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Design Review"
+  short_description: "Ruthless critique of rendered visual design"
+  default_prompt: "Use $visual-design-review to critique the latest desktop and mobile renders before approval."
