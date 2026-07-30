@@ -8,12 +8,12 @@ const isDev = process.env.NODE_ENV === "development";
 // - Vercel Analytics laddas från samma origin (/_vercel/insights)
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
   "media-src 'self'",
-  `connect-src 'self'${isDev ? " ws:" : ""}`,
+  `connect-src 'self'${isDev ? " ws: wss:" : ""} https://va.vercel-scripts.com https://vitals.vercel-insights.com`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

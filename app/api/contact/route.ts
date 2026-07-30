@@ -173,7 +173,7 @@ Skickat via kontaktformuläret på kvkonsult.com
     const toEmail = (process.env.CONTACT_EMAIL || "info@kvkonsult.com").trim();
 
     const { error } = await resend.emails.send({
-      from: "KV Konsult <noreply@kvkonsult.com>",
+      from: process.env.RESEND_FROM_EMAIL || "KV Konsult <noreply@kvkonsult.com>",
       to: toEmail,
       replyTo: safeEmail,
       subject: `Kontaktförfrågan från ${safeName} (${safeOrganization})`,

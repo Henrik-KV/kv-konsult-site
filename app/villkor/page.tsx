@@ -1,203 +1,21 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import VideoBackground from "@/app/components/VideoBackground";
+import LegalPage from "../components/LegalPage";
+import { pageMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Villkor – KV Konsult",
-  description: "Allmänna villkor för KV Konsults tjänster.",
-};
+export const metadata: Metadata = pageMetadata({ title: "Allmänna villkor", description: "Allmänna villkor för KV Konsults tjänster och uppdrag.", path: "/villkor" });
 
 export default function VillkorPage() {
-  return (
-    <main className="bg-slate-950">
-      {/* Header */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-16 md:py-20">
-        <VideoBackground videoSrc="/images/spiral-effekt.mp4" brightness={1.0} />
-        <div className="relative mx-auto max-w-4xl px-4">
-          <span className="inline-block rounded-full bg-sky-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-sky-400" style={{ boxShadow: '0 0 20px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.1)', textShadow: '0 0 10px rgba(56, 189, 248, 0.6)' }}>
-            Juridiskt
-          </span>
-          <h1 className="mt-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-            Allmänna villkor
-          </h1>
-          <p className="mt-4 text-slate-400">
-            Senast uppdaterad: {new Date().toLocaleDateString("sv-SE")}
-          </p>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="prose prose-invert prose-slate max-w-none">
-            <div className="space-y-10">
-              {/* Intro */}
-              <div className="rounded-2xl border border-white/10 bg-slate-800/30 p-6 md:p-8">
-                <p className="text-slate-300 leading-relaxed">
-                  Dessa allmänna villkor gäller för alla tjänster som KV Konsult (”vi”, ”oss”, ”vår”) tillhandahåller. Genom att boka eller använda våra tjänster accepterar du dessa villkor.
-                </p>
-              </div>
-
-              {/* Sections */}
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  1. Tjänster
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  KV Konsult erbjuder utbildningar, workshops, föreläsningar och rådgivning inom AI och Microsoft 365. Tjänsternas exakta omfattning, innehåll och pris bekräftas skriftligt i samband med bokning.
-                </p>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  2. Bokning och bekräftelse
-                </h2>
-                <div className="text-slate-400 leading-relaxed space-y-3">
-                  <p>
-                    En bokning är bindande när den bekräftats skriftligt (via e-post) av KV Konsult. I bekräftelsen specificeras:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Tjänstens omfattning och innehåll</li>
-                    <li>Datum, tid och plats (eller digital länk)</li>
-                    <li>Antal deltagare</li>
-                    <li>Pris och betalningsvillkor</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  3. Avbokning och ändring
-                </h2>
-                <div className="text-slate-400 leading-relaxed space-y-3">
-                  <p>Följande villkor gäller för avbokning:</p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>
-                      <strong className="text-slate-300">Mer än 14 dagar före:</strong> Kostnadsfri avbokning.
-                    </li>
-                    <li>
-                      <strong className="text-slate-300">7–14 dagar före:</strong> 50% av överenskommet pris faktureras.
-                    </li>
-                    <li>
-                      <strong className="text-slate-300">Mindre än 7 dagar före:</strong> 100% av överenskommet pris faktureras.
-                    </li>
-                  </ul>
-                  <p className="mt-4">
-                    Flytt av datum kan göras kostnadsfritt om det meddelas minst 7 dagar i förväg och om KV Konsult har möjlighet att erbjuda ett nytt datum.
-                  </p>
-                </div>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  4. Betalning
-                </h2>
-                <div className="text-slate-400 leading-relaxed space-y-3">
-                  <p>
-                    Fakturering sker normalt efter genomfört uppdrag, om inget annat avtalats. Betalningsvillkor är 30 dagar netto. Vid försenad betalning tillkommer dröjsmålsränta enligt räntelagen.
-                  </p>
-                </div>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  5. Immateriella rättigheter
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  Allt utbildningsmaterial, presentationer och dokumentation som KV Konsult tillhandahåller skyddas av upphovsrätt. Materialet får användas internt av beställarens organisation men får inte spridas, kopieras eller säljas vidare utan skriftligt godkännande.
-                </p>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  6. Ansvar och begränsningar
-                </h2>
-                <div className="text-slate-400 leading-relaxed space-y-3">
-                  <p>
-                    KV Konsult ansvarar för att leverera tjänster enligt överenskommen specifikation och med professionell standard. Vårt ansvar är begränsat till:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Direkt skada som orsakats av vårdslöshet från vår sida</li>
-                    <li>Maximalt det belopp som betalats för den aktuella tjänsten</li>
-                  </ul>
-                  <p className="mt-4">
-                    Vi ansvarar inte för indirekta skador, utebliven vinst eller följdskador. Beställaren ansvarar för att tillhandahålla nödvändig information, teknisk utrustning och lokaler enligt överenskommelse.
-                  </p>
-                </div>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  7. Sekretess
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  KV Konsult behandlar all information som framkommer under uppdrag konfidentiellt. Vi delar inte affärshemligheter, interna processer eller annan känslig information med tredje part utan beställarens godkännande.
-                </p>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  8. Force majeure
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  Ingen part ansvarar för förseningar eller utebliven leverans som beror på omständigheter utanför partens kontroll, såsom naturkatastrofer, pandemi, strejk, myndighetsåtgärder eller liknande.
-                </p>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  9. Ändringar av villkoren
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  KV Konsult förbehåller sig rätten att uppdatera dessa villkor. Aktuella villkor publiceras alltid på vår webbplats. För pågående uppdrag gäller de villkor som bekräftades vid bokning.
-                </p>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  10. Tvist
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  Eventuella tvister ska i första hand lösas genom förhandling mellan parterna. Om enighet inte kan nås ska tvisten avgöras enligt svensk lag vid svensk domstol.
-                </p>
-              </article>
-
-              <article className="space-y-4">
-                <h2 className="text-xl font-semibold text-white">
-                  11. Kontakt
-                </h2>
-                <p className="text-slate-400 leading-relaxed">
-                  Vid frågor om dessa villkor, kontakta oss:
-                </p>
-                <div className="mt-4 rounded-xl border border-white/10 bg-slate-800/50 p-4">
-                  <p className="text-slate-300">
-                    <strong>KV Konsult</strong>
-                    <br />
-                    E-post:{" "}
-                    <a
-                      href="mailto:info@kvkonsult.com"
-                      className="text-sky-400 hover:text-sky-300 transition-colors"
-                    >
-                      info@kvkonsult.com
-                    </a>
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          {/* Back link */}
-          <div className="mt-12 border-t border-white/10 pt-8">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
-            >
-              <span>←</span>
-              Tillbaka till startsidan
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+  return <LegalPage title="Allmänna villkor" intro="Villkoren gäller för tjänster som KV Konsult tillhandahåller. Uppdragets exakta omfattning, innehåll och kommersiella villkor bekräftas alltid skriftligt.">
+    <h2>1. Tjänster</h2><p>KV Konsult erbjuder utbildningar, workshops, föreläsningar, rådgivning och digitala leveranser. Tjänstens exakta omfattning, innehåll och pris bekräftas skriftligt i samband med bokning eller avtal.</p>
+    <h2>2. Bokning och bekräftelse</h2><p>En bokning är bindande när den bekräftats skriftligt via e-post av KV Konsult. Bekräftelsen specificerar tjänstens omfattning, datum, tid, plats eller digital länk, deltagarantal samt pris och betalningsvillkor.</p>
+    <h2>3. Avbokning och ändring</h2><ul><li><strong>Mer än 14 dagar före:</strong> kostnadsfri avbokning.</li><li><strong>7–14 dagar före:</strong> 50 procent av överenskommet pris faktureras.</li><li><strong>Mindre än 7 dagar före:</strong> 100 procent av överenskommet pris faktureras.</li></ul><p>Flytt av datum kan göras kostnadsfritt om det meddelas minst sju dagar i förväg och KV Konsult kan erbjuda ett nytt datum.</p>
+    <h2>4. Betalning</h2><p>Fakturering sker normalt efter genomfört uppdrag om inget annat avtalats. Betalningsvillkor är 30 dagar netto. Vid försenad betalning tillkommer dröjsmålsränta enligt räntelagen.</p>
+    <h2>5. Immateriella rättigheter</h2><p>Utbildningsmaterial, presentationer och dokumentation som KV Konsult tillhandahåller skyddas av upphovsrätt. Materialet får användas internt av beställarens organisation men inte spridas, kopieras eller säljas vidare utan skriftligt godkännande.</p>
+    <h2>6. Ansvar och begränsningar</h2><p>KV Konsult ansvarar för att leverera enligt överenskommen specifikation och professionell standard. Ansvaret är begränsat till direkt skada som orsakats av vårdslöshet och maximalt det belopp som betalats för den aktuella tjänsten. KV Konsult ansvarar inte för indirekta skador, utebliven vinst eller följdskador. Beställaren ansvarar för nödvändig information, teknisk utrustning och lokaler enligt överenskommelse.</p>
+    <h2>7. Sekretess</h2><p>Information som framkommer under uppdrag behandlas konfidentiellt. Affärshemligheter, interna processer eller annan känslig information delas inte med tredje part utan beställarens godkännande.</p>
+    <h2>8. Force majeure</h2><p>Ingen part ansvarar för försening eller utebliven leverans som beror på omständigheter utanför partens kontroll, såsom naturkatastrof, pandemi, strejk, myndighetsåtgärd eller liknande.</p>
+    <h2>9. Ändringar</h2><p>KV Konsult kan uppdatera villkoren. För pågående uppdrag gäller de villkor som bekräftades vid bokning eller avtal.</p>
+    <h2>10. Tvist</h2><p>Tvist ska i första hand lösas genom förhandling. Om enighet inte nås avgörs tvisten enligt svensk lag vid svensk domstol.</p>
+    <h2>11. Kontakt</h2><p>Frågor om villkoren skickas till <a href="mailto:info@kvkonsult.com">info@kvkonsult.com</a>.</p>
+  </LegalPage>;
 }

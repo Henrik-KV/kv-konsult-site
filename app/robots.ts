@@ -1,16 +1,7 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kvkonsult.com";
+import { productionUrl } from "./lib/content";
 
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/"],
-      },
-    ],
-    sitemap: `${siteUrl}/sitemap.xml`,
-  };
+  if (process.env.VERCEL_ENV === "preview") return { rules: [{ userAgent: "*", disallow: "/" }] };
+  return { rules: [{ userAgent: "*", allow: "/", disallow: ["/api/"] }], sitemap: `${productionUrl}/sitemap.xml`, host: productionUrl };
 }
