@@ -1,0 +1,71 @@
+{
+  "targetUrl": "https://kvkonsult.com",
+  "suite": "baseline",
+  "capturedAt": "2026-07-30T11:12:22.385Z",
+  "results": [
+    {
+      "viewport": "390x844",
+      "status": 200,
+      "url": "https://kvkonsult.com/",
+      "title": "KV Konsult – AI-utbildning, AI-strategi & digitala lösningar",
+      "lang": "sv",
+      "h1": [
+        "AI som gör skillnad – på riktigt"
+      ],
+      "bodyWidth": 390,
+      "viewportWidth": 390,
+      "documentHeight": 10847,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "768x1024",
+      "status": 200,
+      "url": "https://kvkonsult.com/",
+      "title": "KV Konsult – AI-utbildning, AI-strategi & digitala lösningar",
+      "lang": "sv",
+      "h1": [
+        "AI som gör skillnad – på riktigt"
+      ],
+      "bodyWidth": 768,
+      "viewportWidth": 768,
+      "documentHeight": 11404,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "1440x900",
+      "status": 200,
+      "url": "https://kvkonsult.com/",
+      "title": "KV Konsult – AI-utbildning, AI-strategi & digitala lösningar",
+      "lang": "sv",
+      "h1": [
+        "AI som gör skillnad – på riktigt"
+      ],
+      "bodyWidth": 1440,
+      "viewportWidth": 1440,
+      "documentHeight": 8273,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    {
+      "viewport": "1920x1080",
+      "status": 200,
+      "url": "https://kvkonsult.com/",
+      "title": "KV Konsult – AI-utbildning, AI-strategi & digitala lösningar",
+      "lang": "sv",
+      "h1": [
+        "AI som gör skillnad – på riktigt"
+      ],
+      "bodyWidth": 1920,
+      "viewportWidth": 1920,
+      "documentHeight": 8453,
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "failedRequests": []
+    }
+  ]
+}
