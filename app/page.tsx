@@ -331,7 +331,7 @@ const services = [
     image: "/images/service-analysis.jpg",
     imageAlt: "Konsult presenterar analys på storbildsskärm",
     title: "Webbsidor & digitalt",
-    text: "Moderna, snabba webbsidor och digitala lösningar som stärker ert varumärke och driver resultat.",
+    text: "Professionella hemsidor för 9 999 kr i startavgift med löpande underhåll från 499 kr per månad. Alla priser exklusive moms.",
     href: "/webbsidor",
   },
   {

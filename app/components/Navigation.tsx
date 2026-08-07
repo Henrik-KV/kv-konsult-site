@@ -13,7 +13,7 @@ const links = [
     hasDropdown: true,
     dropdownItems: [
       { label: "Utbildning & partnerskap", href: "/utbildning-ai", iconType: "education", description: "Föreläsningar, workshops och löpande AI-stöd" },
-      { label: "Webbsidor", href: "/webbsidor", iconType: "web", description: "Moderna webbsidor med AI-stöd" },
+      { label: "Webbsidor", href: "/webbsidor", iconType: "web", description: "Hemsidor med löpande underhåll" },
       { label: "Sociala medier", href: "/sociala-medier", iconType: "social", description: "Löpande innehållsproduktion" },
       { label: "Appar & lösningar", href: "/losningsarkitekter", iconType: "solutions", description: "Skräddarsydda appar & system" },
       { label: "Demo-appar", href: "/demo-appar", iconType: "demo", description: "Se våra POC-demos i action" },
